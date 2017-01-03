@@ -161,3 +161,4 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id nm-applet
 exec --no-startup-id ~/bin/polybar.sh
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
+exec --no-startup-id dunst -config ~/.config/dunst/config
