@@ -19,6 +19,8 @@ Plug 'joshdick/onedark.vim'
 " Vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Neomake (syntastic like)
+Plug 'neomake/neomake'
 
 " Initialize plugin system
 call plug#end()
@@ -33,8 +35,19 @@ let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
 
 " Airline config
-let g:airline_theme='durant'
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:bufferline_echo = 0
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline_left_sep = ' '
+let g:airline_left_alt_sep = '|'
+let g:airline_right_sep = ' '
+let g:airline_right_alt_sep = '|'
+let g:airline_theme= 'gruvbox'
 
+" Run NeoMake on read and write operations
+autocmd! BufReadPost,BufWritePost * Neomake
+let g:neomake_serialize = 1
+let g:neomake_serialize_abort_on_error = 1
