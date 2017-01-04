@@ -378,7 +378,9 @@ menu-0-0 =  shutdown
 menu-0-0-exec = shutdown now
 menu-0-1 =  restart
 menu-0-1-exec = shutdown -r now
-menu-0-2 =   cancel
+menu-0-2 = ⭘ logoff
+menu-0-2-exec = i3-msg exit
+menu-0-3 =   cancel
 
 
 label-open =   
