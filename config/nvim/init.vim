@@ -2,6 +2,7 @@
 set mouse=v
 set paste
 set termguicolors
+
 " Indentation settings
 set cindent
 set tabstop=4
@@ -51,3 +52,19 @@ let g:airline_theme= 'gruvbox'
 autocmd! BufReadPost,BufWritePost * Neomake
 let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
+
+" Cscope settings
+if has("cscope")
+	set csprg=/usr/local/bin/cscope
+	set csto=0
+	set cst
+	set nocsverb
+	" add any database in current directory
+	if filereadable("cscope.out")
+		cs add cscope.out
+	" else add database pointed to by environment
+	elseif $CSCOPE_DB != ""
+		cs add $CSCOPE_DB
+	endif
+	set csverb
+endif
