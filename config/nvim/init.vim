@@ -22,6 +22,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Neomake (syntastic like)
 Plug 'neomake/neomake'
+" Deoplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ervandew/supertab'
+" Deoplete plugins
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'tweekmonster/deoplete-clang2'
+Plug 'zchee/deoplete-jedi'
 
 " Initialize plugin system
 call plug#end()
@@ -46,7 +54,7 @@ let g:airline_left_sep = ' '
 let g:airline_left_alt_sep = '|'
 let g:airline_right_sep = ' '
 let g:airline_right_alt_sep = '|'
-let g:airline_theme= 'gruvbox'
+"let g:airline_theme= 'gruvbox'
 
 " Run NeoMake on read and write operations
 autocmd! BufReadPost,BufWritePost * Neomake
@@ -68,3 +76,16 @@ if has("cscope")
 	endif
 	set csverb
 endif
+
+" Deoplete config
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+	  let g:deoplete#omni#input_patterns = {}
+  endif
+" let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" omnifuncs
+augroup omnifuncs
+	autocmd!
+	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+augroup end
