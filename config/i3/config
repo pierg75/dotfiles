@@ -162,3 +162,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id ~/bin/polybar.sh
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
 exec --no-startup-id dunst -config ~/.config/dunst/config
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
