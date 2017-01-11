@@ -1,7 +1,7 @@
 
 [options]
-font = Fira Mono 12
-#font = Droid Sans Mono 10
+#font = Fira Mono 11
+font = Droid Sans Mono 11
 #font = Terminus (TTF) 10
 #font = Monospace 10
 
