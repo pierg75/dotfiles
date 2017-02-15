@@ -1,7 +1,9 @@
 
 [options]
-#font = Fira Mono 11
-font = Droid Sans Mono 11
+#font = Inconsolata 10
+font = DejaVu Sans Mono 10
+#font = Fira Mono 10
+#font = Droid Sans Mono 11
 #font = Terminus (TTF) 10
 #font = Monospace 10
 
@@ -30,42 +32,65 @@ search_wrap = true
 [colors]
 
 # special
-foreground      = #ababab
-foreground_bold = #ffffff
+#foreground      = #ababab
+#foreground_bold = #ffffff
 cursor          = #ffffff
-background      = #000000
+#background      = #000000
 
 # black
-color0  = #000000
-color8  = #4d4d4d
+#color0  = #000000
+#color8  = #4d4d4d
 
 # red
 #color1  = #cc0403
 #color9  = #3e0605
 
 # green
-color2  = #19cb00
-color10 = #23fd00
+#color2  = #19cb00
+#color10 = #23fd00
 
 # yellow
-color3  = #cecb00
-color11 = #fffd00
+#color3  = #cecb00
+#color11 = #fffd00
 
 # blue
 # color4 = #001cd1
-color4 = #0000AA
+#color4 = #0000AA
 #color12 = #0026ff
-color12 = #5555FF
+#color12 = #5555FF
 
 
 # magenta
-color5  = #cb1ed1
-color13 = #fd28ff
+#color5  = #cb1ed1
+#color13 = #fd28ff
 
 # cyan
-color6  = #0dcdcd
-color14 = #14ffff
+#color6  = #0dcdcd
+#color14 = #14ffff
 
 # white
-color7  = #e5e5e5
-color15 = #ffffff
+#color7  = #e5e5e5
+#color15 = #ffffff
+
+
+# A nice theme from https://github.com/gerardbm/atomic
+
+foreground = #A6B5C5
+background = #141A1F
+
+color0 = #141A1F
+color1 = #EC5252
+color2 = #5DA813
+color3 = #C97016
+color4 = #3790E9
+color5 = #A35AED
+color6 = #13AEAE
+color7 = #53697F
+color8 = #202931
+color9 = #FF9191
+color10 = #9ACD68
+color11 = #EDA45C
+color12 = #7DBEFF
+color13 = #CA96FF
+color14 = #6ECFCF
+color15 = #A6B5C5
