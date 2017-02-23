@@ -1,5 +1,5 @@
 " Some basic configs
-set mouse=v
+set mouse=a
 set paste
 set termguicolors
 
