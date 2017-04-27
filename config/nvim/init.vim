@@ -35,6 +35,8 @@ Plug 'zchee/deoplete-jedi'
 Plug 'baskerville/bubblegum'
 " Colorscheme
 Plug 'mhartington/oceanic-next'
+" Drawit
+Plug 'vim-scripts/DrawIt'
 
 " Initialize plugin system
 call plug#end()
