@@ -37,6 +37,10 @@ Plug 'baskerville/bubblegum'
 Plug 'mhartington/oceanic-next'
 " Drawit
 Plug 'vim-scripts/DrawIt'
+" Gutentags
+Plug 'ludovicchabant/vim-gutentags'
+" tagbar
+Plug 'majutsushi/tagbar'
 
 " Initialize plugin system
 call plug#end()
@@ -142,3 +146,12 @@ augroup end
 
 " Colorscheme
 colorscheme OceanicNext
+
+" Gutentags
+set statusline+=%{gutentags#statusline()}
+let g:gutentags_ctags_options_file = '' 
+let g:gutentags_options_file = '' 
+let g:gutentags_define_advanced_commands = 1
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
