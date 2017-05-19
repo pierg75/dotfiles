@@ -1,5 +1,6 @@
 [global]
-    font = Fira Mono 9
+    # font = Fira Mono 9
+    font = Hack 9
     allow_markup = yes
 
     # allignment on the right side 
