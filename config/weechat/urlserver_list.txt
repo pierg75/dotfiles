@@ -1,0 +1,4 @@
+{
+  0: ('14/06/17 23:01:43', 'lvaz', 'irc.RedHat.#sbr-filesystem', 'https://access.redhat.com/solutions/1427363', 'lvaz\thttps://access.redhat.com/solutions/1427363'),
+  1: ('14/06/17 23:01:47', 'unifiedbot3', 'irc.RedHat.#sbr-filesystem', 'https://access.redhat.com/solutions/1427363', 'unifiedbot3\t[Solution/1427363] How to configure NFS with automount user home directory on Red Hat IdM(IPA) server ? Unverified [Identity Management] https://access.redhat.com/solutions/1427363'),
+}
