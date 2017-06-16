@@ -194,7 +194,12 @@
     appname = notify-send
     summary = "*Irssi*"
     urgency = critical
-#
+
+[weechat]
+    appname = notify-send
+    summary = "*Weechat*"
+    urgency = critical
+
 #[signed_off]
 #    appname = Pidgin
 #    summary = *signed off*
@@ -210,7 +215,3 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
-
-[i3blocks]
-    summary = "*"
-    script = /home/plambri/bin/i3blocks-dunst.py
