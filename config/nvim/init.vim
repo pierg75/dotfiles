@@ -41,6 +41,13 @@ Plug 'vim-scripts/DrawIt'
 Plug 'ludovicchabant/vim-gutentags'
 " tagbar
 Plug 'majutsushi/tagbar'
+" fzf
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+" The silver search
+Plug 'ggreer/the_silver_searcher'
+" ack.vim
+Plug 'mileszs/ack.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -155,3 +162,11 @@ let g:gutentags_define_advanced_commands = 1
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+"ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
