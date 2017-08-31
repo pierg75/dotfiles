@@ -9,6 +9,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Spelling
+set spelllang=en,it
+set spell
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
@@ -35,6 +38,10 @@ Plug 'zchee/deoplete-jedi'
 Plug 'baskerville/bubblegum'
 " Colorscheme
 Plug 'mhartington/oceanic-next'
+" Colorscheme
+Plug 'MaxSt/FlatColor'
+" Colorscheme
+Plug 'ChrisKempson/Tomorrow-Theme'
 " Drawit
 Plug 'vim-scripts/DrawIt'
 " Gutentags
@@ -48,6 +55,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'ggreer/the_silver_searcher'
 " ack.vim
 Plug 'mileszs/ack.vim'
+" Chromatica
+Plug 'arakashic/chromatica.nvim'
+" iron.vim
+Plug 'hkupty/iron.nvim'
+
 
 " Initialize plugin system
 call plug#end()
@@ -152,7 +164,8 @@ augroup omnifuncs
 augroup end
 
 " Colorscheme
-colorscheme OceanicNext
+autocmd BufEnter * colorscheme OceanicNext
+autocmd BufEnter *.py colorscheme onedark
 
 " Gutentags
 set statusline+=%{gutentags#statusline()}
@@ -163,10 +176,12 @@ let g:gutentags_define_advanced_commands = 1
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" Ag
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
 "ack
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
+
+" Chromatica
+let g:chromatica#libclang_path='/usr/lib64/'
+let g:chromatica#enable_at_startup=1
+let g:chromatica#responsive_mode=1
