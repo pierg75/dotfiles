@@ -75,16 +75,16 @@ map <F3> :NERDTreeToggle<CR>
 
 " Airline config
 let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#right_sep = ' '
-let g:airline#extensions#tabline#right_alt_sep = '|'
-let g:airline_left_sep = ' '
-let g:airline_left_alt_sep = '|'
-let g:airline_right_sep = ' '
-let g:airline_right_alt_sep = '|'
-"let g:airline_theme= 'gruvbox'
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#right_sep = ' '
+" let g:airline#extensions#tabline#right_alt_sep = '|'
+" let g:airline_left_sep = ' '
+" let g:airline_left_alt_sep = '|'
+" let g:airline_right_sep = ' '
+" let g:airline_right_alt_sep = '|'
+" let g:airline_theme= 'gruvbox'
 let g:airline_theme= 'oceanicnext'
 
 " Run NeoMake on read and write operations
@@ -163,9 +163,6 @@ augroup omnifuncs
 	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 augroup end
 
-" Colorscheme
-autocmd BufEnter * colorscheme OceanicNext
-autocmd BufEnter *.py colorscheme onedark
 
 " Gutentags
 set statusline+=%{gutentags#statusline()}
@@ -185,3 +182,7 @@ endif
 let g:chromatica#libclang_path='/usr/lib64/'
 let g:chromatica#enable_at_startup=1
 let g:chromatica#responsive_mode=1
+
+" Colorscheme
+autocmd BufEnter * colorscheme OceanicNext
+autocmd BufEnter *.py colorscheme onedark
