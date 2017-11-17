@@ -2,6 +2,7 @@
 set mouse=a
 set paste
 set termguicolors
+set modeline
 
 " Indentation settings
 set cindent
