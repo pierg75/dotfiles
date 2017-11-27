@@ -9,6 +9,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+set modeline
 " Spelling
 set spelllang=en,it
 set spell
@@ -19,6 +20,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 " Nerdtree
 Plug 'scrooloose/nerdtree'
+" Nerdtree plugin
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Onedark theme
 Plug 'joshdick/onedark.vim'
 " Vim-airline
