@@ -30,14 +30,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Neomake (syntastic like)
 Plug 'neomake/neomake'
-" Deoplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ervandew/supertab'
-" Deoplete plugins
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'tweekmonster/deoplete-clang2'
-Plug 'zchee/deoplete-jedi'
 " Colorscheme
 Plug 'baskerville/bubblegum'
 " Colorscheme
@@ -63,7 +55,22 @@ Plug 'mileszs/ack.vim'
 Plug 'arakashic/chromatica.nvim'
 " iron.vim
 Plug 'hkupty/iron.nvim'
-
+" assuming your using vim-plug: https://github.com/junegunn/vim-plug
+Plug 'ncm2/ncm2'
+" ncm2 requires nvim-yarp
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-github'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-tagprefix'
+Plug 'filipekiss/ncm2-look.vim'
+Plug 'ncm2/ncm2-syntax'
+Plug 'ncm2/ncm2-neoinclude'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-racer'
+Plug 'ncm2/ncm2-pyclang'
+Plug 'racer-rust/racer'
 
 " Initialize plugin system
 call plug#end()
@@ -154,20 +161,6 @@ nmap <C-Space><C-Space>d
 nmap <C-Space><C-Space>a
 		\:vert scs find a <C-R>=expand("<cword>")<CR><CR>
 
-" Deoplete config
-let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-	  let g:deoplete#omni#input_patterns = {}
-  endif
-" let g:deoplete#disable_auto_complete = 1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-" omnifuncs
-augroup omnifuncs
-	autocmd!
-	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-augroup end
-
-
 " Gutentags
 set statusline+=%{gutentags#statusline()}
 let g:gutentags_ctags_options_file = '' 
@@ -190,3 +183,27 @@ let g:chromatica#responsive_mode=1
 " Colorscheme
 autocmd BufEnter * colorscheme OceanicNext
 autocmd BufEnter *.py colorscheme onedark
+
+"""""""""""""""""""""""""""""""""""""""""
+"    ncm2 config                        "
+" enable ncm2 for all buffers """""""""""
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
+
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
