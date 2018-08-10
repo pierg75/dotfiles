@@ -55,22 +55,13 @@ Plug 'mileszs/ack.vim'
 Plug 'arakashic/chromatica.nvim'
 " iron.vim
 Plug 'hkupty/iron.nvim'
-" assuming your using vim-plug: https://github.com/junegunn/vim-plug
-Plug 'ncm2/ncm2'
 " ncm2 requires nvim-yarp
+Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-github'
 Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-tagprefix'
-Plug 'filipekiss/ncm2-look.vim'
-Plug 'ncm2/ncm2-syntax'
-Plug 'ncm2/ncm2-neoinclude'
-Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-racer'
-Plug 'ncm2/ncm2-pyclang'
-Plug 'racer-rust/racer'
+Plug 'ncm2/ncm2-path'
+
 
 " Initialize plugin system
 call plug#end()
@@ -186,15 +177,19 @@ autocmd BufEnter *.py colorscheme onedark
 
 """""""""""""""""""""""""""""""""""""""""
 "    ncm2 config                        "
-" enable ncm2 for all buffers """""""""""
+" enable ncm2 for all buffer
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
-" :help Ncm2PopupOpen for more information
+" IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
-" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" supress the annoying 'match x of y', 'The only match' and 'Pattern not
 " found' messages
 set shortmess+=c
+
+" enable auto complete for `<backspace>`, `<c-w>` keys.
+" known issue https://github.com/ncm2/ncm2/issues/7
+au TextChangedI * call ncm2#auto_trigger()
 
 " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
 inoremap <c-c> <ESC>
