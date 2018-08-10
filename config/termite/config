@@ -9,7 +9,8 @@
 font = Hack 10
 
 clickable_url = true
-browser = firefox
+#browser = firefox
+browser = qutebrowser
 cursor_blink = system
 cursor_shape = ibeam
 scrollback_lines = 1000
