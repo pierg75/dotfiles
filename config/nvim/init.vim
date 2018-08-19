@@ -62,6 +62,8 @@ Plug 'arakashic/chromatica.nvim'
 Plug 'hkupty/iron.nvim'
 
 
+highlight Comment cterm=italic
+
 " Initialize plugin system
 call plug#end()
 
@@ -76,7 +78,7 @@ map <F3> :NERDTreeToggle<CR>
 
 " Airline config
 let g:airline#extensions#tabline#enabled = 2
-" let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
 " let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline#extensions#tabline#right_sep = ' '
