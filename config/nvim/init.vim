@@ -1,7 +1,6 @@
 " Some basic configs
 set mouse=a
 set paste
-set termguicolors
 set modeline
 
 " Indentation settings
@@ -14,6 +13,21 @@ set modeline
 " Spelling
 set spelllang=en,it
 set spell
+
+" Themes
+" Or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" Theme
+" There seems to be a issue with setting colors from plugins.
+" As workaround; do 
+" # mkdir ~/.config/nvim/colors; cp ~/.local/share/nvim/plugged/oceanic-next/colors/OceanicNext.vim ~/.config/nvim/colors/
+syntax on
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+colorscheme OceanicNext
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
@@ -74,6 +88,9 @@ map <F3> :NERDTreeToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
+let g:airline_theme='badcat'
+"let g:airline_theme='oceanicnext'
+
 
 
 " Run NeoMake on read and write operations
@@ -157,9 +174,4 @@ endif
 let g:chromatica#libclang_path='/usr/lib64/'
 let g:chromatica#enable_at_startup=1
 let g:chromatica#responsive_mode=1
-
-" Colorscheme
-autocmd BufEnter * colorscheme OceanicNext
-autocmd BufEnter *.py colorscheme onedark
-
 
