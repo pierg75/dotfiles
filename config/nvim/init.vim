@@ -55,13 +55,6 @@ Plug 'mileszs/ack.vim'
 Plug 'arakashic/chromatica.nvim'
 " iron.vim
 Plug 'hkupty/iron.nvim'
-" ncm2 requires nvim-yarp
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
-
 
 highlight Comment cterm=italic
 
@@ -177,30 +170,3 @@ let g:chromatica#responsive_mode=1
 autocmd BufEnter * colorscheme OceanicNext
 autocmd BufEnter *.py colorscheme onedark
 
-"""""""""""""""""""""""""""""""""""""""""
-"    ncm2 config                        "
-" enable ncm2 for all buffer
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
-
-" supress the annoying 'match x of y', 'The only match' and 'Pattern not
-" found' messages
-set shortmess+=c
-
-" enable auto complete for `<backspace>`, `<c-w>` keys.
-" known issue https://github.com/ncm2/ncm2/issues/7
-au TextChangedI * call ncm2#auto_trigger()
-
-" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-inoremap <c-c> <ESC>
-
-" When the <Enter> key is pressed while the popup menu is visible, it only
-" hides the menu. Use this mapping to close the menu and also start a new
-" line.
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
