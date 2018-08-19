@@ -71,18 +71,9 @@ let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
 
 " Airline config
-let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
-" let g:airline#extensions#tabline#right_sep = ' '
-" let g:airline#extensions#tabline#right_alt_sep = '|'
-" let g:airline_left_sep = ' '
-" let g:airline_left_alt_sep = '|'
-" let g:airline_right_sep = ' '
-" let g:airline_right_alt_sep = '|'
-" let g:airline_theme= 'gruvbox'
-let g:airline_theme= 'oceanicnext'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
 
 " Run NeoMake on read and write operations
 autocmd! BufReadPost,BufWritePost * Neomake
@@ -169,4 +160,5 @@ let g:chromatica#responsive_mode=1
 " Colorscheme
 autocmd BufEnter * colorscheme OceanicNext
 autocmd BufEnter *.py colorscheme onedark
+
 
