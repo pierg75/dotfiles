@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-  <project name="pierg75/android_kernel_nubia_nx507j.git" path="kernel/nubia/nx507j" remote="github" revision="nougat-7.1" />
-  <project name="pierg75/android_device_nubia_nx507j.git" path="device/nubia/nx507j" remote="github" revision="nougat-7.1" />
-  <project name="pierg75/android_vendor_nubia_nx507j.git" path="vendor/nubia/nx507j" remote="github" revision="nougat-7.1" />
-  <project name="Christopher83/arm-cortex_a15-linux-gnueabihf-linaro_4.9" path="prebuilts/gcc/linux-x86/arm/arm-cortex_a15-linux-gnueabihf-linaro_4.9" remote="github" revision="master" />
-</manifest>
-
