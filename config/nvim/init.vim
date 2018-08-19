@@ -10,6 +10,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+set modeline
 " Spelling
 set spelllang=en,it
 set spell
@@ -20,6 +21,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 " Nerdtree
 Plug 'scrooloose/nerdtree'
+" Nerdtree plugin
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Onedark theme
 Plug 'joshdick/onedark.vim'
 " Vim-airline
@@ -27,14 +30,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Neomake (syntastic like)
 Plug 'neomake/neomake'
-" Deoplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ervandew/supertab'
-" Deoplete plugins
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'tweekmonster/deoplete-clang2'
-Plug 'zchee/deoplete-jedi'
 " Colorscheme
 Plug 'baskerville/bubblegum'
 " Colorscheme
@@ -60,6 +55,12 @@ Plug 'mileszs/ack.vim'
 Plug 'arakashic/chromatica.nvim'
 " iron.vim
 Plug 'hkupty/iron.nvim'
+" ncm2 requires nvim-yarp
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
 
 
 highlight Comment cterm=italic
@@ -153,20 +154,6 @@ nmap <C-Space><C-Space>d
 nmap <C-Space><C-Space>a
 		\:vert scs find a <C-R>=expand("<cword>")<CR><CR>
 
-" Deoplete config
-let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-	  let g:deoplete#omni#input_patterns = {}
-  endif
-" let g:deoplete#disable_auto_complete = 1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-" omnifuncs
-augroup omnifuncs
-	autocmd!
-	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-augroup end
-
-
 " Gutentags
 set statusline+=%{gutentags#statusline()}
 let g:gutentags_ctags_options_file = '' 
@@ -189,3 +176,31 @@ let g:chromatica#responsive_mode=1
 " Colorscheme
 autocmd BufEnter * colorscheme OceanicNext
 autocmd BufEnter *.py colorscheme onedark
+
+"""""""""""""""""""""""""""""""""""""""""
+"    ncm2 config                        "
+" enable ncm2 for all buffer
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+" supress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
+" enable auto complete for `<backspace>`, `<c-w>` keys.
+" known issue https://github.com/ncm2/ncm2/issues/7
+au TextChangedI * call ncm2#auto_trigger()
+
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
+
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

@@ -152,8 +152,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # External Monitor                                                                                                                                                                                                  
-bindsym $mod+m         exec xrandr --output LVDS-1 --auto --output VGA-1 --off --right-of LVDS-1
-bindsym $mod+shift+m   exec xrandr --output LVDS-1 --auto --output VGA-1 --auto --right-of LVDS-1
+bindsym $mod+m         exec xrandr --output LVDS-1 --auto --output HDMI-3 --off --right-of LVDS-1
+bindsym $mod+shift+m   exec xrandr --output LVDS-1 --auto --output HDMI-3 --auto --right-of LVDS-1
 
 # scrot - root
 bindsym Print exec scrot -e 'mv $f /tmp/'
@@ -176,4 +176,5 @@ exec --no-startup-id /usr/libexec/gnome-settings-daemon
 exec --no-startup-id dunst -config ~/.config/dunst/config
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id redshift
+exec --no-startup-id ibus-daemon --xim --daemonize
 exec --no-startup-id nitrogen --restore
