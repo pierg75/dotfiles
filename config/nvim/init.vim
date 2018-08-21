@@ -2,6 +2,20 @@
 set mouse=a
 set paste
 set modeline
+set showmatch           " Show matching brackets.
+set number              " Show the line numbers on the left side.
+set formatoptions+=o    " Continue comment marker in new lines.
+set nojoinspaces    
+set splitbelow          " Horizontal split below current.
+set splitright          " Vertical split to right of current.
+
+" Also highlight all tabs and trailing whitespace characters.
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$\|\t/
+
+set ignorecase          " Make searching case insensitive
+set smartcase           " ... unless the query has capital letters.
+set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 
 " Indentation settings
 set cindent
