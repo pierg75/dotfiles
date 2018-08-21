@@ -1,3 +1,9 @@
 config/weechat/irc.conf
 config/weechat/weechat.log
 *un~
+tags
+config/cmus/cache
+config/cmus/command-history
+config/cmus/lib.pl
+config/cmus/playlists/
+config/cmus/search-history
