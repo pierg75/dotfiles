@@ -54,8 +54,6 @@ Plug 'MaxSt/FlatColor'
 Plug 'ChrisKempson/Tomorrow-Theme'
 " Drawit
 Plug 'vim-scripts/DrawIt'
-" Gutentags
-Plug 'ludovicchabant/vim-gutentags'
 " tagbar
 Plug 'majutsushi/tagbar'
 " fzf
@@ -155,12 +153,6 @@ nmap <C-Space><C-Space>d
 		\:vert scs find d <C-R>=expand("<cword>")<CR><CR>
 nmap <C-Space><C-Space>a
 		\:vert scs find a <C-R>=expand("<cword>")<CR><CR>
-
-" Gutentags
-set statusline+=%{gutentags#statusline()}
-let g:gutentags_ctags_options_file = '' 
-let g:gutentags_options_file = '' 
-let g:gutentags_define_advanced_commands = 1
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
