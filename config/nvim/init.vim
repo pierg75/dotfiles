@@ -9,10 +9,6 @@ set nojoinspaces
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
 
-" Also highlight all tabs and trailing whitespace characters.
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+$\|\t/
-
 set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
@@ -51,13 +47,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 " Nerdtree plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Onedark theme
-Plug 'joshdick/onedark.vim'
 " Vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Neomake (syntastic like)
-Plug 'neomake/neomake'
 " Colorscheme
 Plug 'baskerville/bubblegum'
 " Colorscheme
@@ -70,19 +62,9 @@ Plug 'ChrisKempson/Tomorrow-Theme'
 Plug 'vim-scripts/DrawIt'
 " tagbar
 Plug 'majutsushi/tagbar'
-" fzf
-Plug 'junegunn/fzf'
+" FZF
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" The silver search
-Plug 'ggreer/the_silver_searcher'
-" ack.vim
-Plug 'mileszs/ack.vim'
-" Chromatica
-Plug 'arakashic/chromatica.nvim'
-" iron.vim
-Plug 'hkupty/iron.nvim'
-
-highlight Comment cterm=italic
 
 " Initialize plugin system
 call plug#end()
@@ -102,13 +84,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='badcat'
 "let g:airline_theme='oceanicnext'
-
-
-
-" Run NeoMake on read and write operations
-autocmd! BufReadPost,BufWritePost * Neomake
-let g:neomake_serialize = 1
-let g:neomake_serialize_abort_on_error = 1
 
 " Cscope settings
 if has("cscope")
@@ -171,13 +146,50 @@ nmap <C-Space><C-Space>a
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
-"ack
-if executable('ag')
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
+" FZF
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
-" Chromatica
-let g:chromatica#libclang_path='/usr/lib64/'
-let g:chromatica#enable_at_startup=1
-let g:chromatica#responsive_mode=1
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
 
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+nnoremap <leader>f :Files<cr>
