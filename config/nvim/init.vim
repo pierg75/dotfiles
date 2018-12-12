@@ -67,6 +67,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " ACK
 Plug 'mileszs/ack.vim'
+" Neomake
+Plug 'neomake/neomake'
+" Chromatica
+Plug 'arakashic/chromatica.nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -200,3 +204,26 @@ nnoremap <leader>f :Files<cr>
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+nnoremap <leader>t :Files<cr>
+nnoremap <leader>p :History<CR>
+nnoremap <leader>b :Buffers<CR>
+
+" Neomake config
+" normal mode (after 1s; no delay when writing).
+call neomake#configure#automake('nrwi', 500)
+function! MyOnBattery()
+  return readfile('/sys/class/power_supply/AC/online') == ['0']
+endfunction
+
+if MyOnBattery()
+  call neomake#configure#automake('w')
+else
+  call neomake#configure#automake('nw', 1000)
+endif
+
+
+" Chromatica
+" On newer Fedora you need to make a link for clang lib:
+" ln -s /usr/lib64/libclang.so.7 /usr/lib64/libclang.so
+let g:chromatica#libclang_path='/usr/lib64/'
+let g:chromatica#enable_at_startup=1
