@@ -65,6 +65,8 @@ Plug 'majutsushi/tagbar'
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" ACK
+Plug 'mileszs/ack.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -193,3 +195,8 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 nnoremap <leader>f :Files<cr>
+
+"ACK
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
