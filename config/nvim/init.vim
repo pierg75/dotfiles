@@ -65,6 +65,8 @@ Plug 'majutsushi/tagbar'
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" ACK
+Plug 'mileszs/ack.vim'
 " Neomake
 Plug 'neomake/neomake'
 " Chromatica
@@ -204,6 +206,12 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+nnoremap <leader>f :Files<cr>
+
+"ACK
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 nnoremap <leader>t :Files<cr>
 nnoremap <leader>p :History<CR>
 nnoremap <leader>b :Buffers<CR>
