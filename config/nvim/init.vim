@@ -69,6 +69,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'neomake/neomake'
 " Chromatica
 Plug 'arakashic/chromatica.nvim'
+" coc
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" Ack
+Plug 'mileszs/ack.vim'
+" Racer
+Plug 'racer-rust/vim-racer'
+" Rust
+Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -219,3 +227,8 @@ endif
 " ln -s /usr/lib64/libclang.so.7 /usr/lib64/libclang.so
 let g:chromatica#libclang_path='/usr/lib64/'
 let g:chromatica#enable_at_startup=1
+
+" Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
