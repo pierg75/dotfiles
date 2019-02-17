@@ -152,8 +152,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # External Monitor                                                                                                                                                                                                  
-bindsym $mod+m         exec xrandr --output LVDS-1 --auto --output HDMI-3 --off --right-of LVDS-1
-bindsym $mod+shift+m   exec xrandr --output LVDS-1 --auto --output HDMI-3 --auto --right-of LVDS-1
+bindsym $mod+m         exec xrandr --output eDP-1 --auto --output DP-2-2 --off --right-of eDP-1
+bindsym $mod+shift+m   exec xrandr --output eDP-1 --auto --output DP-2-2 --auto --right-of eDP-1
 
 # scrot - root
 bindsym Print exec scrot -e 'mv $f /tmp/'
@@ -177,3 +177,4 @@ exec --no-startup-id dunst -config ~/.config/dunst/config
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id redshift
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id ~/bin/disable_power_saving.sh
