@@ -5,6 +5,12 @@ config_version: 2
 settings:
   auto_save.session:
     global: true
+  colors.tabs.selected.even.bg:
+    global: red
+  colors.tabs.selected.odd.bg:
+    global: red
+  content.javascript.enabled:
+    global: true
   spellcheck.languages:
     global:
     - en-GB
