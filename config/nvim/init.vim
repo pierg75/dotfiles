@@ -73,12 +73,15 @@ Plug 'neomake/neomake'
 Plug 'arakashic/chromatica.nvim'
 " coc
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-" Ack
-Plug 'mileszs/ack.vim'
 " Racer
 Plug 'racer-rust/vim-racer'
 " Rust
 Plug 'rust-lang/rust.vim'
+" Cargo
+Plug 'timonv/vim-cargo'
+" Vim-racer
+Plug 'racer-rust/vim-racer'
+
 
 " Initialize plugin system
 call plug#end()
@@ -241,3 +244,10 @@ let g:chromatica#enable_at_startup=1
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" vim-racer
+set hidden
+let g:racer_cmd = "/home/plambri/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
+
