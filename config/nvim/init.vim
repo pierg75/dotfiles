@@ -71,19 +71,14 @@ Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 " Chromatica
 Plug 'arakashic/chromatica.nvim'
-" Ack
-Plug 'mileszs/ack.vim'
-" Racer
-Plug 'racer-rust/vim-racer'
-" Rust
-Plug 'rust-lang/rust.vim'
+" coc
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " ALE
 Plug 'w0rp/ale'
 " Highlight yanks
 Plug 'machakann/vim-highlightedyank'
 " Better match up
 Plug 'andymass/vim-matchup'
-
 " Semantic language support
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
@@ -98,6 +93,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+" Cargo
+Plug 'timonv/vim-cargo'
+" Vim-racer
+Plug 'racer-rust/vim-racer'
 
 
 " Initialize plugin system
@@ -257,11 +256,6 @@ endif
 let g:chromatica#libclang_path='/usr/lib64/'
 let g:chromatica#enable_at_startup=1
 
-" Ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
 " Linter
 " only lint on save
 let g:ale_lint_on_text_changed = 'never'
@@ -298,8 +292,6 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
 let g:rust_clip_command = 'xclip -selection clipboard'
-"let g:racer_cmd = "/usr/bin/racer"
-"let g:racer_experimental_completer = 1
 let $RUST_SRC_PATH = systemlist("rustc --print sysroot")[0] . "/lib/rustlib/src/rust/src"
 
 " Completion
@@ -309,3 +301,9 @@ set completeopt=noinsert,menuone,noselect
 " and don't hijack my enter key
 inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
 inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
+" vim-racer
+set hidden
+let g:racer_cmd = "/home/plambri/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
+
