@@ -244,16 +244,6 @@ nnoremap <leader>b :Buffers<CR>
 " Neomake config
 " normal mode (after 1s; no delay when writing).
 call neomake#configure#automake('nrwi', 500)
-function! MyOnBattery()
-  return readfile('/sys/class/power_supply/AC/online') == ['0']
-endfunction
-
-if MyOnBattery()
-  call neomake#configure#automake('w')
-else
-  call neomake#configure#automake('nw', 1000)
-endif
-
 
 " Chromatica
 " On newer Fedora you need to make a link for clang lib:
