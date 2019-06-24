@@ -97,6 +97,11 @@ Plug 'plasticboy/vim-markdown'
 Plug 'timonv/vim-cargo'
 " Vim-racer
 Plug 'racer-rust/vim-racer'
+" GV
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+" git-messenger
+Plug 'rhysd/git-messenger.vim'
 
 
 " Initialize plugin system
