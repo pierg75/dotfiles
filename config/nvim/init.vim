@@ -1,6 +1,5 @@
 " Some basic configs
 set mouse=a
-set paste
 set modeline
 set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
@@ -89,6 +88,13 @@ Plug 'plasticboy/vim-markdown'
 Plug 'timonv/vim-cargo'
 " Vim-racer
 Plug 'racer-rust/vim-racer'
+" Easymotion
+Plug 'easymotion/vim-easymotion'
+" Which-key
+Plug 'liuchengxu/vim-which-key'
+" Indents
+Plug 'Yggdroot/indentLine'
+
 
 
 " Initialize plugin system
