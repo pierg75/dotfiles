@@ -94,7 +94,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'liuchengxu/vim-which-key'
 " Indents
 Plug 'Yggdroot/indentLine'
-
+" GV
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+" git-messenger
+Plug 'rhysd/git-messenger.vim'
 
 
 " Initialize plugin system
@@ -237,16 +241,6 @@ nnoremap <leader>b :Buffers<CR>
 " Neomake config
 " normal mode (after 1s; no delay when writing).
 call neomake#configure#automake('nrwi', 500)
-function! MyOnBattery()
-  return readfile('/sys/class/power_supply/AC/online') == ['0']
-endfunction
-
-if MyOnBattery()
-  call neomake#configure#automake('w')
-else
-  call neomake#configure#automake('nw', 1000)
-endif
-
 
 " Chromatica
 " On newer Fedora you need to make a link for clang lib:
