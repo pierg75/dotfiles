@@ -156,12 +156,12 @@ bindsym $mod+m         exec xrandr --output eDP-1 --auto --output DP-2-2 --off -
 bindsym $mod+shift+m   exec xrandr --output eDP-1 --auto --output DP-2-2 --auto --right-of eDP-1
 
 # scrot - root
-bindsym Print exec scrot -e 'mv $f /tmp/'
+bindsym Print exec import -window root /tmp/screenshot.png
 # scrot - select window or rectangle
-bindsym Mod1+Print exec scrot -s -e 'mv $f /tmp/'
+bindsym Mod1+Print exec import /tmp/screenshot.png
 
 # Lock monitors
-bindsym Control+Mod1+l exec lock
+bindsym Control+Mod1+l exec /home/plambri/bin/lock
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
