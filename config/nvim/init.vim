@@ -1,40 +1,3 @@
-" Some basic configs
-set mouse=a
-set modeline
-set showmatch           " Show matching brackets.
-set number              " Show the line numbers on the left side.
-set formatoptions+=o    " Continue comment marker in new lines.
-set nojoinspaces    
-set splitbelow          " Horizontal split below current.
-set splitright          " Vertical split to right of current.
-
-set ignorecase          " Make searching case insensitive
-set smartcase           " ... unless the query has capital letters.
-set gdefault            " Use 'g' flag by default with :s/foo/bar/.
-
-" Indentation settings
-set cindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-set modeline
-" Spelling
-set spelllang=en,it
-set spell
-
-" deal with colors
-if !has('gui_running')
-  set t_Co=256
-endif
-if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
-  " screen does not (yet) support truecolor
-  set termguicolors
-endif
-" Colors
-set background=dark
-
-
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
@@ -94,6 +57,33 @@ Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlig
 " Initialize plugin system
 call plug#end()
 
+" Some basic configs
+set mouse=a
+set modeline
+set showmatch           " Show matching brackets.
+set number              " Show the line numbers on the left side.
+set formatoptions+=o    " Continue comment marker in new lines.
+set nojoinspaces    
+set splitbelow          " Horizontal split below current.
+set splitright          " Vertical split to right of current.
+
+set ignorecase          " Make searching case insensitive
+set smartcase           " ... unless the query has capital letters.
+set gdefault            " Use 'g' flag by default with :s/foo/bar/.
+
+" Indentation settings
+set cindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set modeline
+" Spelling
+set spelllang=en,it
+set spell
+
+set termguicolors
+set background=dark
 
 
 " Theme
@@ -105,7 +95,6 @@ let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 colorscheme OceanicNext
 
-
 " NERD_tree config
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
@@ -114,8 +103,6 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$', '\nvim.init$',]
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
-
-
 
 " Cscope settings
 if has("cscope")
@@ -244,36 +231,6 @@ call neomake#configure#automake('nrwi', 500)
 " ln -s /usr/lib64/libclang.so.7 /usr/lib64/libclang.so
 let g:chromatica#libclang_path='/usr/lib64/'
 let g:chromatica#enable_at_startup=1
-
-" Linter
-" only lint on save
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_lint_on_insert_leave = 1
-" let g:ale_lint_on_save = 0
-" let g:ale_lint_on_enter = 0
-" let g:ale_virtualtext_cursor = 1
-" let g:ale_rust_rls_config = {
-"	\ 'rust': {
-"			\ 'all_targets': 1,
-"			\ 'build_on_save': 1,
-"			\ 'clippy_preference': 'on'
-""	\ }
-"	\ }
-"let g:ale_rust_rls_toolchain = ''
-"let g:ale_linters = {'rust': ['rls']}
-"highlight link ALEWarningSign Todo
-"highlight link ALEErrorSign WarningMsg
-"highlight link ALEVirtualTextWarning Todo
-"highlight link ALEVirtualTextInfo Todo
-"highlight link ALEVirtualTextError WarningMsg
-"highlight ALEError guibg=None
-"highlight ALEWarning guibg=None
-"let g:ale_sign_error = "✖"
-"let g:ale_sign_warning = "⚠"
-"let g:ale_sign_info = "i"
-"let g:ale_sign_hint = "➤"
-"nnoremap <silent> K :ALEHover<CR>
-"nnoremap <silent> gd :ALEGoToDefinition<CR>
 
 " racer + rust
 let g:rustfmt_command = "rustfmt +nightly"
