@@ -1,6 +1,5 @@
 " Some basic configs
 set mouse=a
-set paste
 set modeline
 set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
@@ -82,8 +81,6 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'timonv/vim-cargo'
 " Vim-racer
-" Plug 'racer-rust/vim-racer'
-" GV
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 " git-messenger
