@@ -24,22 +24,18 @@ set modeline
 set spelllang=en,it
 set spell
 
-" Themes
-" Or if you have Neovim >= 0.1.5
-if (has("termguicolors"))
- set termguicolors
+" deal with colors
+if !has('gui_running')
+  set t_Co=256
 endif
+if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
+  " screen does not (yet) support truecolor
+  set termguicolors
+endif
+" Colors
+set background=dark
 
-" Theme
-" There seems to be a issue with setting colors from plugins.
-" As workaround; do 
-" # mkdir ~/.config/nvim/colors; cp ~/.local/share/nvim/plugged/oceanic-next/colors/OceanicNext.vim ~/.config/nvim/colors/
-syntax on
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
 
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
@@ -47,9 +43,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 " Nerdtree plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Vim-airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 " Colorscheme
 Plug 'baskerville/bubblegum'
 " Colorscheme
@@ -72,32 +65,49 @@ Plug 'neomake/neomake'
 " Chromatica
 Plug 'arakashic/chromatica.nvim'
 " coc
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " ALE
-Plug 'w0rp/ale'
-" Highlight yanks
+" Plug 'w0rp/ale'
+" Highlight
+Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 " Better match up
 Plug 'andymass/vim-matchup'
 " Syntactic language support
 Plug 'cespare/vim-toml'
+Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-" Cargo
 Plug 'timonv/vim-cargo'
 " Vim-racer
-Plug 'racer-rust/vim-racer'
+" Plug 'racer-rust/vim-racer'
 " GV
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 " git-messenger
 Plug 'rhysd/git-messenger.vim'
+"rtags
+Plug 'marxin/neo-rtags'
+" vim-perl
+Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 
 
 " Initialize plugin system
 call plug#end()
+
+
+
+" Theme
+" There seems to be a issue with setting colors from plugins.
+" As workaround; do 
+" # mkdir ~/.config/nvim/colors; cp ~/.local/share/nvim/plugged/oceanic-next/colors/OceanicNext.vim ~/.config/nvim/colors/
+syntax on
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+colorscheme OceanicNext
+
 
 " NERD_tree config
 let NERDTreeHighlightCursorline=1
@@ -108,13 +118,7 @@ let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
 
-" Airline config
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_powerline_fonts = 1
-" let g:airline_theme='badcat'
-"let g:airline_theme='oceanicnext'
-let g:airline_theme='lucius'
+
 
 " Cscope settings
 if has("cscope")
@@ -131,6 +135,7 @@ if has("cscope")
 	endif
 	set csverb
 endif
+
 " Cscope mappings
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
@@ -245,33 +250,33 @@ let g:chromatica#enable_at_startup=1
 
 " Linter
 " only lint on save
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_save = 0
-let g:ale_lint_on_enter = 0
-let g:ale_virtualtext_cursor = 1
-let g:ale_rust_rls_config = {
-	\ 'rust': {
-			\ 'all_targets': 1,
-			\ 'build_on_save': 1,
-			\ 'clippy_preference': 'on'
-	\ }
-	\ }
-let g:ale_rust_rls_toolchain = ''
-let g:ale_linters = {'rust': ['rls']}
-highlight link ALEWarningSign Todo
-highlight link ALEErrorSign WarningMsg
-highlight link ALEVirtualTextWarning Todo
-highlight link ALEVirtualTextInfo Todo
-highlight link ALEVirtualTextError WarningMsg
-highlight ALEError guibg=None
-highlight ALEWarning guibg=None
-let g:ale_sign_error = "✖"
-let g:ale_sign_warning = "⚠"
-let g:ale_sign_info = "i"
-let g:ale_sign_hint = "➤"
-nnoremap <silent> K :ALEHover<CR>
-nnoremap <silent> gd :ALEGoToDefinition<CR>
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_insert_leave = 1
+" let g:ale_lint_on_save = 0
+" let g:ale_lint_on_enter = 0
+" let g:ale_virtualtext_cursor = 1
+" let g:ale_rust_rls_config = {
+"	\ 'rust': {
+"			\ 'all_targets': 1,
+"			\ 'build_on_save': 1,
+"			\ 'clippy_preference': 'on'
+""	\ }
+"	\ }
+"let g:ale_rust_rls_toolchain = ''
+"let g:ale_linters = {'rust': ['rls']}
+"highlight link ALEWarningSign Todo
+"highlight link ALEErrorSign WarningMsg
+"highlight link ALEVirtualTextWarning Todo
+"highlight link ALEVirtualTextInfo Todo
+"highlight link ALEVirtualTextError WarningMsg
+"highlight ALEError guibg=None
+"highlight ALEWarning guibg=None
+"let g:ale_sign_error = "✖"
+"let g:ale_sign_warning = "⚠"
+"let g:ale_sign_info = "i"
+"let g:ale_sign_hint = "➤"
+"nnoremap <silent> K :ALEHover<CR>
+"nnoremap <silent> gd :ALEGoToDefinition<CR>
 
 " racer + rust
 let g:rustfmt_command = "rustfmt +nightly"
