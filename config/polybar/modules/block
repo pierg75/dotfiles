@@ -1,0 +1,160 @@
+### Modules for the blocks_bar ###
+
+# -- Show the title of the active window (block version)
+[module/active_window_blk]
+type = internal/xwindow
+# Style
+format = <label>
+label = "%{B#728cbb} %{B#333333}  %title%  "
+label-empty =
+label-maxlen = 120
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+# --
+
+# -- Show the battery percentage and the remaining time (block version)
+[module/battery_blk]
+type = internal/battery
+# Settings
+full-at = 99
+battery = BAT1
+adapter = ACAD
+# Style
+format-charging =  <label-charging>
+format-charging-background = ${colors.background}
+format-charging-foreground = ${colors.accent}
+format-charging-font = 4
+format-charging-padding = 2
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-background = ${colors.background}
+format-discharging-foreground = ${colors.accent}
+format-discharging-font = 4
+format-discharging-padding = 2
+format-full = <ramp-capacity> <label-full>
+format-full-background = ${colors.background}
+format-full-foreground = ${colors.accent}
+format-full-font = 4
+format-full-padding = 2
+time-format = %H:%M
+label-charging = %percentage%%
+label-charging-foreground = ${colors.foreground}
+label-discharging = %percentage%%
+label-discharging-foreground = ${colors.foreground}
+label-full = %percentage%%
+label-full-foreground = ${colors.foreground}
+# Charging style
+ramp-capacity-foreground = ${colors.accent}
+ramp-capacity-3 = 
+ramp-capacity-2 = ﯜ
+ramp-capacity-1 = ﯜ
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.urgent}
+ramp-capacity-font = 4
+# --
+
+# -- Distro logo starting rofi -drun if clicked on (block version)
+[module/distro_blk]
+type = custom/text
+# Content of the label
+content = %{T2}%{T-}
+content-foreground = ${colors.manjaro}
+content-padding = 1
+# Clicking events
+click-left = rofi -no-lazy-grab -show drun -display-drun apps -theme themes/drun.rasi
+click-right = rofi -no-lazy-grab -show drun -display-drun apps -theme themes/drun.rasi
+# --
+
+# -- Current playing music information
+[module/mpd_blk]
+type = internal/mpd
+# Settings
+host = localhost
+port = 6600
+password =
+interval = 1
+# Style
+format-online = " <label-time><label-song>"
+format-playing = ${self.format-online}
+format-playing-background = ${colors.accent}
+format-playing-foreground = ${colors.background_dark}
+format-playing-padding = 1
+format-paused = ${self.format-online}
+format-paused-background = ${colors.accent}
+format-paused-foreground = ${colors.background_dark}
+format-paused-padding = 1
+format-stopped =
+format-offline =
+label-time = %elapsed% // %total%
+label-time-background = ${colors.background_light}
+label-time-foreground = ${colors.foreground}
+label-time-padding = 2
+label-song = %artist% - %title%
+label-song-background = ${colors.background}
+label-song-foreground = ${colors.foreground_dark}
+label-song-padding = 2
+# --
+
+# -- Show the current time (block version)
+[module/time_blk]
+type = internal/date
+# Style
+format = %{A1:gsimplecal &:}<label>%{A}
+format-background = ${colors.accent}
+format-foreground = ${colors.background_dark}
+format-padding = 2
+time = %H:%M
+label = %time%
+label-font = 1
+# --
+
+# -- Show the current volume as a percentage but also if it's muted or not
+[module/volume_blk]
+type = internal/pulseaudio
+# Settings
+sink = alsa_output.usb-HiFimeDIY_Audio_HiFimeDIY_DAC-01.analog-stereo
+# Style
+format-volume = <ramp-volume> <label-volume>
+format-volume-background = ${colors.accent}
+format-volume-padding = 2
+format-muted =  <label-muted>
+format-muted-background = ${colors.accent}
+format-muted-padding = 2
+label-volume = %percentage%%
+label-muted = %percentage%%
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+# --
+
+# -- Workspaces currently used (block version)
+[module/workspaces_blk]
+type = internal/i3
+# Settings
+index-sort = true
+wrapping-scroll = false
+# Style
+format = <label-state>
+# Active workspace
+label-focused = %index%
+label-focused-background = ${colors.background_light}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 2
+# Visible workspace (the unfocused workspace showed on the other monitor)
+label-visible = %index%
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.accent}
+label-visible-overline = ${colors.accent}
+label-visible-padding = 2
+# Inactive workspaces
+label-unfocused = %index%
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground_dark}
+label-unfocused-padding = 2
+# Workspaces with urgency hint
+label-urgent = %index%
+label-urgent-background = ${colors.background}
+label-urgent-foreground = ${colors.urgent}
+label-urgent-padding = 2
+# --
+
+# vim:ft=dosini

@@ -22,6 +22,7 @@ include-file = ~/.config/polybar/variables
 include-file = ~/.config/polybar/modules/alternative
 include-file = ~/.config/polybar/modules/block
 include-file = ~/.config/polybar/modules/normal
+include-file = ~/.config/polybar/modules/test
 
 ### Bars ###
 
@@ -46,7 +47,7 @@ font-1 = ${fonts.icons}
 font-2 = ${fonts.icons_small_bot}
 # Modules to use
 modules-left   = workspaces_blk active_window_blk
-modules-center = brightness_alt volume_alt battery0 battery1
+modules-center = brightness_alt volume_alt mybat0
 modules-right  = network cpu_temp_alt time date powermenu_alt
 #tray-position = right
 # --

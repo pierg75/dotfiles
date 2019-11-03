@@ -1,0 +1,7 @@
+### Test modules ###
+[module/mybat0]
+type = custom/script
+exec = ~/.config/polybar/scripts/check_battery.pl
+interval = 10
+
+# vim:ft=dosini
