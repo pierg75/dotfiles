@@ -9,7 +9,8 @@ use feature 'say';
 use feature 'unicode_strings';
 
 
-my $bat = "BAT0";
+die("You need to pass the battery to monitor") if (scalar(@ARGV) == 0);
+my $bat = $ARGV[0];
 my $battery_path = "/sys/class/power_supply";
 my $battery_icon = "\N{U+1F50B}";
 my $cable_plugin = "\N{U+1F50C}";
@@ -91,7 +92,7 @@ if ($bat_status =~ /^discharging/i) {
     print $F_white_on_black, ${icon}, " ",  $output_string, "%", "\n";
 } elsif ($bat_status =~ /^Unknown/i) {
     $icon = $cable_plugin;
-    my $output_string = sprintf("%s %.f", "Docking", ${bat_per});
+    my $output_string = sprintf("%s %.f", "Unknown", ${bat_per});
     print $F_white_on_black, ${icon}, " ",  $output_string, "%", "\n";
 } elsif ($bat_status =~ /^Full/i) {
     $icon = $cable_plugin;

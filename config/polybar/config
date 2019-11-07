@@ -35,7 +35,7 @@ height = 22
 bottom = true
 fixed-center = true
 background = ${colors.background_dark}
-foreground = ${colors.background_dark}
+foreground = ${colors.foreground}
 line-size = 2
 # Gaps around the modules
 border-size = 5
@@ -47,7 +47,7 @@ font-1 = ${fonts.icons}
 font-2 = ${fonts.icons_small_bot}
 # Modules to use
 modules-left   = workspaces_blk active_window_blk
-modules-center = brightness_alt volume_alt mybat0
+modules-center = brightness_alt volume_alt mybat0 mybat1
 modules-right  = network cpu_temp_alt time date powermenu_alt
 #tray-position = right
 # --
