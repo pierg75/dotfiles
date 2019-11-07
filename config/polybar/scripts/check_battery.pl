@@ -4,7 +4,6 @@
 use strict;
 use warnings;
 use diagnostics;
-use Term::ANSIColor;
 
 use feature 'say';
 use feature 'unicode_strings';
@@ -20,6 +19,11 @@ my $bat_ret = "";
 my $bat_per = "";
 my $icon = "";
 
+my $F_red_on_black = "%{F#f00}%{B#1a1c1d}";
+my $F_white_on_black = "%{F#fff}%{B#1a1c1d}";
+my $F_green_on_black = "%{F#fff}%{B#1a1c1d}";
+my $F_yellow_on_black = "%{F#ff0}%{B#1a1c1d}";
+my $F_black_on_red = "%{B#f00}%{F#000}";
 
 if (! -e "${battery_path}/${bat}") {
     print("No battery avail\n");
@@ -65,25 +69,32 @@ if ($bat_status =~ /^discharging/i) {
     $icon = $battery_icon;
     if ($bat_per >= 80 && $bat_per <= 100) {
         my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-        print "%{T2}", colored(['bright_white on_black'], ${icon}, " ",  $output_string), "%", "\n";
-        print color('reset');
+        print $F_green_on_black, ${icon}, " ",  $output_string, "\n";
     } elsif ($bat_per >= 50 && $bat_per <= 79) {
         my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-        print "%{T2}", colored(['bright_green on_black'], ${icon}, " ",  $output_string), "%", "\n";
-        print color('reset');
+        print $F_yellow_on_black, ${icon}, " ",  $output_string, "\n";
     } elsif ($bat_per >= 20 && $bat_per <= 49) {
         my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-        print "%{T2}", colored(['bright_yellow on_black'], ${icon}, " ",  $output_string), "%", "\n";
-        print color('reset');
+        print $F_red_on_black, ${icon}, " ",  $output_string, "\n";
     } elsif ($bat_per >= 5 && $bat_per <= 19) {
         my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-        print "%{T2}", colored(['bright_red on_black'], ${icon}, " ",  $output_string), "%", "\n";
-        print color('reset');
+        print $F_black_on_red, ${icon}, " ",  $output_string, "\n";
+        # Start sending messages 
+        # notify-send -a batt -u critical send
+        system("notify-send", "-u", "critical", "LOW battery!" );
+        system("notify-send", "-u", "critical", "Connect charger" );
     }
 
 } elsif ($bat_status =~ /^charging/i) {
     $icon = $cable_plugin;
     my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-    print "%{T2} ", colored(['bright_white on_black'], ${icon}, " ",  $output_string), "%", "\n";
-    print color('reset');
+    print $F_white_on_black, ${icon}, " ",  $output_string, "%", "\n";
+} elsif ($bat_status =~ /^Unknown/i) {
+    $icon = $cable_plugin;
+    my $output_string = sprintf("%s %.f", "Docking", ${bat_per});
+    print $F_white_on_black, ${icon}, " ",  $output_string, "%", "\n";
+} elsif ($bat_status =~ /^Full/i) {
+    $icon = $cable_plugin;
+    my $output_string = sprintf("%s %.f", $bat_status, ${bat_per});
+    print $F_white_on_black, ${icon}, " ",  $output_string, "%", "\n";
 }
