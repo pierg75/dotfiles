@@ -9,6 +9,8 @@ settings:
     global: red
   colors.tabs.selected.odd.bg:
     global: red
+  content.javascript.can_open_tabs_automatically:
+    global: true
   content.javascript.enabled:
     global: true
   spellcheck.languages:
