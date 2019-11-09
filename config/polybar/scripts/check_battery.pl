@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 
-
 use strict;
 use warnings;
 use diagnostics;
@@ -67,35 +66,31 @@ if ( -e "${battery_path}/${bat}/energy_full" && -e "${battery_path}/${bat}/energ
 # Set the right icon
 binmode(STDOUT, ":utf8");
 if ($bat_status =~ /^discharging/i) {
-    $icon = $battery_icon;
     if ($bat_per >= 80 && $bat_per <= 100) {
         my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-        print $F_green_on_black, ${icon}, " ",  $output_string, "\n";
+        print $F_green_on_black, " ",  $output_string, "\n";
     } elsif ($bat_per >= 50 && $bat_per <= 79) {
         my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-        print $F_yellow_on_black, ${icon}, " ",  $output_string, "\n";
+        print $F_yellow_on_black, " ",  $output_string, "\n";
     } elsif ($bat_per >= 20 && $bat_per <= 49) {
         my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-        print $F_red_on_black, ${icon}, " ",  $output_string, "\n";
+        print $F_red_on_black, " ",  $output_string, "\n";
     } elsif ($bat_per >= 5 && $bat_per <= 19) {
         my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-        print $F_black_on_red, ${icon}, " ",  $output_string, "\n";
-        # Start sending messages 
+        print $F_black_on_red, " ",  $output_string, "\n";
+        # Start sending messages every 30s  
         # notify-send -a batt -u critical send
         system("notify-send", "-u", "critical", "LOW battery!" );
         system("notify-send", "-u", "critical", "Connect charger" );
     }
 
 } elsif ($bat_status =~ /^charging/i) {
-    $icon = $cable_plugin;
     my $output_string = sprintf("%s %.f", ${bat_status}, ${bat_per});
-    print $F_white_on_black, ${icon}, " ",  $output_string, "%", "\n";
+    print $F_white_on_black, " ",  $output_string, "%", "\n";
 } elsif ($bat_status =~ /^Unknown/i) {
-    $icon = $cable_plugin;
     my $output_string = sprintf("%s %.f", "Unknown", ${bat_per});
-    print $F_white_on_black, ${icon}, " ",  $output_string, "%", "\n";
+    print $F_white_on_black, " ",  $output_string, "%", "\n";
 } elsif ($bat_status =~ /^Full/i) {
-    $icon = $cable_plugin;
     my $output_string = sprintf("%s %.f", $bat_status, ${bat_per});
-    print $F_white_on_black, ${icon}, " ",  $output_string, "%", "\n";
+    print $F_white_on_black, " ",  $output_string, "%", "\n";
 }

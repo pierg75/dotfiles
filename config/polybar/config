@@ -19,10 +19,7 @@
 
 [section/base]
 include-file = ~/.config/polybar/variables
-include-file = ~/.config/polybar/modules/alternative
-include-file = ~/.config/polybar/modules/block
-include-file = ~/.config/polybar/modules/normal
-include-file = ~/.config/polybar/modules/test
+include-file = ~/.config/polybar/modules/all
 
 ### Bars ###
 
@@ -42,16 +39,21 @@ border-size = 5
 border-color = ${colors.background_dark}
 separator = " "
 # Fonts
-font-0 = ${fonts.text_pixels}
-font-1 = ${fonts.icons}
-font-2 = ${fonts.icons_small_bot}
+font-0 = roboto:pixelsize=10;1
+font-1 = DejaVu Sans:size=8;0
+font-2 = Noto Sans:pixelsize=10;1
+
 # Modules to use
-modules-left   = workspaces_blk active_window_blk
-modules-center = brightness_alt volume_alt mybat0 mybat1
-modules-right  = network cpu_temp_alt time date powermenu_alt
-#tray-position = right
+modules-left   = i3
+modules-center = backlight mybat0 mybat1
+modules-right  = vpncheck keyboard cpu memory date
+tray-position = right
 # --
 
+format-padding = 1
+module-margin = 1
+tray-padding = 1
+padding = 1
 ### Other polybar settings ###
 
 [settings]
