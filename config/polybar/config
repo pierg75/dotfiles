@@ -45,7 +45,8 @@ font-2 = Noto Sans:pixelsize=10;1
 
 # Modules to use
 modules-left   = i3
-modules-center = backlight mybat0 mybat1
+# modules-center = backlight mybat0 mybat1
+modules-center = backlight vpn
 modules-right  = vpncheck keyboard cpu memory date
 tray-position = right
 # --

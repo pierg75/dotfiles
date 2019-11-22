@@ -161,3 +161,12 @@ label-urgent-underline = ${colors.debian}
 label-urgent-padding = 2
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
+
+[module/vpn]
+type = custom/script
+exec = echo vpn
+exec-if = pgrep -x openvpn
+interval = 5
+format-underline = #268bd2
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
