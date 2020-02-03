@@ -228,7 +228,7 @@ call neomake#configure#automake('nrwi', 500)
 
 " Chromatica
 " On newer Fedora you need to make a link for clang lib:
-" ln -s /usr/lib64/libclang.so.7 /usr/lib64/libclang.so
+" ln -s /usr/lib64/libclang.so.9 /usr/lib64/libclang.so
 let g:chromatica#libclang_path='/usr/lib64/'
 let g:chromatica#enable_at_startup=1
 
