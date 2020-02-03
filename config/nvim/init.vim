@@ -265,6 +265,7 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 
 "coc-snippets 
+":CocInstall coc-snippets 
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
 
