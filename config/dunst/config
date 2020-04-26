@@ -276,7 +276,7 @@
     #background = "#1a1c1d"
     #foreground = "#c5c8c6"
     background = "#1c1c1d"
-    foreground = "#de935f"
+    foreground = "#F9F57B"
     timeout = 20
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
@@ -285,7 +285,7 @@
     #background = "#1a1c1d"
     #foreground = "#c5c8c6"
     background = "#1c1c1d"
-    foreground = "#de935f"
+    foreground = "#F9F57B"
     timeout = 20
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
@@ -293,7 +293,7 @@
 [urgency_critical]
     background = "#1c1c1d"
     foreground = "#de935f"
-    frame_color = "#de935f"
+    frame_color = "#F9F57B"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
@@ -404,5 +404,9 @@
     appname = weechat
     summary = "*Weechat*"
     urgency = critical
+[chrome]
+    appname = google-chrome
+    summary = "*Chrome*"
+    urgency = urgency_normal
 
 # vim: ft=cfg
