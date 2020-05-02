@@ -15,8 +15,8 @@ Plug 'MaxSt/FlatColor'
 Plug 'ChrisKempson/Tomorrow-Theme'
 " Drawit
 Plug 'vim-scripts/DrawIt'
-" tagbar
-Plug 'majutsushi/tagbar'
+" vista
+Plug 'liuchengxu/vista.vim'
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -29,7 +29,7 @@ Plug 'arakashic/chromatica.nvim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " ALE
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 " Highlight
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
@@ -48,8 +48,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 " git-messenger
 Plug 'rhysd/git-messenger.vim'
-"rtags
-Plug 'marxin/neo-rtags'
+"tags
+Plug 'jsfaint/gen_tags.vim'
 " vim-perl
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 
@@ -66,7 +66,6 @@ set formatoptions+=o    " Continue comment marker in new lines.
 set nojoinspaces    
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
-
 set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
@@ -77,19 +76,18 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set modeline
 " Spelling
 set spelllang=en,it
-set spell
+"set spell
 
-set termguicolors
+"set termguicolors
 set background=dark
-
-
-" Theme
-" There seems to be a issue with setting colors from plugins.
-" As workaround; do 
-" # mkdir ~/.config/nvim/colors; cp ~/.local/share/nvim/plugged/oceanic-next/colors/OceanicNext.vim ~/.config/nvim/colors/
+"
+"
+"" Theme
+"" There seems to be a issue with setting colors from plugins.
+"" As workaround; do 
+"" # mkdir ~/.config/nvim/colors; cp ~/.local/share/nvim/plugged/oceanic-next/colors/OceanicNext.vim ~/.config/nvim/colors/
 syntax on
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
@@ -162,9 +160,6 @@ nmap <C-Space><C-Space>d
 		\:vert scs find d <C-R>=expand("<cword>")<CR><CR>
 nmap <C-Space><C-Space>a
 		\:vert scs find a <C-R>=expand("<cword>")<CR><CR>
-
-" tagbar
-nmap <F8> :TagbarToggle<CR>
 
 " FZF
 " This is the default extra key bindings
@@ -280,3 +275,45 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Vista
+" How each level is indented and what to prepend.
+" This could make the display more compact or more spacious.
+" e.g., more compact: ["▸ ", ""]
+" Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
+" Executive used when opening vista sidebar without specifying it.
+" See all the avaliable executives via `:echo g:vista#executives`.
+let g:vista_default_executive = 'ctags'
+
+" Set the executive for some filetypes explicitly. Use the explicit executive
+" instead of the default one for these filetypes when using `:Vista` without
+" specifying the executive.
+let g:vista_executive_for = {
+  \ 'cpp': 'vim_lsp',
+  \ 'php': 'vim_lsp',
+  \ }
+
+" Declare the command including the executable and options used to generate ctags output
+" for some certain filetypes.The file path will be appened to your custom command.
+" For example:
+let g:vista_ctags_cmd = {
+      \ 'haskell': 'hasktags -x -o - -c',
+      \ }
+
+" To enable fzf's preview window set g:vista_fzf_preview.
+" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+" For example:
+let g:vista_fzf_preview = ['right:50%']
+" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+let g:vista#renderer#enable_icon = 1
+
+" The default icons can't be suitable for all the filetypes, you can extend it as you wish.
+let g:vista#renderer#icons = {
+\   "function": "\uf794",
+\   "variable": "\uf71b",
+\  }
+
+" gen_tag
+let g:gen_tags#statusline = 1
