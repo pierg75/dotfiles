@@ -28,8 +28,6 @@ Plug 'neomake/neomake'
 Plug 'arakashic/chromatica.nvim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" ALE
-" Plug 'w0rp/ale'
 " Highlight
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
