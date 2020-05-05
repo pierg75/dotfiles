@@ -50,6 +50,14 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'jsfaint/gen_tags.vim'
 " vim-perl
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+" Indent plugins
+Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
+" Startify
+Plug 'mhinz/vim-startify'
+" Better python colours
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
 
 
 " Initialize plugin system
