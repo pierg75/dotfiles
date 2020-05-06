@@ -172,20 +172,20 @@ nmap <C-Space><C-Space>a
 noremap <C-p> :Files<CR>
 noremap <C-f> :Rg<CR>
 noremap <C-h> :History<CR>
-"noremap <C-t> :BTags<CR>
+noremap <C-t> :BTags<CR>
+noremap <C-b> :Buffers<CR>
 noremap <C-l> :Lines<CR>
-noremap <C-w> :Buffers<CR>
 noremap <leader>; :History:<CR>
 
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
-function! s:list_buffers()
-  redir => list
-  silent ls
-  redir END
-  return split(list, "\n")
-endfunction
+"function! s:list_buffers()
+"  redir => list
+"  silent ls
+"  redir END
+"  return split(list, "\n")
+"endfunction
 
 command! BD call fzf#run(fzf#wrap({
   \ 'source': s:list_buffers(),
@@ -193,9 +193,9 @@ command! BD call fzf#run(fzf#wrap({
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
 
-noremap <c-d> :BD<CR>
+"noremap <c-d> :BD<CR>
 
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
+"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -204,12 +204,12 @@ let g:fzf_action = {
 
 " Default fzf layout
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
+"let g:fzf_layout = { 'down': '~40%' }
 
 " In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10split enew' }
+"let g:fzf_layout = { 'window': 'enew' }
+"let g:fzf_layout = { 'window': '-tabnew' }
+"let g:fzf_layout = { 'window': '10split enew' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -222,10 +222,42 @@ let g:fzf_colors =
   \ 'info':    ['fg', 'PreProc'],
   \ 'border':  ['fg', 'Ignore'],
   \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
+  \ 'pointer': ['fg', 'Exception"'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+
+let $FZF_DEFAULT_OPTS = '--layout=reverse'
+
+let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
+
+function! OpenFloatingWin()
+let height = &lines - 3
+let width = float2nr(&columns - (&columns * 2 / 10))
+let col = float2nr((&columns - width) / 2)
+
+let opts = {
+     \ 'relative': 'editor',
+     \ 'row': height * 0.3,
+     \ 'col': col + 30,
+     \ 'width': width * 2 / 3,
+     \ 'height': height / 2
+     \ }
+
+let buf = nvim_create_buf(v:false, v:true)
+let win = nvim_open_win(buf, v:true, opts)
+
+call setwinvar(win, '&winhl', 'Normal:Pmenu')
+
+setlocal
+     \ buftype=nofile
+     \ nobuflisted
+     \ bufhidden=hide
+     \ nonumber
+     \ norelativenumber
+     \ signcolumn=no
+endfunction
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
@@ -398,56 +430,16 @@ let g:coc_snippet_prev = '<c-k>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " Vista
-
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
-
-set statusline+=%{NearestMethodOrFunction()}
-
-" By default vista.vim never run if you don't call it explicitly.
-"
-" If you want to show the nearest function in your statusline automatically,
-" you can add the following line to your vimrc 
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-
-" How each level is indented and what to prepend.
-" This could make the display more compact or more spacious.
-" e.g., more compact: ["▸ ", ""]
-" Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-
-" Executive used when opening vista sidebar without specifying it.
-" See all the avaliable executives via `:echo g:vista#executives`.
-let g:vista_default_executive = 'ctags'
-
-" Set the executive for some filetypes explicitly. Use the explicit executive
-" instead of the default one for these filetypes when using `:Vista` without
-" specifying the executive.
-let g:vista_executive_for = {
-  \ 'cpp': 'vim_lsp',
-  \ 'php': 'vim_lsp',
-  \ }
-
-" Declare the command including the executable and options used to generate ctags output
-" for some certain filetypes.The file path will be appened to your custom command.
-" For example:
-let g:vista_ctags_cmd = {
-      \ 'haskell': 'hasktags -x -o - -c',
-      \ }
-
-" To enable fzf's preview window set g:vista_fzf_preview.
-" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
-" For example:
+noremap <c-t> :silent! Vista finder coc<CR>
+let g:vista_icon_indent = ["+-> ", "|-> "]
+let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
-" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
 let g:vista#renderer#enable_icon = 1
-
-" The default icons can't be suitable for all the filetypes, you can extend it as you wish.
-let g:vista#renderer#icons = {
-\   "function": "\uf794",
-\   "variable": "\uf71b",
-\  }
+function! NearestMethodOrFunction() abort
+	return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+set statusline+=%{NearestMethodOrFunction()}
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 " gen_tag
 let g:gen_tags#statusline = 1
