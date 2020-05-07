@@ -57,6 +57,8 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'mhinz/vim-startify'
 " Better python colours
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" Vista
+Plug 'liuchengxu/vista.vim'
 
 
 
@@ -197,10 +199,10 @@ command! BD call fzf#run(fzf#wrap({
 
 "let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+"let g:fzf_action = {
+"  \ 'ctrl-t': 'tab split',
+"  \ 'ctrl-x': 'split',
+"  \ 'ctrl-v': 'vsplit' }
 
 " Default fzf layout
 " - down / up / left / right
