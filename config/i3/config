@@ -171,6 +171,7 @@ bindsym Control+Mod1+l exec /home/plambri/bin/lock
 #}
 
 # Autostart apps
+exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id nm-applet
 exec --no-startup-id ~/bin/polybar.sh
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
