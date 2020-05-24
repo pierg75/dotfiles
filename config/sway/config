@@ -172,7 +172,7 @@ bindsym Control+Mod1+l exec /home/plambri/bin/lock
 
 # Status Bar:
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 12
+    font pango:DejaVu Sans Mono, FontAwesome 11
     position bottom
     status_command /usr/bin/i3status-rs ~/.config/sway/status.toml
     colors {
@@ -190,15 +190,11 @@ bar {
 # Autostart apps
 exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id nm-applet
-exec --no-startup-id ~/bin/polybar.sh
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
 exec --no-startup-id dunst -config ~/.config/dunst/config
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id redshift
-exec --no-startup-id nitrogen --restore
 exec --no-startup-id ~/bin/disable_power_saving.sh
-
-
 
 
 exec swayidle -w \
