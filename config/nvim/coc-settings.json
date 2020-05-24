@@ -11,5 +11,25 @@
            }
        }
      }
-  }
+  },
+  "diagnostic.virtualText": false,
+  "diagnostic.joinMessageLines": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.messageTarget": "float",
+  "diagnostic.level": "information",
+  "signature.enable": false,
+  "codeLens.enable": true,
+  "coc.preferences.snippets.enable": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "rust-analyzer.diagnostics.enable": true,
+  "rust-analyzer.serverPath": "/home/plambri/.local/bin/rust-analyzer-wrapper",
+  "python.jediEnabled": false
 }
