@@ -63,10 +63,10 @@ use_bits = false
 
 [[block]]
 block = "temperature"
-collapsed = true
-interval = 10
+collapsed = false
+interval = 5
 format = "{average}°"
-#chip = "k10temp-pci-00c3"
+chip = "k10temp-pci-00c3"
 
 [[block]]
 block = "time"
