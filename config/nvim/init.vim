@@ -444,5 +444,5 @@ set statusline+=%{NearestMethodOrFunction()}
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 " gen_tag
-let g:gen_tags#statusline = 1
+"let g:gen_tags#statusline = 1
 
