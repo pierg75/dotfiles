@@ -182,36 +182,11 @@ noremap <leader>; :History:<CR>
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
-"function! s:list_buffers()
-"  redir => list
-"  silent ls
-"  redir END
-"  return split(list, "\n")
-"endfunction
-
 command! BD call fzf#run(fzf#wrap({
   \ 'source': s:list_buffers(),
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
-
-"noremap <c-d> :BD<CR>
-
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
-
-"let g:fzf_action = {
-"  \ 'ctrl-t': 'tab split',
-"  \ 'ctrl-x': 'split',
-"  \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - down / up / left / right
-"let g:fzf_layout = { 'down': '~40%' }
-
-" In Neovim, you can set up fzf window using a Vim command
-"let g:fzf_layout = { 'window': 'enew' }
-"let g:fzf_layout = { 'window': '-tabnew' }
-"let g:fzf_layout = { 'window': '10split enew' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -266,14 +241,6 @@ endfunction
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-" To use ripgrep instead of ag:
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
 
 nnoremap <leader>f :Files<cr>
 
