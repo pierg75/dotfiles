@@ -246,7 +246,7 @@ nnoremap <leader>f :Files<cr>
 
 "ACK
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+   let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
 endif
 nnoremap <leader>t :Files<cr>
 nnoremap <leader>p :History<CR>
