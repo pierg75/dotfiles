@@ -1,5 +1,20 @@
+/* The full palete from light to dark
+ * 80FFDB 
+ * 72EFDD
+ * 64DFDF
+ * 56CFE1
+ * 48BFE3
+ * 4EA8DE
+ * 5390D9
+ * 5E60CE
+ * 6930C3
+ * 7400B8
+ */
+
+
+
 * {
-	font-size: 20px;
+	font-size: 19px;
 	font-family: monospace;
 }
 
@@ -17,16 +32,6 @@ window#waybar {
 	color: #292b2e;
 	background: #1a1a1a;
 }
-
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk,
 #tray {
 	background: #1a1a1a;
 }
@@ -47,28 +52,36 @@ window#waybar {
 	border: #1a1a1a;
 	padding: 0 3px;
 }
-
+#mpd {
+	color: #56CFE1;
+	/* background: #1a1a1a; */
+}
 #pulseaudio {
-	color: #268bd2;
+	color: #48BFE3;
+	background: #1a1a1a;
 }
 #memory {
-	color: #2aa198;
+	color: #4EA8DE;
+	background: #1a1a1a;
 }
 #cpu {
-	color: #6c71c4;
+	color: #5390D9;
+	background: #1a1a1a;
 }
 #battery {
-	color: #859900;
+	color: #5E60CE;
+	background: #1a1a1a;
 }
 #disk {
-	color: #b58900;
+	color: #6930C3;
+	padding: 0 5px;
+	background: #1a1a1a;
 }
-
-#clock,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk {
-	padding: 0 10px;
+#network {
+	color: #7400B8;
+	background: #1a1a1a;
+}
+#clock {
+	color: #FDFFFC;
+	background: #1a1a1a;
 }
