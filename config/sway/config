@@ -1,6 +1,7 @@
 input * {
     xkb_layout "gb,us,it"
     xkb_options "grp:win_space_toggle"
+    xkb_capslock disable
 }
 
 # Logo key. Use Mod1 for Alt.
@@ -16,7 +17,7 @@ set $right l
 set $term st -f 'Hack-10'
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/plambri/Documents/Wallpappers/black-textile-952670.jpg fill
+output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -28,6 +29,14 @@ font pango:Hack Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# Special keys
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
@@ -170,18 +179,7 @@ bindsym Control+Mod1+l exec /home/plambri/bin/lock
 
 # Status Bar:
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 11
-    position bottom
-    status_command /usr/bin/i3status-rs ~/.config/sway/status.toml
-    colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
+    swaybar_command waybar
 }
 
 
@@ -193,6 +191,7 @@ exec --no-startup-id dunst -config ~/.config/dunst/config
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id redshift
 exec --no-startup-id ~/bin/disable_power_saving.sh
+exec --no-startup-id ~/bin/set_bright
 
 
 exec swayidle -w \
