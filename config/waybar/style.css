@@ -85,3 +85,13 @@ window#waybar {
 	color: #FDFFFC;
 	background: #1a1a1a;
 }
+#custom-vpn.connected {
+	color: #00ff00;
+	border: #FDFFFC;
+	background: #1a1a1a;
+}
+#custom-vpn.disconnected {
+	color: #e50000;
+	border: #FDFFFC;
+	background: #1a1a1a;
+}

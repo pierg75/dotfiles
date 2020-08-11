@@ -30,6 +30,9 @@
         "network",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
+        "custom/vpn",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
 		"clock",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
@@ -112,12 +115,19 @@
 		"path": "/home"
 	},
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "custom/vpn": {
+        "format": "{icon}",
+        "tooltip-format": "{icon}",
+        "return-type": "json",
+        "interval": 30,
+        "exec": "$HOME/bin/check_vpn.sh",
+        "format-icons": ["",""]        
     },
 	"tray": {
 		"icon-size": 20
