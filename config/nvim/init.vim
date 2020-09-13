@@ -69,12 +69,15 @@ set mouse=a
 set modeline
 set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
+set relativenumber
 set formatoptions+=o    " Continue comment marker in new lines.
 set nojoinspaces    
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
 set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
+set hlsearch            " Highlight search matches
+set incsearch           " Perform incremental searching
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 
 " Indentation settings
