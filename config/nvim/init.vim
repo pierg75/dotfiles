@@ -413,3 +413,6 @@ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 " gen_tag
 "let g:gen_tags#statusline = 1
 
+" Disable markdown concealing
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0

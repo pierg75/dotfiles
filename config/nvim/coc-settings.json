@@ -13,7 +13,6 @@
      }
   },
   "diagnostic.virtualText": false,
-  "diagnostic.joinMessageLines": true,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.messageTarget": "float",
   "diagnostic.level": "information",
@@ -29,7 +28,8 @@
     "typescript",
     "typescriptreact"
   ],
-  "rust-analyzer.diagnostics.enable": true,
-  "rust-analyzer.serverPath": "/home/plambri/.local/bin/rust-analyzer-wrapper",
-  "python.jediEnabled": false
+  "python.jediEnabled": false,
+  "rust-analyzer.diagnostics.enable": false,
+  "rust-analyzer.inlayHints.chainingHints": true,
+  "rust-analyzer.serverPath": "/home/plambri/.local/bin/rust-analyzer"
 }
