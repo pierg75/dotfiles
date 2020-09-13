@@ -15,8 +15,6 @@ Plug 'MaxSt/FlatColor'
 Plug 'ChrisKempson/Tomorrow-Theme'
 " Drawit
 Plug 'vim-scripts/DrawIt'
-" vista
-Plug 'liuchengxu/vista.vim'
 " FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -31,7 +29,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Highlight
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
-" Better match up
+" Better matching text/brackets plugin
 Plug 'andymass/vim-matchup'
 " Syntactic language support
 Plug 'cespare/vim-toml'
@@ -41,23 +39,24 @@ Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'timonv/vim-cargo'
-" Vim-racer
+" Git for VIM plus a GIT commit browser (gv)
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-" git-messenger
+" git-messenger (shows git commits)
 Plug 'rhysd/git-messenger.vim'
 "tags
 Plug 'jsfaint/gen_tags.vim'
 " vim-perl
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
-" Indent plugins
+" Shows vertical lines at each identation
 Plug 'Yggdroot/indentLine'
+" Adds identation lines (from indentLine) in empty lines
 Plug 'lukas-reineke/indent-blankline.nvim'
-" Startify
+" Startify (smart start screen)
 Plug 'mhinz/vim-startify'
 " Better python colours
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-" Vista
+" Vista (viewer for LSP and tags)
 Plug 'liuchengxu/vista.vim'
 
 
