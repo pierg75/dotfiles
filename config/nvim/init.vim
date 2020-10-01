@@ -326,6 +326,12 @@ augroup mygroup
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " save files when focus is lost
+  autocmd BufLeave * silent! update
+  " configure indentation for python
+  autocmd FileType python set expandtab tabstop=4 softtabstop=4 shiftwidth=4
+  " configure indentation for python
+  autocmd FileType rust set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 augroup end
 
 " Applying codeAction to the selected region.
