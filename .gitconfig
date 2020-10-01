@@ -8,7 +8,11 @@
 [delta]
     plus-color = "#012800"
     minus-color = "#340001"
-    syntax-theme = Monokai Extended
+    #syntax-theme = Monokai Extended
+    side-by-side = true
+    line-numbers-left-format = ""
+    line-numbers-right-format = "│ "
+    syntax-theme = Nord
 
 [interactive]
     diffFilter = delta --color-only
