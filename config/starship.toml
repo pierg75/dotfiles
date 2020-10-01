@@ -1,0 +1,17 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+[line_break]
+disabled = true
+
+[character]
+vicmd_symbol = "[V](bold green) "
+
+[hostname]
+ssh_only = false
+format =  "on [$hostname](bold red) "
+trim_at = ".redhat.com"
+disabled = true
+
+[directory]
+truncation_length = 4
+truncate_to_repo = false
