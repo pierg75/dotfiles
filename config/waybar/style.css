@@ -14,84 +14,162 @@
 
 
 * {
-	font-size: 19px;
-	font-family: monospace;
+   border: none;
+   font-size: 19px;
+   margin: 1;
+   font-family: Product Sans ,Arial, Helvetica, sans-serif;
+}
+
+#window {
+    background-color: transparent;
+    color: #2e3440;
+    padding-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 window#waybar {
-	background: #292b2e;
-	color: #fdf6e3;
+    background: #292b2e;
+    color: #fdf6e3;
 }
 
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
-	color: #1a1a1a;
-}
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-	color: #292b2e;
-	background: #1a1a1a;
-}
 #tray {
 	background: #1a1a1a;
 }
 
+
 #workspaces button {
-	padding: 0 2px;
-	color: #fdf6e3;
+  font-size: 14px;
+  border-radius: 0px;
+  margin: 0;
+  padding: 0 12 0 12;
+  background-color: transparent;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  color: #ffffff;
 }
+#workspaces button:hover {
+    box-shadow: inherit;
+    color: #5e81ac;
+}
+
 #workspaces button.focused {
-	color: #e50000;
+    color: #81a1c1;
 }
-#workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
+
+#workspaces button.urgent {
+    color: #eb4d4b;
 }
-#workspaces button:hover {
-	background: #1a1a1a;
-	border: #1a1a1a;
-	padding: 0 3px;
-}
+
 #mpd {
+    padding: 0 10px;
 	color: #56CFE1;
-	/* background: #1a1a1a; */
+    background-color: transparent;
 }
-#pulseaudio {
-	color: #48BFE3;
-	background: #1a1a1a;
+
+#cpu, #memory {
+  margin-left: 0;
+  margin-right: 0;
+  color: #fbba85;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
 }
-#memory {
-	color: #4EA8DE;
-	background: #1a1a1a;
+
+#backlight, #pulseaudio {
+  margin-left: 0;
+  margin-right: 0;
+  color: #e3ffba;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
 }
-#cpu {
-	color: #5390D9;
-	background: #1a1a1a;
-}
-#battery {
-	color: #5E60CE;
-	background: #1a1a1a;
-}
+
 #disk {
-	color: #6930C3;
-	padding: 0 5px;
-	background: #1a1a1a;
+  margin-left: 0;
+  margin-right: 0;
+  color: #ff7100;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
 }
-#network {
-	color: #7400B8;
-	background: #1a1a1a;
+
+#idle_inhibitor, #network, #custom-media, #temperature {
+  margin-left: 0;
+  margin-right: 0;
+  color: #80FFDB;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
 }
+
 #clock {
-	color: #FDFFFC;
-	background: #1a1a1a;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
 }
+
 #custom-vpn.connected {
 	color: #00ff00;
 	border: #FDFFFC;
-	background: #1a1a1a;
+    background-color: transparent;
 }
 #custom-vpn.disconnected {
 	color: #e50000;
 	border: #FDFFFC;
-	background: #1a1a1a;
+    background-color: transparent;
 }
+
+#clock {
+  background-color: transparent;
+  border-radius: 10px;
+  margin-right: 10;
+  font-size: 14px;
+  padding: 0px 0px 0px 8px;
+}
+#tray {
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #3b4252 ;
+	padding: 0px 12px 0px 8px;
+  border-radius: 0 10px 10px 0;
+  margin-right: 10;
+  color: #8fbcbb;
+}
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+label:focus {
+    background-color: #000000;
+}
+
+#idle_inhibitor {
+  background-color: #3b4252 ;
+  font-size: 20px;
+  color: #6f7787;
+  padding: 0 12 0 12;
+  border-radius: 10px 0 0 10px;
+  margin-left: 10;
+}
+
+#idle_inhibitor.activated {
+  color: #ffffff;
+}
+#mpd.disconnected {
+    padding: 0 10px;
+	color: #56CFE1;
+    background-color: transparent;
+}
+
+#mpd.stopped {
+    padding: 0 10px;
+	color: #ae03ff;
+    background-color: transparent;
+}
+
+#mpd.paused {
+    padding: 0 10px;
+	color: #37aabd;
+    background-color: transparent;
+}
+
