@@ -29,16 +29,16 @@
         },
         "format-icons": {
             "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
             "focused": "",
             "urgent": "",
             "default": ""
         },
-        "icon-size": 12
+        "icon-size": 14
 	},
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -106,18 +106,18 @@
 	},
 	"disk": {
 		"interval": 5,
-		"format": "/ {percentage_used:2}%",
+		"format": "🖴 / {percentage_used:2}%",
 		"path": "/"
 	},
 	"disk#home": {
 		"interval": 5,
-		"format": "/home {percentage_used:2}%",
+		"format": "🖴 /home {percentage_used:2}%",
 		"path": "/home"
 	},
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} 🖧",
+        "format-linked": "{ifname} (No IP) 🖧",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "interval": 60,
