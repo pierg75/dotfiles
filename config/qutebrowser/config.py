@@ -11,4 +11,14 @@ c.tabs.width = "12%"
 c.completion.shrink = True
 c.editor.command = ["termite", "-e", "nvim '{}'"]
 c.content.javascript.enabled = True
-
+c.qt.args = ["auth-server-whitelist=*redhat.com"]
+c.url.searchengines = {
+    "DEFAULT": "https://duckduckgo.com/?q={}",
+    "g": "https://www.google.com/search?q={}",
+    "r": "https://reddit.com/r/{}",
+    "w": "https://en.wikipedia.org/w/index.php?search={}",
+    "gh": "https://github.com/search?q={}",
+    "rstd": "https://doc.rust-lang.org/std/index.html?search={}",
+    "crate": "https://crates.io/search?q={}",
+    "rdocs": "https://docs.rs/releases/search?query={}",
+}
