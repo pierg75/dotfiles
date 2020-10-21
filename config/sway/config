@@ -167,9 +167,15 @@ bindsym $mod+m         exec xrandr --output eDP-1 --auto --output DP-2-2 --off -
 bindsym $mod+shift+m   exec xrandr --output eDP-1 --auto --output DP-2-2 --auto --right-of eDP-1
 
 # scrot - root
-bindsym Print exec import -window root /tmp/screenshot.png
+# bindsym Print exec import -window root /tmp/screenshot.png
 # scrot - select window or rectangle
-bindsym Mod1+Print exec import /tmp/screenshot.png
+# bindsym Mod1+Print exec import /tmp/screenshot.png
+bindsym $mod+Print exec grim -t jpeg ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).jpg
+bindsym $mod+Shift+Print exec grim -t jpeg -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).jpg
+
+# Notifications
+bindsym $mod+x exec makoctl dismiss
+bindsym $mod+Shift+x exec makoctl dismiss --all
 
 # Lock monitors
 bindsym Control+Mod1+l exec /home/plambri/bin/lock
@@ -187,7 +193,8 @@ bar {
 exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
-exec --no-startup-id dunst -config ~/.config/dunst/config
+# exec --no-startup-id dunst -config ~/.config/dunst/config
+exec --no-startup-id mako --anchor top-right
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id redshift
 exec --no-startup-id ~/bin/disable_power_saving.sh
