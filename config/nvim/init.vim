@@ -23,7 +23,7 @@ Plug 'mileszs/ack.vim'
 " Neomake
 Plug 'neomake/neomake'
 " Chromatica
-Plug 'arakashic/chromatica.nvim'
+" Plug 'arakashic/chromatica.nvim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Highlight
@@ -283,7 +283,6 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
 let g:rust_clip_command = 'xclip -selection clipboard'
-let $RUST_SRC_PATH = systemlist("rustc --print sysroot")[0] . "/lib/rustlib/src/rust/src"
 
 " vim-racer
 set hidden
