@@ -12,7 +12,8 @@
 		"pulseaudio",
 		"memory",
 		"cpu",
-		"battery",
+		"battery#0",
+		"battery#1",
 		"disk",
         "disk#home",
         "custom/vpn",
@@ -89,13 +90,30 @@
         "format": "{usage}% ",
         "tooltip": true
     },
-	"battery": {
+	"battery#0": {
+        "bat": "BAT0",
 		"states": {
 			"good": 95,
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "{icon} {capacity}%",
+		"format": "0:{icon} {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"battery#1": {
+        "bat": "BAT1",
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "1:{icon} {capacity}%",
 		"format-icons": [
 			"",
 			"",
