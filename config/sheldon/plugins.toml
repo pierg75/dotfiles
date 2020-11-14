@@ -25,9 +25,14 @@ github = "romkatv/zsh-defer"
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
-[plugins.spaceship]
-github = 'denysdovhan/spaceship-prompt'
-apply = ["defer"]
+[plugins.git]
+github = 'davidde/git'
+
+[plugins.you-should-use]
+github = 'MichaelAquilina/zsh-you-should-use'
+
+[plugins.rustup-completion]
+github = 'pkulev/zsh-rustup-completion'
 
 [templates]
 defer = { value = 'zsh-defer source "{{ file }}"', each = true }
