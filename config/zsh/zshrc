@@ -74,7 +74,15 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Workaround for bomgar fonts
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
+# Sane history backward search
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+
+# Move back/forward one word
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+
 # Starship
 eval "$(starship init zsh)"
 source <(sheldon source)
-
