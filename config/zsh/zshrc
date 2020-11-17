@@ -4,6 +4,15 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.npm-packages/bin:$H
 # Rebuilds the cache of executable commands
 zstyle ":completion:*:commands" rehash 1
 
+# Set some useful options
+setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
+setopt ALWAYS_TO_END       # Move cursor to the end of a completed word.
+setopt PATH_DIRS           # Perform path search even on command names with slashes.
+setopt AUTO_MENU           # Show completion menu on a successive tab press.
+setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
+setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a trailing slash.
+setopt EXTENDED_GLOB       # Needed for file modification glob modifiers with compinit
+setopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 
 # Keep 99999 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=99999
@@ -36,6 +45,12 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle :compinstall filename '/home/plambri/.zshrc'
+# Directories
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
+zstyle ':completion:*' squeeze-slashes true
 
 untar (){
     for i in *.$1; do tar xvf $i; done
@@ -85,6 +100,12 @@ bindkey '\e[B' history-beginning-search-forward
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# Begin/end keys
+bindkey "\033[1~" beginning-of-line
+bindkey "\033[4~" end-of-line
+
+# Delete key
+bindkey "\e[3~" delete-char 
 
 # urlscan browser
 export BROWSER=qutebrowser
