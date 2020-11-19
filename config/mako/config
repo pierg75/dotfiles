@@ -4,6 +4,7 @@ padding=10
 margin=10
 border-size=2
 default-timeout=5000
+icons=0
 
 background-color=#231f20
 border-color=#009ddc
