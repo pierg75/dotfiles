@@ -13,13 +13,13 @@ Plug 'scrooloose/nerdtree'
 " Nerdtree plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Colorscheme
-Plug 'baskerville/bubblegum'
+" Plug 'baskerville/bubblegum'
 " Colorscheme
-Plug 'mhartington/oceanic-next'
+" Plug 'mhartington/oceanic-next'
 " Colorscheme
-Plug 'MaxSt/FlatColor'
+" Plug 'MaxSt/FlatColor'
 " Colorscheme
-Plug 'ChrisKempson/Tomorrow-Theme'
+" Plug 'ChrisKempson/Tomorrow-Theme'
 " Drawit
 Plug 'vim-scripts/DrawIt'
 " FZF
@@ -65,6 +65,8 @@ Plug 'mhinz/vim-startify'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " Vista (viewer for LSP and tags)
 Plug 'liuchengxu/vista.vim'
+" Theme edge
+Plug 'sainnhe/edge'
 
 
 
@@ -97,7 +99,6 @@ set expandtab
 set spelllang=en,it
 "set spell
 
-"set termguicolors
 set background=dark
 
 " Some servers have issues with backup files, see #649.
@@ -121,7 +122,17 @@ set shortmess+=c
 syntax on
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
+" colorscheme OceanicNext
+if has('termguicolors')
+    set termguicolors
+endif
+" The configuration options should be placed before `colorscheme edge`.
+let g:edge_style = 'aura'
+let g:edge_enable_italic = 1
+let g:edge_disable_italic_comment = 1
+let g:edge_diagnostic_line_highlight = 1
+colorscheme edge
+
 
 " NERD_tree config
 let NERDTreeHighlightCursorline=1
@@ -422,6 +433,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+let g:lightline = {'colorscheme' : 'edge'}
 
 " Mappings for CoCList
 " Show all diagnostics.
