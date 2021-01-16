@@ -67,7 +67,8 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'liuchengxu/vista.vim'
 " Theme edge
 Plug 'sainnhe/edge'
-
+" Terminal in a floating window
+Plug 'voldikss/vim-floaterm'
 
 
 " Initialize plugin system
@@ -488,3 +489,9 @@ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 " Disable markdown concealing
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+
+" Floatterm
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
