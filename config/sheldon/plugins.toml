@@ -34,5 +34,9 @@ github = 'MichaelAquilina/zsh-you-should-use'
 [plugins.rustup-completion]
 github = 'pkulev/zsh-rustup-completion'
 
+[plugins.zsh-completions]
+github = 'zsh-users/zsh-completions'
+
 [templates]
 defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+
