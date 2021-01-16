@@ -69,6 +69,8 @@ Plug 'liuchengxu/vista.vim'
 Plug 'sainnhe/edge'
 " Terminal in a floating window
 Plug 'voldikss/vim-floaterm'
+" C/C++ syntax
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 
 " Initialize plugin system
