@@ -10,7 +10,6 @@ $git_status\
 $package\
 $dart\
 $dotnet\
-$python\
 $rust\
 $nix_shell\
 $memory_usage\
