@@ -7,42 +7,34 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Make sure you use single quotes
-" Nerdtree
-Plug 'scrooloose/nerdtree'
-" Nerdtree plugin
-Plug 'Xuyuanp/nerdtree-git-plugin'
-" Colorscheme
-" Plug 'baskerville/bubblegum'
-" Colorscheme
-" Plug 'mhartington/oceanic-next'
-" Colorscheme
-" Plug 'MaxSt/FlatColor'
-" Colorscheme
-" Plug 'ChrisKempson/Tomorrow-Theme'
-" Drawit
-Plug 'vim-scripts/DrawIt'
-" FZF
+
+
+" GUI enhancements
+Plug 'itchyny/lightline.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'andymass/vim-matchup'
+Plug 'ryanoasis/vim-devicons'
+" Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Nerdtree
+"Plug 'scrooloose/nerdtree'
+" Nerdtree plugin
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+" CHADtree (alternative to nerdtree
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+" Drawit
+Plug 'vim-scripts/DrawIt'
 " ACK
 Plug 'mileszs/ack.vim'
 " Neomake
 Plug 'neomake/neomake'
-" Chromatica
-" Plug 'arakashic/chromatica.nvim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Highlight
-Plug 'itchyny/lightline.vim'
-Plug 'machakann/vim-highlightedyank'
-" Better matching text/brackets plugin
-Plug 'andymass/vim-matchup'
 " Syntactic language support
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
-Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'timonv/vim-cargo'
@@ -91,6 +83,8 @@ set smartcase           " ... unless the query has capital letters.
 set hlsearch            " Highlight search matches
 set incsearch           " Perform incremental searching
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
+set encoding=UTF-8
+
 
 " Indentation settings
 set cindent
@@ -138,13 +132,13 @@ colorscheme edge
 
 
 " NERD_tree config
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
-let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$', '\nvim.init$',]
-let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
-let NERDTreeShowBookmarks=1
-map <F3> :NERDTreeToggle<CR>
+"let NERDTreeHighlightCursorline=1
+"let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
+"let NERDTreeChDirMode=2
+"let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$', '\nvim.init$',]
+"let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+"let NERDTreeShowBookmarks=1
+map <F3> :CHADopen<CR>
 
 " Cscope settings
 if has("cscope")
