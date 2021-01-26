@@ -1,12 +1,7 @@
 
 [options]
-#font = Inconsolata 10
-#font = DejaVu Sans Mono 10
-#font = Fira Mono 10
-#font = Droid Sans Mono 11
-#font = Terminus (TTF) 10
-#font = Monospace 10
-font = Hack 10
+#font = Hack Nerd Font Mono 10
+font = Inconsolata Nerd Font Mono 12
 
 clickable_url = true
 #browser = firefox
