@@ -16,6 +16,10 @@ c.qt.args = ["auth-server-whitelist=*redhat.com"]
 # Prevents *all* tabs from being loaded on restore, only loads on activating them
 c.session.lazy_restore = True
 
+# Load dark mode
+c.colors.webpage.prefers_color_scheme_dark = True
+c.colors.webpage.darkmode.enabled = True
+
 # Search engines
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
@@ -29,3 +33,5 @@ c.url.searchengines = {
     "crate": "https://crates.io/search?q={}",
     "rdocs": "https://docs.rs/releases/search?query={}",
 }
+
+c.colors.webpage.darkmode.*
