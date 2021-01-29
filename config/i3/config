@@ -32,7 +32,7 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec termite
-bindsym $mod+Return exec st -f 'Hack-10'
+bindsym $mod+Return exec st -f "Hack Nerd Font Mono:size=12"
 
 # kill focused window
 bindsym $mod+Shift+q kill
