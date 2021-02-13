@@ -17,10 +17,6 @@ Plug 'ryanoasis/vim-devicons'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Nerdtree
-"Plug 'scrooloose/nerdtree'
-" Nerdtree plugin
-"Plug 'Xuyuanp/nerdtree-git-plugin'
 " CHADtree (alternative to nerdtree
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 " Drawit
@@ -118,10 +114,10 @@ set shortmess+=c
 " There seems to be a issue with setting colors from plugins.
 " As workaround; do 
 " # mkdir ~/.config/nvim/colors; cp ~/.local/share/nvim/plugged/oceanic-next/colors/OceanicNext.vim ~/.config/nvim/colors/
-syntax on
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
 " colorscheme OceanicNext
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+syntax on
 if has('termguicolors')
     set termguicolors
 endif
@@ -132,14 +128,6 @@ let g:edge_disable_italic_comment = 1
 let g:edge_diagnostic_line_highlight = 1
 colorscheme edge
 
-
-" NERD_tree config
-"let NERDTreeHighlightCursorline=1
-"let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
-"let NERDTreeChDirMode=2
-"let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$', '\nvim.init$',]
-"let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
-"let NERDTreeShowBookmarks=1
 map <F3> :CHADopen<CR>
 
 " Cscope settings
@@ -287,12 +275,6 @@ nnoremap <leader>b :Buffers<CR>
 " Neomake config
 " normal mode (after 1s; no delay when writing).
 call neomake#configure#automake('nrwi', 500)
-
-" Chromatica
-" On newer Fedora you need to make a link for clang lib:
-" ln -s /usr/lib64/libclang.so.9 /usr/lib64/libclang.so
-let g:chromatica#libclang_path='/usr/lib64/'
-let g:chromatica#enable_at_startup=1
 
 " racer + rust
 let g:rustfmt_command = "rustfmt +nightly"
