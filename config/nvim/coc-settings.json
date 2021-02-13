@@ -22,6 +22,7 @@
   "diagnostic.level": "information",
   "signature.enable": false,
   "codeLens.enable": true,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.snippets.enable": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",

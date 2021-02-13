@@ -63,6 +63,8 @@ Plug 'sainnhe/edge'
 Plug 'voldikss/vim-floaterm'
 " C/C++ syntax
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+" statusline enhancer
+Plug 'nvim-lua/lsp-status.nvim'
 
 
 " Initialize plugin system
@@ -367,6 +369,23 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Displays current function on the status bar
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'edge',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
+      \ }
+
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -426,11 +445,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-let g:lightline = {'colorscheme' : 'edge'}
 
 " Mappings for CoCList
 " Show all diagnostics.
