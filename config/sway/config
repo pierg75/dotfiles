@@ -15,7 +15,8 @@ set $right l
 
 # Your preferred terminal emulator
 # set $term st -f 'Hack-10'
-set $term st -f 'Hack Nerd Font Mono-10'
+# set $term st -f 'Hack Nerd Font Mono-10'
+set $term alacritty
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
@@ -42,7 +43,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec termite
-bindsym $mod+Return exec st -f 'Hack-10'
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
