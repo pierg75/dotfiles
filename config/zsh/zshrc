@@ -152,24 +152,50 @@ _fzf_compgen_dir() {
 # Workaround for bomgar fonts
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
-# Sane history backward search
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
+# If someone switches our terminal to application mode (smkx), translate keys to make
+# them appear the same as in raw mode (rmkx).
+bindkey -s '^[OH' '^[[H'  # home
+bindkey -s '^[OF' '^[[F'  # end
+bindkey -s '^[OA' '^[[A'  # up
+bindkey -s '^[OB' '^[[B'  # down
+bindkey -s '^[OD' '^[[D'  # left
+bindkey -s '^[OC' '^[[C'  # right
 
-# Move back/forward one word
+# TTY sends different key codes. Translate them to regular.
+bindkey -s '^[[1~' '^[[H'  # home
+bindkey -s '^[[4~' '^[[F'  # end
+
+# Some standard keys
+bindkey '^?'      backward-delete-char          # bs         delete one char backward
+bindkey '^[[3~'   delete-char                   # delete     delete one char forward
+bindkey '^[[H'    beginning-of-line             # home       go to the beginning of line
+bindkey '^[[F'    end-of-line                   # end        go to the end of line
+#bindkey '^[[1;5C' forward-word                  # ctrl+right go forward one word
+#bindkey '^[[1;5D' backward-word                 # ctrl+left  go backward one word
+bindkey '^H'      backward-kill-word            # ctrl+bs    delete previous word
+bindkey '^[[3;5~' kill-word                     # ctrl+del   delete next word
+bindkey '^J'      backward-kill-line            # ctrl+j     delete everything before cursor
+bindkey '^[[D'    backward-char                 # left       move cursor one char backward
+bindkey '^[[C'    forward-char                  # right      move cursor one char forward
+#bindkey '^[[A'    up-line-or-beginning-search   # up         prev command in history
+#bindkey '^[[B'    down-line-or-beginning-search # down       next command in history
+
+
+# Sane history backward search
+bindkey '^[[A'  history-beginning-search-backward   # up         prev command in history
+bindkey '^[[B'  history-beginning-search-forward    # down       next command in history
+
+# Better alternatives tp move back/forward one word
 #bindkey "^[[1;5C" vi-forward-blank-word
 #bindkey "^[[1;5D" vi-backward-blank-word
 bindkey "^[[1;5C" vi-forward-word
 bindkey "^[[1;5D" vi-backward-word
 
 # Begin/end keys
-bindkey "\033[1~" beginning-of-line
-bindkey "^[[1~" beginning-of-line
-bindkey "\033[4~" end-of-line
-bindkey "^[[4~" end-of-line
-
-# Delete key
-bindkey "\e[3~" delete-char 
+#bindkey "\033[1~" beginning-of-line
+#bindkey "^[[1~" beginning-of-line
+#bindkey "\033[4~" end-of-line
+#bindkey "^[[4~" end-of-line
 
 # urlscan browser
 export BROWSER=qutebrowser
