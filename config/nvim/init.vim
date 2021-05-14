@@ -265,7 +265,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <leader>f :Files<cr>
 
 "ACK
-if executable('ag')
+if executable('rg')
    let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
 endif
 nnoremap <leader>t :Files<cr>
@@ -478,9 +478,21 @@ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 " gen_tag
 "let g:gen_tags#statusline = 1
 
-" Disable markdown concealing
+" disable header folding
+let g:vim_markdown_folding_disabled = 1
+
+" do not use conceal feature, the implementation is not so good
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+
+" disable math tex conceal feature
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+
+" support front matter of various format
+let g:vim_markdown_frontmatter = 1  " for YAML format
+let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+let g:vim_markdown_json_frontmatter = 1  " for JSON format
 
 " Floatterm
 let g:floaterm_keymap_new    = '<F7>'
