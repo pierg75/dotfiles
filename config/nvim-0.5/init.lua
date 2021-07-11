@@ -1,18 +1,22 @@
--- Auto install of packer
-local execute = vim.api.nvim_command
+-- Map leader to space
+vim.g.mapleader = ' '
+
 local fn = vim.fn
+local execute = vim.api.nvim_command        -- Sensible defaults
+require('settings')
 
+-- Key mappings
+require('keymappings')
+
+
+-- Auto install packer.nvim if not exists
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  execute 'packadd packer.nvim'
 end
+vim.cmd [[packadd packer.nvim]]
+vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
--- load all plugins
-require "plugins"
-
-local g = vim.g
-
-g.mapleader = " "
-g.auto_save = false
+require('plugins')
+require('config')
+require('lsp_lua')
