@@ -10,7 +10,7 @@ local opts = {
         -- whether to show hover actions inside the hover window
         -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
         -- default: true
-        hover_with_actions = true,
+        hover_with_actions = false,
 
         -- These apply to the default RustRunnables command
         runnables = {
@@ -25,7 +25,7 @@ local opts = {
         inlay_hints = {
             -- wheter to show parameter hints with the inlay hints or not
             -- default: true
-            show_parameter_hints = true,
+            show_parameter_hints = false,
 
             -- prefix for parameter hints
             -- default: "<-"

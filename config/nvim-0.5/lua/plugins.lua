@@ -2,10 +2,16 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
     
   -- Packer can manage itself as an optional plugin
-  use {'wbthomason/packer.nvim', opt = true}
+  use {
+        'wbthomason/packer.nvim', 
+        opt = true
+  }
 
   -- Color scheme
-  use {'joshdick/onedark.vim'}
+  use {
+        'joshdick/onedark.vim',
+        branch = 'main'
+  }
 
 
   -- Fuzzy finder
@@ -20,6 +26,7 @@ return require('packer').startup(function()
   use {'glepnir/lspsaga.nvim'}
   use {'simrat39/rust-tools.nvim'}
   use {'nvim-lua/lsp_extensions.nvim'}
+  use {'ray-x/lsp_signature.nvim'}
 
   -- Highlights
   use {
@@ -34,10 +41,6 @@ return require('packer').startup(function()
   -- Lua development
   use {'tjdevries/nlua.nvim'}
   use {'euclidianAce/BetterLua.vim'}
-
-
-  -- Vim dispatch
-  use {'tpope/vim-dispatch'}
 
   -- Fugitive for Git
   use {'tpope/vim-fugitive'}
@@ -63,5 +66,14 @@ return require('packer').startup(function()
   use {'ylcnfrht/vscode-python-snippet-pack'}
   use {'rust-lang/vscode-rust'}
 
+  -- Rainbow parens
+  use 'p00f/nvim-ts-rainbow'
+
+  -- Trouble
+  use {
+      'folke/trouble.nvim',
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = function() require("trouble").setup {} end
+  }
 end)
 

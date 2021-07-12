@@ -1,6 +1,7 @@
 USER = vim.fn.expand('$USER')
 
 local nvim_lsp = require('lspconfig')
+local nvim_compe = require('compe')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 -- Language specific key mappings
@@ -118,10 +119,10 @@ vim.g.symbols_outline = {
 -- LSP Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
+        virtual_text = true,
         underline = true,
         signs = true,
-        update_in_insert = false
+        update_in_insert = true
     })
 
 -- Send diagnostics to quickfix list

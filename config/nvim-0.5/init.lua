@@ -18,4 +18,3 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 require('lang')
 require('plugins')
 require('config')
-require('lsp_lua')
