@@ -1,3 +1,8 @@
 require('config.colorscheme')
 require('config.completion')
 require('config.fugitive')
+require('config.statusline')
+require('config.bufferline')
+require('config.treesitter')
+require('config.lspsaga')
+require('config.rust-tools')

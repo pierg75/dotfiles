@@ -16,6 +16,20 @@ return require('packer').startup(function()
 
   -- LSP and completion
   use {'neovim/nvim-lspconfig'}
+  use {'hrsh7th/nvim-compe'}
+  use {'glepnir/lspsaga.nvim'}
+  use {'simrat39/rust-tools.nvim'}
+  use {'nvim-lua/lsp_extensions.nvim'}
+
+  -- Highlights
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+      'nvim-treesitter/nvim-treesitter-refactor',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    run = ':TSUpdate',
+  }
 
   -- Lua development
   use {'tjdevries/nlua.nvim'}
@@ -27,6 +41,27 @@ return require('packer').startup(function()
 
   -- Fugitive for Git
   use {'tpope/vim-fugitive'}
+
+  -- Statusline
+  use {
+      'famiu/feline.nvim',
+      requires = {{'kyazdani42/nvim-web-devicons'}, {'lewis6991/gitsigns.nvim'}}
+  }
+
+  -- Bufferline
+  use {'akinsho/nvim-bufferline.lua'}
+
+  -- indents
+  use {'lukas-reineke/indent-blankline.nvim'}
+
+  -- Tree
+  use {'kyazdani42/nvim-tree.lua'}
+
+  -- Snippets
+  use {'hrsh7th/vim-vsnip'}
+  use {'cstrap/python-snippets'}
+  use {'ylcnfrht/vscode-python-snippet-pack'}
+  use {'rust-lang/vscode-rust'}
 
 end)
 

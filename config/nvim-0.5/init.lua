@@ -5,8 +5,6 @@ local fn = vim.fn
 local execute = vim.api.nvim_command        -- Sensible defaults
 require('settings')
 
--- Key mappings
-require('keymappings')
 
 
 -- Auto install packer.nvim if not exists
@@ -17,6 +15,7 @@ end
 vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
+require('lang')
 require('plugins')
 require('config')
 require('lsp_lua')
