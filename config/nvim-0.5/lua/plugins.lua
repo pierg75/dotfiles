@@ -76,11 +76,15 @@ return require('packer').startup(function()
       config = function() require("trouble").setup {} end
   }
 
+  -- Focus on what you do
   use {
-  "folke/twilight.nvim",
-  config = function()
-    require("twilight").setup {}
+      'folke/twilight.nvim',
+      config = function()
+      require('twilight').setup {}
   end
-}
+  }
+
+  -- Comment'em all
+  use 'b3nj5m1n/kommentary'
 end)
 
