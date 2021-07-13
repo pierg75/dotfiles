@@ -75,5 +75,12 @@ return require('packer').startup(function()
       requires = 'kyazdani42/nvim-web-devicons',
       config = function() require("trouble").setup {} end
   }
+
+  use {
+  "folke/twilight.nvim",
+  config = function()
+    require("twilight").setup {}
+  end
+}
 end)
 
