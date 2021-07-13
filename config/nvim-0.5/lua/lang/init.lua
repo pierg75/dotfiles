@@ -94,7 +94,7 @@ capabilities.textDocument.codeAction = {
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 -- LSPs
-local servers = {"pyls", "rust_analyzer", "vimls", "bashls", "ccls", "clangd"}
+local servers = {"pyls", "rust_analyzer", "vimls", "ccls", "clangd"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {capabilities = capabilities, on_attach = on_attach}
 end
