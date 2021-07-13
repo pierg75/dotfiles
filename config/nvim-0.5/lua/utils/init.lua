@@ -13,4 +13,9 @@ function utils.map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+function utils.file_exists(fname)
+  local stat = vim.loop.fs_stat(fname)
+  return (stat and stat.type) or false
+end
+
 return utils
