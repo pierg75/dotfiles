@@ -18,3 +18,7 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 require('lang')
 require('plugins')
 require('config')
+
+-- Always load twilight
+-- vim.cmd 'TwilightEnable'
+
