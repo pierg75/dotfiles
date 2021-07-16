@@ -53,7 +53,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec "rofi -show run"
+bindsym $mod+d exec "wofi --show run"
 
 
 # change focus
