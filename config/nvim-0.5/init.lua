@@ -1,5 +1,7 @@
 -- Map leader to space
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 local fn = vim.fn
 local execute = vim.api.nvim_command        -- Sensible defaults
@@ -15,8 +17,8 @@ end
 vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
-require('lang')
 require('plugins')
+require('lang')
 require('config')
 
 -- Always load twilight

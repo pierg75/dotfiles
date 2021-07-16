@@ -65,6 +65,7 @@ return require('packer').startup(function()
   use {'cstrap/python-snippets'}
   use {'ylcnfrht/vscode-python-snippet-pack'}
   use {'rust-lang/vscode-rust'}
+  use {'L3MON4D3/LuaSnip'}
 
   -- Rainbow parens
   use 'p00f/nvim-ts-rainbow'

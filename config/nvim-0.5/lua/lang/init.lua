@@ -3,6 +3,21 @@ USER = vim.fn.expand('$USER')
 local nvim_lsp = require('lspconfig')
 local nvim_compe = require('compe')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true;
+
+vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+local border = {
+      {"╭", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╮", "FloatBorder"},
+      {"│", "FloatBorder"},
+      {"╯", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╰", "FloatBorder"},
+      {"│", "FloatBorder"},
+}
 
 -- Language specific key mappings
 require('lang.keymappings')
@@ -48,7 +63,7 @@ local on_attach = function(client, bufnr)
                    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',
                    opts)
     buf_set_keymap('n', '<leader>ll',
-                   '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+                  '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap('n', '<leader>lca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
                    opts)
 
@@ -74,6 +89,10 @@ local on_attach = function(client, bufnr)
         augroup END
         ]], false)
     end
+
+    -- Set the borders
+    vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
+    vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
 end
 
 
@@ -91,10 +110,8 @@ capabilities.textDocument.codeAction = {
     }
 }
 
-capabilities.textDocument.completion.completionItem.snippetSupport = true;
-
 -- LSPs
-local servers = {"pyls", "rust_analyzer", "vimls", "ccls", "clangd"}
+local servers = {"pylsp", "rust_analyzer", "vimls", "ccls", "clangd"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {capabilities = capabilities, on_attach = on_attach}
 end
@@ -103,7 +120,7 @@ end
 vim.g.symbols_outline = {
     highlight_hovered_item = true,
     show_guides = true,
-    auto_preview = false, -- experimental
+    auto_preview = true, -- experimental
     position = 'right',
     keymaps = {
         close = "<Esc>",
@@ -119,7 +136,10 @@ vim.g.symbols_outline = {
 -- LSP Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
+        virtual_text = {
+        prefix = "■ ",
+        spacing = 4,
+      },
         underline = true,
         signs = true,
         update_in_insert = true

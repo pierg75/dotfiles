@@ -15,9 +15,9 @@ require'compe'.setup {
     source_timeout = 200;
     incomplete_delay = 400;
     allow_prefix_unmatch = false;
-    max_abbr_width = 1000;
-    max_kind_width = 1000;
-    max_menu_width = 1000000;
+    max_abbr_width = 100;
+    max_kind_width = 100;
+    max_menu_width = 100;
     documentation = true;
 
 
@@ -32,6 +32,8 @@ require'compe'.setup {
         tags = true;
         snippets_nvim = true;
         treesitter = true;
+        luasnip = true,
+        ultisnips = false,
   };
 }
 
@@ -76,3 +78,7 @@ utils.map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 utils.map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 utils.map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 utils.map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+-- Map compe confirm and complete functions
+vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
+vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })

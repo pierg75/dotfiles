@@ -24,6 +24,8 @@ utils.opt('o', 'lazyredraw', true)
 utils.opt('o', 'termguicolors', true)
 utils.opt('o', 'incsearch', true)
 utils.opt('o', 'shortmess', 'c')                -- don't show completion messages
+utils.opt('o', 'inccommand', 'nosplit')         -- Incremental live completion
+utils.opt('o', 'breakindent', true)             -- Enable break indent
 
 -- Tabs
 utils.opt('b', 'cindent', true)
