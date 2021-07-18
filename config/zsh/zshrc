@@ -4,6 +4,9 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.npm-packages/bin:$H
 # Enable ls colors
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
+# Set default editor to nvim
+export EDITOR=nvim
+
 # ls colors
 autoload -U colors && colors
 
@@ -196,6 +199,8 @@ bindkey "^[[1;5D" vi-backward-word
 #bindkey "^[[1~" beginning-of-line
 #bindkey "\033[4~" end-of-line
 #bindkey "^[[4~" end-of-line
+bindkey "^A" vi-beginning-of-line
+bindkey "^E" vi-end-of-line
 
 # urlscan browser
 export BROWSER=qutebrowser
@@ -203,3 +208,15 @@ export BROWSER=qutebrowser
 # Starship
 eval "$(starship init zsh)"
 source <(sheldon source)
+
+# use bat instead of cat
+if [ "$(command -v bat)" ]; then
+  unalias -m 'cat'
+  unalias -m 'less'
+  alias cat='bat -pp --theme="Nord"'
+  alias less='bat -p --theme="Nord"'
+fi
+
+
+# Workaround for double entries in $PATH
+typeset -U path
