@@ -86,6 +86,6 @@ return require('packer').startup(function()
   }
 
   -- Comment'em all
-  use 'b3nj5m1n/kommentary'
+  use 'winston0410/commented.nvim'
 end)
 

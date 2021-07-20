@@ -49,10 +49,15 @@ utils.opt('o', 'cmdheight', 2)
 
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
-utils.opt('o', 'updatetime', 300)
+utils.opt('o', 'updatetime', 250)
 
 -- Highlight on yank
-vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+
+-- Show diagnostics on hover
+vim.api.nvim_exec([[ 
+  autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
+]], false)
 
 -- Custom file type settings (like 2 spaces/tab for lua)
 vim.api.nvim_exec([[

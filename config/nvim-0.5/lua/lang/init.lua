@@ -111,9 +111,15 @@ capabilities.textDocument.codeAction = {
 }
 
 -- LSPs
-local servers = {"pylsp", "rust_analyzer", "vimls", "ccls", "clangd"}
+local servers = {"rust_analyzer", "vimls", "ccls", "clangd", "pyright"}
 for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {capabilities = capabilities, on_attach = on_attach}
+    nvim_lsp[lsp].setup {
+      capabilities = capabilities, 
+      on_attach = on_attach,
+      flags = {
+        debounce_text_changes = 150,
+      }
+    }
 end
 
 -- symbols-outline.nvim
@@ -136,13 +142,14 @@ vim.g.symbols_outline = {
 -- LSP Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = {
-        prefix = "■ ",
-        spacing = 4,
-      },
-        underline = true,
-        signs = true,
-        update_in_insert = true
+      --  virtual_text = {
+      --  prefix = "■ ",
+      --  spacing = 4,
+      --},
+       virtual_text = false,
+       underline = true,
+       signs = true,
+       update_in_insert = true
     })
 
 -- Send diagnostics to quickfix list
