@@ -1,0 +1,36 @@
+[user]
+	email = plambri@redhat.com
+	name = Pierguido Lambri
+
+[core]
+#    pager = delta
+	editor = nvim
+    abbrev = 12
+
+[delta]
+    side-by-side = true
+    line-numbers-left-format = ""
+    line-numbers-right-format = "│ "
+    features = side-by-side line-numbers decorations    
+    syntax-theme = Nord
+
+[interactive]
+    diffFilter = delta --color-only
+
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+
+[sendemail]
+    smtpencryption = tls
+    smtpserver = smtp.corp.redhat.com
+    from = Pierguido Lambri <plambri@redhat.com>
+    envelopesender = Pierguido Lambri <plambri@redhat.com>
+    suppressfrom = true
+    signedoffcc = false
+    suppresscc = all
+
+[pretty]
+        fixes = Fixes: %h (\"%s\")
+

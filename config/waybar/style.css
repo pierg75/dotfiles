@@ -1,0 +1,175 @@
+/* The full palete from light to dark
+ * 80FFDB 
+ * 72EFDD
+ * 64DFDF
+ * 56CFE1
+ * 48BFE3
+ * 4EA8DE
+ * 5390D9
+ * 5E60CE
+ * 6930C3
+ * 7400B8
+ */
+
+
+
+* {
+   border: none;
+   font-size: 18px;
+   margin: 1;
+   font-family: Product Sans ,Arial, Helvetica, sans-serif;
+}
+
+#window {
+    background-color: transparent;
+    color: #2e3440;
+    padding-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+window#waybar {
+    background: #292b2e;
+    color: #fdf6e3;
+}
+
+#tray {
+	background: #1a1a1a;
+}
+
+
+#workspaces button {
+  font-size: 14px;
+  border-radius: 0px;
+  margin: 0;
+  padding: 0 12 0 12;
+  background-color: transparent;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  color: #ffffff;
+}
+#workspaces button:hover {
+    box-shadow: inherit;
+    color: #5e81ac;
+}
+
+#workspaces button.focused {
+    color: #81a1c1;
+}
+
+#workspaces button.urgent {
+    color: #eb4d4b;
+}
+
+#mpd {
+    padding: 0 10px;
+	color: #56CFE1;
+    background-color: transparent;
+}
+
+#cpu, #memory {
+  margin-left: 0;
+  margin-right: 0;
+  color: #fbba85;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
+}
+
+#backlight, #pulseaudio {
+  margin-left: 0;
+  margin-right: 0;
+  color: #e3ffba;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
+}
+
+#disk {
+  margin-left: 0;
+  margin-right: 0;
+  color: #ff7100;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
+}
+
+#idle_inhibitor, #network, #custom-media, #temperature {
+  margin-left: 0;
+  margin-right: 0;
+  color: #80FFDB;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
+}
+
+#clock {
+  margin-left: 0;
+  margin-right: 0;
+  background-color: transparent;
+  padding: 0px 10px 0px 10px;
+}
+
+#custom-vpn.connected {
+	color: #00ff00;
+	border: #FDFFFC;
+    background-color: transparent;
+}
+#custom-vpn.disconnected {
+	color: #e50000;
+	border: #FDFFFC;
+    background-color: transparent;
+}
+
+#clock {
+  background-color: transparent;
+  border-radius: 10px;
+  margin-right: 10;
+  font-size: 14px;
+  padding: 0px 0px 0px 8px;
+}
+#tray {
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #3b4252 ;
+	padding: 0px 12px 0px 8px;
+  border-radius: 0 10px 10px 0;
+  margin-right: 10;
+  color: #8fbcbb;
+}
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+label:focus {
+    background-color: #000000;
+}
+
+#idle_inhibitor {
+  background-color: #3b4252 ;
+  font-size: 20px;
+  color: #6f7787;
+  padding: 0 12 0 12;
+  border-radius: 10px 0 0 10px;
+  margin-left: 10;
+}
+
+#idle_inhibitor.activated {
+  color: #ffffff;
+}
+#mpd.disconnected {
+    padding: 0 10px;
+	color: #56CFE1;
+    background-color: transparent;
+}
+
+#mpd.stopped {
+    padding: 0 10px;
+	color: #ae03ff;
+    background-color: transparent;
+}
+
+#mpd.paused {
+    padding: 0 10px;
+	color: #37aabd;
+    background-color: transparent;
+}
+

@@ -1,0 +1,84 @@
+{
+"suggest.triggerAfterInsertEnter": false,
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+           "cache": {
+              "directory": "/tmp/ccls"
+           },
+           "index": {
+              "onChange": true
+           },
+           "highlight": { "lsRanges" : true }
+       }
+     }
+  },
+  "diagnostic.virtualText": false,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.messageTarget": "float",
+  "diagnostic.level": "information",
+  "signature.enable": false,
+  "codeLens.enable": true,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.snippets.enable": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "rust-analyzer.diagnostics.enable": false,
+  "rust-analyzer.serverPath": "/home/plambri/.local/bin/rust-analyzer",
+  "rust-analyzer.inlayHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints": false,
+  "rust-analyzer.inlayHints.chainingHints": false,
+
+  "rust-analyzer.inlayHints.typeHintsSeparator": "‣ ",
+  "rust-analyzer.inlayHints.chainingHintsSeparator": "‣ ",
+
+  "rust-analyzer.checkOnSave.enable": true,
+
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+  "rust-analyzer.procMacro.enable": true,
+
+  "rust-analyzer.cargo.allFeatures": true,
+  "rust-analyzer.checkOnSave.allFeatures": true,
+
+  "rust-analyzer.diagnostics.disabled": [
+        "macro-error"
+  ],
+"suggest.completionItemKindLabels": {
+    "method": "  ",
+    "function": "  ",
+    "variable": "[]",
+    "field": "  ",
+    "typeParameter": "<>",
+    "constant": "  ",
+    "class": " פּ ",
+    "interface": " 蘒",
+    "struct": "  ",
+    "event": "  ",
+    "operator": "  ",
+    "module": "  ",
+    "property": "  ",
+    "enum": " 練",
+    "reference": "  ",
+    "keyword": "  ",
+    "file": "  ",
+    "folder": " ﱮ ",
+    "color": "  ",
+    "unit": " 塞 ",
+    "snippet": "  ",
+    "text": "  ",
+    "constructor": "  ",
+    "value": "  ",
+    "enumMember": "  "
+  }
+}

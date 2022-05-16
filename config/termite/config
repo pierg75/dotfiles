@@ -1,0 +1,94 @@
+
+[options]
+font = Hack Nerd Font Mono 10
+# font = Inconsolata Nerd Font Mono 12
+# font = Monoid Nerd Font 10
+
+clickable_url = true
+#browser = firefox
+browser = qutebrowser
+cursor_blink = system
+cursor_shape = ibeam
+scrollback_lines = 1000
+dynamic_title = true
+urgent_on_bell = true
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = true
+mouse_autohide = true
+allow_bold = true
+search_wrap = true
+
+#[colors]
+# foreground = #dcdccc
+# background  = #000000
+
+
+
+[colors]
+
+# special
+#foreground      = #ababab
+#foreground_bold = #ffffff
+cursor          = #ffffff
+#background      = #000000
+
+# black
+#color0  = #000000
+#color8  = #4d4d4d
+
+# red
+#color1  = #cc0403
+#color9  = #3e0605
+
+# green
+#color2  = #19cb00
+#color10 = #23fd00
+
+# yellow
+#color3  = #cecb00
+#color11 = #fffd00
+
+# blue
+# color4 = #001cd1
+#color4 = #0000AA
+#color12 = #0026ff
+#color12 = #5555FF
+
+
+# magenta
+#color5  = #cb1ed1
+#color13 = #fd28ff
+
+# cyan
+#color6  = #0dcdcd
+#color14 = #14ffff
+
+# white
+#color7  = #e5e5e5
+#color15 = #ffffff
+
+
+# A nice theme from https://github.com/gerardbm/atomic
+
+foreground = #A6B5C5
+background = #141A1F
+
+color0 = #141A1F
+color1 = #EC5252
+color2 = #5DA813
+color3 = #C97016
+color4 = #3790E9
+color5 = #A35AED
+color6 = #13AEAE
+color7 = #53697F
+color8 = #202931
+color9 = #FF9191
+color10 = #9ACD68
+color11 = #EDA45C
+color12 = #7DBEFF
+color13 = #CA96FF
+color14 = #6ECFCF
+color15 = #A6B5C5

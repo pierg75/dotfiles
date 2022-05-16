@@ -1,0 +1,164 @@
+{
+	"layer": "top",
+	"position": "bottom",
+
+	"modules-left": [
+		"sway/workspaces"
+	],
+	"modules-center": [
+	],
+	"modules-right": [
+		"pulseaudio",
+		"memory",
+		"cpu",
+		"temperature",
+		"battery#0",
+		"battery#1",
+		"disk",
+        "disk#home",
+        "custom/vpn",
+        "network",
+		"clock",
+		"tray"
+	],
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{icon}",
+        "persistent_workspaces": {
+         	"1": [],
+         	"2": []
+        },
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "focused": "",
+            "urgent": "",
+            "default": ""
+        },
+        "icon-size": 14
+	},
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/window": {
+    	"format": "{}",
+      "max-length": 50
+    },
+	"clock": {
+        "timezone": "Europe/London",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d-%m-%Y}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "interval": 60,
+        "format-icons": ["", "", ""]
+    },
+    "memory": {
+		"interval": 5,
+        "format": "{}% ",
+        "tooltip": true
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true
+    },
+	"battery#0": {
+        "bat": "BAT0",
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "0:{icon} {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"battery#1": {
+        "bat": "BAT1",
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "1:{icon} {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"disk": {
+		"interval": 5,
+		"format": "🖴 / {percentage_used:2}%",
+		"path": "/"
+	},
+	"disk#home": {
+		"interval": 5,
+		"format": "🖴 /home {percentage_used:2}%",
+		"path": "/home"
+	},
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} 🖧",
+        "format-linked": "{ifname} (No IP) 🖧",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "interval": 60,
+        "on-click-middle": "exec termite -e nmtui",
+        "tooltip": true
+    },
+    "custom/vpn": {
+        "format": "{icon}",
+        "tooltip-format": "{icon}",
+        "return-type": "json",
+        "interval": 30,
+        "exec": "$HOME/bin/check_vpn.sh",
+        "format-icons": ["",""]        
+    },
+	 "idle_inhibitor": {
+         "format": "{icon}",
+         "format-icons": {
+         "activated": "",
+         "deactivated": ""
+      }
+    },
+	"tray": {
+		"spacing": 10
+	}
+}
+

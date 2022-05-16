@@ -1,0 +1,31 @@
+### Colors ###
+[colors]
+background          = #333333
+background_dark     = #1a1c1d
+background_light    = #4d4d4d
+foreground          = #e2e2e2
+foreground_dark     = #aaaaaa
+foreground_light    = #ffffff
+accent              = #728cbb
+urgent              = #de935f
+debian              = #ce0056
+manjaro             = #34be5b
+transparent         = #00000000
+yellow              = #fff68f
+
+cpu7                = #ff0000
+cpu6                = #ff3232
+cpu5                = #ff6666
+cpu4                = #ff7f7f
+cpu3                = #ff9999
+cpu2                = #ffb2b2
+cpu1                = #ffcccc
+
+ram1                = #ff0000
+ram2                = #ff3232
+ram3                = #ff6666
+ram4                = #ff7f7f
+ram5                = #ff9999
+ram6                = #ffb2b2
+ram7                = #ffcccc
+# vim:ft=dosini

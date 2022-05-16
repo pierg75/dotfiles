@@ -1,0 +1,180 @@
+### all modules ###
+[module/mybat0]
+type = custom/script
+exec = ~/.config/polybar/scripts/check_battery.pl BAT0
+format-underline = ${colors.accent}
+interval = 10
+format-charging = <bar-capacity> <label-charging>
+format-discharging = <bar-capacity> <label-discharging>
+label-charging = Charging %percentage%%
+label-discharging = Discharging %percentage%%
+label-full = Fully charged
+bar-capacity-width = 12
+
+[module/mybat1]
+type = custom/script
+exec = ~/.config/polybar/scripts/check_battery.pl BAT1
+format-underline = ${colors.accent}
+interval = 10
+format-charging = <bar-capacity> <label-charging>
+format-discharging = <bar-capacity> <label-discharging>
+label-charging = Charging %percentage%%
+label-discharging = Discharging %percentage%%
+label-full = Fully charged
+bar-capacity-width = 12
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp>
+label = %percentage%%
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-coreload>
+label = CPU %percentage%%
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-0-foreground = ${colors.foreground}
+ramp-coreload-1 = ▂
+ramp-coreload-1-foreground = ${colors.cpu1}
+ramp-coreload-2 = ▃
+ramp-coreload-2-foreground = ${colors.cpu2}
+ramp-coreload-3 = ▄
+ramp-coreload-3-foreground = ${colors.cpu3}
+ramp-coreload-4 = ▅
+ramp-coreload-4-foreground = ${colors.cpu4}
+ramp-coreload-5 = ▆
+ramp-coreload-5-foreground = ${colors.cpu5}
+ramp-coreload-6 = ▇
+ramp-coreload-6-foreground = ${colors.cpu6}
+ramp-coreload-7 = █
+ramp-coreload-7-foreground = ${colors.cpu7}
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %Y-%m-%d%
+time = %H:%M
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+format = <label>
+format-underline = #728cbb
+label = %date% %time%
+label-font = 3
+
+[module/memory]
+type = internal/memory
+interval = 3
+format = <label> <ramp-free>
+label = RAM %gb_free%
+bar-used-indicator =
+bar-used-width = 50
+bar-used-foreground-0 = ${colors.foreground_dark}
+bar-used-foreground-1 = ${colors.foreground_dark}
+bar-used-foreground-2 = ${colors.foreground_dark}
+bar-used-foreground-3 = ${colors.foreground_dark}
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = ${colo.foreground_dark}
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+ramp-free-0 = ▁
+ramp-free-foreground-0 = ${colors.foreground}
+ramp-free-1 = ▂
+ramp-free-foreground-1 = ${colors.ram1}
+ramp-free-2 = ▃
+ramp-free-foreground-2 = ${colors.ram2}
+ramp-free-3 = ▄
+ramp-free-foreground-3 = ${colors.ram3}
+ramp-free-4 = ▅
+ramp-free-foreground-4 = ${colors.ram4}
+ramp-free-5 = ▆
+ramp-free-foreground-5 = ${colors.ram5}
+ramp-free-6 = ▇
+ramp-free-foreground-6 = ${colors.ram6}
+ramp-free-7 = █
+ramp-free-foreground-7 = ${colors.ram7}
+
+[module/keyboard]
+type = internal/xkeyboard
+format = <label-layout> <label-indicator>
+format-spacing = 0
+label-layout = %name%
+label-layout-padding = 2
+label-indicator = %name%
+label-indicator-background = ${colors.urgent}
+label-indicator-foreground = ${colors.background}
+layout-icon-default = some-icon
+layout-icon-0 = ch;C
+layout-icon-1 = us;U
+indicator-icon-0 = caps lock;-CL;+CL
+indicator-icon-1 = scroll lock;;+SL
+indicator-icon-2 = num lock;-NL;+NL
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = false
+index-sort = false
+enable-click = true
+enable-scroll = true
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = false
+format = <label-state> <label-mode>
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+label-focused = %icon% %name%
+label-focused-background = ${colors.background_light}
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = ${colors.accent}
+label-focused-padding = 2
+label-unfocused = %icon% %name%
+label-unfocused-padding = 2
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-underline =
+label-visible = %icon% %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = 2
+label-urgent = %icon% %name%
+label-urgent-background = ${self.label-focused-background}
+label-urgent-foreground = ${colors.foreground}
+label-urgent-underline = ${colors.debian}
+label-urgent-padding = 2
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/vpn]
+type = custom/script
+exec = echo vpn
+exec-if = pgrep -x openvpn
+interval = 5
+format-underline = #268bd2
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
+
+[module/temp_cpu]
+type = custom/script
+exec = sensors | awk '/CPUTIN/ {gsub("[+]", ""); print $2}'
+interval = 1
+format-underline = #268bd2
+format-prefix = "🌡 "
+format-prefix-foreground = #5b
