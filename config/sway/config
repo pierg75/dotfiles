@@ -176,8 +176,9 @@ bindsym $mod+Print exec grim -t jpeg ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).jpg
 bindsym $mod+Shift+Print exec grim -t jpeg -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).jpg
 
 # Notifications
-bindsym $mod+x exec swaync-client -t -sw
-bindsym $mod+Shift+x exec swaync-client -C
+bindsym $mod+x exec swaync-client --close-latest
+bindsym $mod+Shift+x exec swaync-client --close-all
+bindsym $mod+t exec swaync-client --toggle-panel
 # bindsym $mod+x exec makoctl dismiss
 # bindsym $mod+Shift+x exec makoctl dismiss --all
 
