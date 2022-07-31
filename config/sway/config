@@ -18,8 +18,16 @@ set $right l
 # set $term st -f 'Hack Nerd Font Mono-10'
 set $term alacritty
 
+# Multimonitor side by side
+output DVI-I-1 pos 0 0
+output HDMI-A-1 pos 1920 0
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
+
+# Bind some workspaces to some monitors
+workspace 1 output DVI-I-1
+workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -187,7 +195,7 @@ bindsym Control+Mod1+l exec /home/plambri/bin/lock
 
 exec swayidle -w \
          timeout 300 '/home/plambri/bin/lock' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         # timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep '/home/plambri/bin/lock' \
          lock '/home/plambri/bin/lock'
 
