@@ -192,10 +192,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
       --  prefix = "■ ",
       --  spacing = 4,
       --},
-       virtual_text = false,
+       virtual_text = true,
        underline = true,
        signs = true,
-       update_in_insert = false
+       update_in_insert = true
     })
 
 -- Send diagnostics to quickfix list
