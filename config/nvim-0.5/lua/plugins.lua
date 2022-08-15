@@ -112,7 +112,10 @@ return packer.startup(function()
         require("indent_blankline").setup({
           buftype_exclude = { "help", "terminal" },
           filetype_exclude = { "text", "markdown" },
+          space_char_blankline = " ",
+          show_end_of_line = true,
           show_current_context = true,
+          show_current_context_start = true,
           show_first_indent_level = true,
           show_trailing_blankline_indent = false,
         })
@@ -134,12 +137,16 @@ return packer.startup(function()
   use({
     "windwp/nvim-autopairs",
     after = { "nvim-cmp" },
-    config = function()
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp = require('cmp')
-      cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
-    end,
+	  config = function()
+	    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+	    local cmp = require('cmp')
+	    cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
+	  end,
   })
+
 
   -- Trouble
   use({
