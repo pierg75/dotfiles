@@ -60,8 +60,14 @@ return packer.startup(function()
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
-      "saadparwaiz1/cmp_luasnip",
       "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "uga-rosa/cmp-dictionary",
+      "hrsh7th/cmp-nvim-lsp-document-symbol",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "prabirshrestha/vim-lsp",
+      "dmitmel/cmp-vim-lsp",
+      "quangnguyen30192/cmp-nvim-tags",
     }
   }
 
