@@ -142,15 +142,7 @@ return packer.startup(function()
   -- Auto close brackets etc (with treesitter support)
   use({
     "windwp/nvim-autopairs",
-    after = { "nvim-cmp" },
-	  config = function()
-	    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-	    local cmp = require('cmp')
-	    cmp.event:on(
-        'confirm_done',
-        cmp_autopairs.on_confirm_done()
-      )
-	  end,
+    after = { "nvim-cmp" }
   })
 
 
