@@ -173,7 +173,7 @@ do
     vim.lsp.handlers[method] = function(err, method, result, client_id, bufnr,
                                         config)
         default_handler(err, method, result, client_id, bufnr, config)
-        local diagnostics = vim.lsp.diagnostic.get_all()
+        local diagnostics = vim.diagnostic.get()
         local qflist = {}
         for bufnr, diagnostic in pairs(diagnostics) do
             for _, d in ipairs(diagnostic) do
@@ -184,6 +184,6 @@ do
                 table.insert(qflist, d)
             end
         end
-        vim.lsp.util.set_qflist(qflist)
+        vim.diagnostic.setqflist()
     end
 end
