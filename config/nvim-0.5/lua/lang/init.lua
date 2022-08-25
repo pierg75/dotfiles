@@ -99,7 +99,7 @@ local on_attach = function(client, bufnr)
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
         augroup END
         ]], false)
-    end
+    end 
 
     -- Set the borders
     vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
@@ -164,7 +164,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
     })
 
 -- Send diagnostics to quickfix list
-do
+--[[ do
     local method = "textDocument/publishDiagnostics"
     local default_handler = vim.lsp.handlers[method]
     vim.lsp.handlers[method] = function(err, method, result, client_id, bufnr,
@@ -183,4 +183,4 @@ do
         end
         vim.diagnostic.setqflist()
     end
-end
+end ]]
