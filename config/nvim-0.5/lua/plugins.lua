@@ -150,13 +150,6 @@ return packer.startup(function()
   use({
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    event = "BufReadPre",
-    cmd = { "TroubleToggle", "Trouble" },
-    config = function()
-      require("trouble").setup({
-        auto_open = false
-      })
-    end,
   })
 
   -- Focus on what you do
