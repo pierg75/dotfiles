@@ -204,6 +204,8 @@ return packer.startup(function()
     end
   }
 
+  use {"phaazon/mind.nvim"}
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
