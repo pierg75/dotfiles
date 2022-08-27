@@ -190,13 +190,6 @@ return packer.startup(function()
     ft = "markdown",
   })
 
-  use({
-    "andymass/vim-matchup",
-    config = function()
-      vim.g.matchup_matchparen_offscreen = {}
-    end,
-  })
-
   -- Nice drawings
   use({"vim-scripts/DrawIt"})
 
@@ -208,8 +201,14 @@ return packer.startup(function()
     end
   }
 
+  -- Note taking
   use {"phaazon/mind.nvim"}
+
+  -- Speed up!
   use {"lewis6991/impatient.nvim"}
+
+  -- Nice C extension
+  use {"p00f/clangd_extensions.nvim"}
 
 
   -- Automatically set up your configuration after cloning packer.nvim
