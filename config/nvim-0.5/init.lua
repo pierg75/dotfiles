@@ -4,7 +4,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 require('plugins')
-require('lang')
+require('lsp')
 require('config')
 require('settings')
 
