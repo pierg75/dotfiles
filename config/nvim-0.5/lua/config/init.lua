@@ -1,3 +1,4 @@
+require('config.impatient')
 require('config._nvimcmp')
 require('config.nvimtree')
 require('config.colorscheme')
