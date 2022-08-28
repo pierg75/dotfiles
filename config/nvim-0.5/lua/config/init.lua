@@ -1,5 +1,5 @@
 require('config._nvimcmp')
-require('config.nvimtree')
+require('config.neo-tree')
 require('config.colorscheme')
 require('config.fugitive')
 require('config.autopairs')
