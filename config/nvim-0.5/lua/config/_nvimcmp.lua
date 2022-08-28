@@ -3,10 +3,21 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+local status_ok, luasnip = pcall(require, "luasnip")
+if not status_ok then
+	return
+end
 
-local luasnip = require("luasnip")
-local cmp = require("cmp")
-local lspkind = require('lspkind')
+local status_ok, cmp = pcall(require, "cmp")
+if not status_ok then
+	return
+end
+
+local status_ok, lspkind = pcall(require, "lspkind")
+if not status_ok then
+	return
+end
+
 cmp.setup({
   snippet = {
     expand = function(args)
