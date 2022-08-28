@@ -41,16 +41,17 @@ local border = {
 }
 
 -- LSP settings (for overriding per client)
+-- For now let's use the rounded 
 local handlers =  {
-  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
-  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
+  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'}),
+  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded' }),
 }
 
 -- To instead override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts or {}
-  opts.border = opts.border or border
+  opts.border = opts.border or 'shadow'
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 ------------------------------------------------------------------------------------
@@ -75,10 +76,30 @@ end
 
 -- Customizing how diagnostics are displayed
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   signs = true,
   underline = true,
   update_in_insert = false,
   severity_sort = false,
 })
+
+-- setup diagnostics to show a floating window
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+	callback = function()
+		if vim.lsp.buf.server_ready() then
+			vim.diagnostic.open_float()
+		end
+	end,
+})
+
+-- set up LSP signs
+for type, icon in pairs({
+	Error = "",
+	Warn = "",
+	Hint = "",
+	Info = "",
+}) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
 ------------------------------------------------------------------------------------
