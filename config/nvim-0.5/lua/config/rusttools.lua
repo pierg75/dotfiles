@@ -1,3 +1,9 @@
+
+local status_ok, rt = pcall(require, "rust-tools")
+if not status_ok then
+	return
+end
+
 local opts = {
     tools = { -- rust-tools options
         -- Automatically set inlay hints (type hints)
@@ -109,4 +115,4 @@ local opts = {
     }
 }
 
-require('rust-tools').setup(opts)
+rt.setup(opts)
