@@ -58,17 +58,22 @@ utils.opt('o', 'cursorline', true)
 utils.opt('o', 'cursorlineopt', 'both')
 
 
-
 -- Highlight on yank
-cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
-
--- Show diagnostics on hover
--- vim.api.nvim_exec([[ 
---   autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
--- ]], false)
+vim.api.nvim_create_autocmd(
+    { "TextYankPost" },
+    { pattern = { "*" },
+    callback = function()
+       vim.highlight.on_yank {on_visual = true}
+    end
+    }
+)
 
 -- Custom file type settings (like 2 spaces/tab for lua)
-vim.api.nvim_exec([[
-    autocmd FileType lua set tabstop=2 shiftwidth=2
-    autocmd FileType yaml set tabstop=2 shiftwidth=2
-]], false)
+vim.api.nvim_create_autocmd(
+    { "FileType" },
+    { pattern = { "lua" }, command = "set tabstop=2 shiftwidth=2" }
+)
+vim.api.nvim_create_autocmd(
+    { "FileType" },
+    { pattern = { "yaml" }, command = "set tabstop=2 shiftwidth=2" }
+)
