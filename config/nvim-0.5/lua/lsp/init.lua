@@ -4,6 +4,7 @@ USER = vim.fn.expand('$USER')
 ------------------------------------------------------------------------------------
 local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require("lspconfig")
+local lsp_defaults = lspconfig.util.default_config
 
 -- 1. Set up nvim-lsp-installer first!
 lsp_installer.setup {}
@@ -15,6 +16,12 @@ lspconfig.util.default_config = vim.tbl_extend(
     {
         on_attach = on_attach
     }
+)
+
+lsp_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lsp_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
 )
 
 -- 3. Loop through all of the installed servers and set it up via lspconfig
@@ -58,9 +65,6 @@ end
 
 -- -- Configure autocompletion with nvim-cmp (see https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion)
 ------------------------------------------------------------------------------------
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
@@ -70,7 +74,7 @@ local servers = { 'rust_analyzer', 'pyright', 'bashls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
+    capabilities = lsp_defaults.capabilities,
   }
 end
 
