@@ -118,16 +118,9 @@ return packer.startup(function()
   use {
       'lukas-reineke/indent-blankline.nvim',
       config = function()
-        vim.opt.colorcolumn = "80" -- highlight bug hack fix
         require("indent_blankline").setup({
-          buftype_exclude = { "help", "terminal" },
-          filetype_exclude = { "text", "markdown" },
-          space_char_blankline = " ",
-          show_end_of_line = true,
           show_current_context = true,
           show_current_context_start = true,
-          show_first_indent_level = true,
-          show_trailing_blankline_indent = false,
         })
       end,
   }
