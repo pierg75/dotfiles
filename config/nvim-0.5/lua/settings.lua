@@ -75,5 +75,5 @@ vim.api.nvim_create_autocmd(
 )
 vim.api.nvim_create_autocmd(
     { "FileType" },
-    { pattern = { "yaml" }, command = "set tabstop=2 shiftwidth=2" }
+    { pattern = { "yaml" }, command = "set ai tabstop=2 shiftwidth=2 et" }
 )

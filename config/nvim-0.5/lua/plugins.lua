@@ -136,7 +136,7 @@ return packer.startup(function()
     }
   }
 
---- Diagnostics plugin for neo-tree
+-- Diagnostics plugin for neo-tree
   use {
     "mrbjarksen/neo-tree-diagnostics.nvim",
     requires = "nvim-neo-tree/neo-tree.nvim",
