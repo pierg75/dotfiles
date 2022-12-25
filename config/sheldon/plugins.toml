@@ -35,3 +35,6 @@ github = 'pkulev/zsh-rustup-completion'
 
 [plugins.zsh-completions]
 github = 'zsh-users/zsh-completions'
+
+[plugins.zsh-skim]
+github = 'casonadams/skim.zsh'
