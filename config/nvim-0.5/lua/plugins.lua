@@ -225,6 +225,11 @@ return packer.startup(function(use)
   -- Nice C extension
   use {"p00f/clangd_extensions.nvim"}
 
+  -- Server installer
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
