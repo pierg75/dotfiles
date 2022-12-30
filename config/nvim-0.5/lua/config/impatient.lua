@@ -4,5 +4,5 @@ if not status_ok then
   return
 end
 
-impatient.enable_profile()
+imp.enable_profile()
 
