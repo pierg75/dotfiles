@@ -228,6 +228,19 @@ return packer.startup(function(use)
     "williamboman/mason-lspconfig.nvim",
   }
 
+  -- Yaml schema hanlding
+  use {
+  "someone-stole-my-name/yaml-companion.nvim",
+    requires = {
+      { "neovim/nvim-lspconfig" },
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim" },
+    },
+    config = function()
+      require("telescope").load_extension("yaml_schema")
+      end,
+    }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
