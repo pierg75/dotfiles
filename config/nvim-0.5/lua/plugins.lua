@@ -193,9 +193,6 @@ return packer.startup(function(use)
     end,
   }
 
-  -- Ack provider
-  use { "wincent/ferret" }
-
   -- Shows where the cursor is
   use({"edluffy/specs.nvim"})
 
