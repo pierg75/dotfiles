@@ -12,8 +12,7 @@
 		"memory",
 		"cpu",
 		"temperature",
-		"battery#0",
-		"battery#1",
+		"battery",
 		"disk",
         "disk#home",
         "custom/vpn",
@@ -41,6 +40,32 @@
         },
         "icon-size": 14
 	},
+	"wlr/workspaces": {
+		"disable-scroll": true,
+		"format": "{icon}",
+        "persistent_workspaces": {
+         	"1": [],
+         	"2": []
+        },
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "focused": "",
+            "urgent": "",
+            "default": ""
+        },
+        "icon-size": 14
+	},
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "tray": {
+        "spacing": 10
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -48,19 +73,17 @@
     	"format": "{}",
       "max-length": 50
     },
-	"clock": {
-        "timezone": "Europe/London",
+    "clock": {
+        "format": "<span color='#bf616a'> </span>{:%a %b %d}",
+        "format-alt": "<span color='#bf616a'> </span>{:%I:%M %p}",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%d-%m-%Y}"
     },
+
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "  {volume}%",
+        "format-bluetooth-muted": " ",
+        "format-muted": "婢",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -82,46 +105,35 @@
         "format-icons": ["", "", ""]
     },
     "memory": {
-		"interval": 5,
-        "format": "{}% ",
-        "tooltip": true
+        "interval": 30,
+        "format": " {}%",
+        "format-alt":" {used:0.1f}G",
+        "max-length": 10,
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": true
+      "interval": 10,
+      "format": " {}%",
+      "max-length": 10,
+      "on-click": "",
     },
-	"battery#0": {
-        "bat": "BAT0",
-		"states": {
-			"good": 95,
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "0:{icon} {capacity}%",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-	},
-	"battery#1": {
-        "bat": "BAT1",
-		"states": {
-			"good": 95,
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "1:{icon} {capacity}%",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-	},
+    "battery": {
+      "bat": "BAT0",
+      "adapter": "ADP0",
+      "interval": 60,
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+      "max-length": 20,
+      "format": "{icon} {capacity}%",
+      "format-warning": "{icon} {capacity}%",
+      "format-critical": "{icon} {capacity}%",
+      "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+      "format-plugged": "  {capacity}%",
+      "format-alt": "{icon} {time}",
+      "format-full": "  {capacity}%",
+      "format-icons": [" ", " ", " ", " ", " "],
+    },
 	"disk": {
 		"interval": 5,
 		"format": "🖴 / {percentage_used:2}%",
@@ -156,9 +168,6 @@
          "activated": "",
          "deactivated": ""
       }
-    },
-	"tray": {
-		"spacing": 10
-	}
+    }
 }
 
