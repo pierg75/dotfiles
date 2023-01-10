@@ -215,7 +215,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
 # exec --no-startup-id dunst -config ~/.config/dunst/config
 # exec --no-startup-id mako --anchor top-right
-exec swaync
+exec --no-startup-id swaync
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id ~/bin/disable_power_saving.sh
 exec --no-startup-id ~/bin/set_bright
