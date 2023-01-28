@@ -71,3 +71,6 @@ vim.keymap.set('n', '<leader>sfr',  builtin.lsp_references, { noremap = true, si
 vim.keymap.set('n', '<leader>sfd',  builtin.lsp_definitions, { noremap = true, silent = true })
 -- custom
 vim.keymap.set('n', '<leader>con', [[<cmd>lua opts = {} opts[4] = "/home/plambri/.config/nvim" require('telescope.builtin').find_files(cwd)<CR>]], { noremap = true, silent = true })
+-- live_grep_args
+vim.keymap.set("n", "<leader>spa", require('telescope').extensions.live_grep_args.live_grep_args, { noremap = true, silent = true })
+
