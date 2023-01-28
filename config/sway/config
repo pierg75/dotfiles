@@ -4,6 +4,21 @@ input * {
     xkb_capslock disable
 }
 
+# Set titlebar 
+titlebar_border_thickness 1
+titlebar_padding 2
+
+# Enable smart borders
+smart_borders no_gaps
+
+# Set gaps
+smart_gaps on
+gaps inner 0
+gaps outer 0
+gaps top 0
+gaps bottom 0
+
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
@@ -214,8 +229,7 @@ exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
 # exec --no-startup-id dunst -config ~/.config/dunst/config
-# exec --no-startup-id mako --anchor top-right
-exec --no-startup-id swaync
+exec --no-startup-id mako --anchor top-right
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id ~/bin/disable_power_saving.sh
 exec --no-startup-id ~/bin/set_bright
