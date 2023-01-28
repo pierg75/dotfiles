@@ -16,7 +16,7 @@
 * {
    border: none;
    font-size: 18px;
-   margin: 1;
+   margin: 1px;
    font-family: Product Sans ,Arial, Helvetica, sans-serif;
 }
 
@@ -40,8 +40,8 @@ window#waybar {
 
 #workspaces button {
   font-size: 14px;
-  border-radius: 0px;
-  margin: 0;
+  border-radius: 2px;
+  margin: 2px;
   padding: 0 12 0 12;
   background-color: transparent;
   border-top: 3px solid transparent;
@@ -68,40 +68,33 @@ window#waybar {
 }
 
 #cpu, #memory {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 0px;
+  margin-right: 0px;
   color: #fbba85;
   background-color: transparent;
   padding: 0px 10px 0px 10px;
 }
 
 #backlight, #pulseaudio {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 0px;
+  margin-right: 0px;
   color: #e3ffba;
   background-color: transparent;
   padding: 0px 10px 0px 10px;
 }
 
 #disk {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 0px;
+  margin-right: 0px;
   color: #ff7100;
   background-color: transparent;
   padding: 0px 10px 0px 10px;
 }
 
 #idle_inhibitor, #network, #custom-media, #temperature {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 0px;
+  margin-right: 0px;
   color: #80FFDB;
-  background-color: transparent;
-  padding: 0px 10px 0px 10px;
-}
-
-#clock {
-  margin-left: 0;
-  margin-right: 0;
   background-color: transparent;
   padding: 0px 10px 0px 10px;
 }
@@ -120,17 +113,16 @@ window#waybar {
 #clock {
   background-color: transparent;
   border-radius: 10px;
-  margin-right: 10;
-  font-size: 14px;
+  margin-right: 10px;
+  font-size: 18px;
   padding: 0px 0px 0px 8px;
 }
 #tray {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 0px;
+  margin-right: 10px;
   background-color: #3b4252 ;
 	padding: 0px 12px 0px 8px;
   border-radius: 0 10px 10px 0;
-  margin-right: 10;
   color: #8fbcbb;
 }
 @keyframes blink {
@@ -149,7 +141,7 @@ label:focus {
   color: #6f7787;
   padding: 0 12 0 12;
   border-radius: 10px 0 0 10px;
-  margin-left: 10;
+  margin-left: 10px;
 }
 
 #idle_inhibitor.activated {
