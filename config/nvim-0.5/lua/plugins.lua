@@ -120,7 +120,7 @@ return packer.startup(function(use)
   -- Statusline
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 }
 
   -- terminal
@@ -146,7 +146,7 @@ return packer.startup(function(use)
     branch = "v2.x",
     requires = { 
       "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
   }
@@ -173,10 +173,12 @@ return packer.startup(function(use)
 
 
   -- Trouble
-  use({
+  use {
     "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-  })
+      requires = "nvim-tree/nvim-web-devicons",
+      config = function()
+       end
+  }
 
   -- Focus on what you do
   use {
@@ -247,6 +249,12 @@ return packer.startup(function(use)
       require("telescope").load_extension("yaml_schema")
       end,
     }
+
+  -- skim plugin (fzf-lua supports skim)
+  use { 'ibhagwan/fzf-lua',
+    -- optional for icon support
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
