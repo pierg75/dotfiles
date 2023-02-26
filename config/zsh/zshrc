@@ -1,11 +1,25 @@
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.npm-packages/bin:$HOME/.cargo/bin:$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.npm-packages/bin:$HOME/.cargo/bin:$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/sources/upstream/gomuks:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Enable ls colors
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 # Set default editor to nvim
-export EDITOR=nvim
+if [[ -x /usr/bin/nvim ]]; then
+    export ZSHEDIT="/usr/bin/nvim"
+    export EDITOR="/usr/bin/nvim"
+    alias vi='/usr/bin/nvim'
+    alias vim='/usr/bin/nvim'
+elif [[ -x /usr/bin/vim ]]; then
+    export EDITOR="/usr/bin/vim"
+    alias vi='/usr/bin/vim'
+fi
+
+# Don't use zsh builtin which
+alias which >/dev/null && unalias which
+
+# IF NOT RUNNING INTERACTIVELY, LEAVE HERE!
+[[ "$-" != *i* ]] && return
 
 # ls colors
 autoload -U colors && colors
@@ -96,6 +110,10 @@ autoload -U +X bashcompinit && bashcompinit
 
 # Use modern completion system
 autoload -Uz compinit
+
+# Load the complist module 
+zmodload zsh/complist
+
 compinit
 
 
@@ -118,8 +136,6 @@ findfunlib (){
 }
 
 alias tmux='tmux -2'
-alias vim='nvim'
-alias vi='nvim'
 alias muttya='mutt -F ~/.muttrc.yahoo'
 alias mutt='neomutt'
 alias ssh='ssh -X'
@@ -132,25 +148,6 @@ alias rg='rg -N'
 setopt nonomatch
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-
-# fzf 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_DEFAULT_COMMAND='fd --type f'
-# export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-# _fzf_compgen_path() {
-#   fd --hidden --follow --exclude ".git" . "$1"
-# }
-
-# Use fd to generate the list for directory completion
-# _fzf_compgen_dir() {
-#   fd --type d --hidden --follow --exclude ".git" . "$1"
-# }
 
 # Workaround for bomgar fonts
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
@@ -220,3 +217,5 @@ fi
 
 # Workaround for double entries in $PATH
 typeset -U path
+
+source /home/plambri/.config/broot/launcher/bash/br
