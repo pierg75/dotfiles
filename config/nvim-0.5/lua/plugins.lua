@@ -24,12 +24,11 @@ packer.init {
     end,
   },
 }
-    
+
 return packer.startup(function(use)
-    
   -- Packer can manage itself as an optional plugin
   use {
-        'wbthomason/packer.nvim', 
+        'wbthomason/packer.nvim',
         opt = true
   }
 
@@ -70,7 +69,7 @@ return packer.startup(function(use)
   use {
     "hrsh7th/nvim-cmp",
     requires = {
-      "octaltree/cmp-look", 
+      "octaltree/cmp-look",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-calc",
