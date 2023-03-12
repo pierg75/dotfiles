@@ -1,7 +1,7 @@
 local servers = {
 	"lua_ls",
 	"tsserver",
-	"pyright",
+	"ruff_lsp",
 	"bashls",
 	"jsonls",
 	"yamlls",
@@ -37,6 +37,9 @@ for _, server in pairs(servers) do
 	opts = {
 		on_attach = require("lsp.handlers").on_attach,
 		capabilities = require("lsp.handlers").capabilities,
+    flags = {
+      debounce_text_changes = 150,
+    },
 	}
 
 	server = vim.split(server, "@")[1]
