@@ -102,6 +102,7 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm()
   },
   sources = cmp.config.sources({
+      { name = "path" },
       { name = "nvim_lsp" },
       { name = 'vim_lsp' },
       { name = "luasnip" },
