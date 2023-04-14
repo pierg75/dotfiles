@@ -267,6 +267,14 @@ return packer.startup(function(use)
     end
   }
 
+  use { 'dnlhc/glance.nvim',
+    config = function()
+      require('glance').setup({
+        -- your configuration
+      })
+    end,
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

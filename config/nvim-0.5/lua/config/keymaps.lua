@@ -3,6 +3,10 @@ if not status_ok then
 	return
 end
 
+
+--- Clear search highlighting with <leader> and c
+utils.map('n', '<leader>c', ':nohl<CR>')
+
 ---- nvim-tree shortcuts
 utils.map('n', '<C-n>', ':Neotree toggle<CR>', {noremap = true, silent = true})
 
@@ -41,7 +45,6 @@ utils.map("n", "<leader>spa", require('telescope').extensions.live_grep_args.liv
 utils.map('n', '<Leader>gs', '<cmd>Git<CR>')
 
 ---- Trouble
-
 utils.map("n", "<leader>xx", "<cmd>Trouble<cr>")
 utils.map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>")
 utils.map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>")
@@ -49,4 +52,9 @@ utils.map("n", "<leader>xl", "<cmd>Trouble loclist<cr>")
 utils.map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>")
 utils.map("n", "gR", "<cmd>Trouble lsp_references<cr>")
 
+-- glance
+utils.map('n', 'gD', '<CMD>Glance definitions<CR>')
+utils.map('n', 'gR', '<CMD>Glance references<CR>')
+utils.map('n', 'gY', '<CMD>Glance type_definitions<CR>')
+utils.map('n', 'gM', '<CMD>Glance implementations<CR>')
 
