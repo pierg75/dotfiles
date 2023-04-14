@@ -54,6 +54,16 @@ return packer.startup(function(use)
   -- LSP and completion
   use {
     'neovim/nvim-lspconfig',
+
+  }
+
+  use { 
+    'j-hui/fidget.nvim', 
+    opts = {} 
+  }
+
+  use {
+      'folke/neodev.nvim',
   }
 
   -- This tiny plugin adds vscode-like pictograms to neovim built-in lsp
@@ -63,6 +73,12 @@ return packer.startup(function(use)
         require("lspkind").init({})
       end,
   })
+
+  -- Server installer
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+  }
 
   -- Install nvim-cmp, and buffer source as a dependency
   use {
@@ -220,20 +236,12 @@ return packer.startup(function(use)
     end
   }
 
-  -- Note taking
-  use {"phaazon/mind.nvim"}
-
   -- Speed up!
   use {"lewis6991/impatient.nvim"}
 
   -- Nice C extension
   use {"p00f/clangd_extensions.nvim"}
 
-  -- Server installer
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-  }
 
   -- Yaml schema hanlding
   use {
