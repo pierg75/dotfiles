@@ -1,4 +1,5 @@
 require('config.keymaps')
+require('config.orgmode')
 require('config._nvimcmp')
 require('config.neo-tree')
 require('config.colorscheme')
