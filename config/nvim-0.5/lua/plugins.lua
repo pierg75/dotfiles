@@ -54,7 +54,6 @@ return packer.startup(function(use)
   -- LSP and completion
   use {
     'neovim/nvim-lspconfig',
-    'williamboman/nvim-lsp-installer',
   }
 
   -- This tiny plugin adds vscode-like pictograms to neovim built-in lsp
