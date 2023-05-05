@@ -56,8 +56,8 @@ font pango: Hack Nerd Font Mono 10
 floating_modifier $mod
 
 # Special keys
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
@@ -199,9 +199,9 @@ bindsym $mod+Print exec grim -t jpeg ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).jpg
 bindsym $mod+Shift+Print exec grim -t jpeg -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).jpg
 
 # Notifications
-# bindsym $mod+x exec swaync-client --close-latest
-# bindsym $mod+Shift+x exec swaync-client --close-all
-# bindsym $mod+t exec swaync-client --toggle-panel
+#bindsym $mod+x exec swaync-client --close-latest
+#bindsym $mod+Shift+x exec swaync-client --close-all
+#bindsym $mod+t exec swaync-client --toggle-panel
 bindsym $mod+x exec makoctl dismiss
 bindsym $mod+Shift+x exec makoctl dismiss --all
 
