@@ -3,11 +3,7 @@ vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require('plugins')
-require('lsp')
-require('config')
-require('settings')
-
--- Always load twilight
--- vim.cmd 'TwilightEnable'
-
+-- Plugin loader (lazy)
+require "options"
+require "keymaps"
+require "plugins"
