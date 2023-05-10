@@ -18,13 +18,14 @@ function M.config()
 
   configs.setup {
     ensure_installed = { "lua", "markdown", "markdown_inline", "bash",
-												 "python", "rust", "toml", "c"}, -- put the language you want in this array
+												 "python", "rust", "toml", "c", "go"}, -- put the language you want in this array
     -- ensure_installed = "all", -- one of "all" or a list of languages
     ignore_install = { "" },                                                       -- List of parsers to ignore installing
     sync_install = false,                                                          -- install languages synchronously (only applied to `ensure_installed`)
 
     highlight = {
       enable = true,       -- false will disable the whole extension
+			additional_vim_regex_highlighting = false,
       disable = { "css" }, -- list of language that will be disabled
     },
     autopairs = {
@@ -35,7 +36,12 @@ function M.config()
     context_commentstring = {
       enable = true,
       enable_autocmd = false,
-    },
+		},
+		rainbow = {
+			enable = true,
+			extended_mode = true,
+			max_file_lines = nil,
+		},
   }
 end
 
