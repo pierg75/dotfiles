@@ -9,3 +9,4 @@ config/cmus/playlists/
 config/cmus/search-history
 config/qutebrowser/config.py
 config/nvim-0.5/plugin/packer_compiled.lua
+config/nvim-0.5/lazy-lock.json
