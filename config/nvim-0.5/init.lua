@@ -6,4 +6,5 @@ vim.g.maplocalleader = ' '
 -- Plugin loader (lazy)
 require "options"
 require "keymaps"
+require "autocmd"
 require "plugins"
