@@ -8,7 +8,6 @@ vim.opt.hlsearch = true                         -- highlight all matches on prev
 vim.opt.ignorecase = true                       -- ignore case in search patterns
 vim.opt.pumheight = 10                          -- pop up menu height
 vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 0                         -- always show tabs
 vim.opt.smartcase = true                        -- smart case
 vim.opt.breakindent = true 			-- Enable break indent
 vim.opt.smartindent = true                      -- make indenting smarter again
@@ -21,9 +20,6 @@ vim.opt.timeoutlen = 300                        -- time to wait for a mapped seq
 vim.opt.undofile = true                         -- enable persistent undo
 vim.opt.updatetime = 250                        -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-vim.opt.expandtab = true                        -- convert tabs to spaces
-vim.opt.shiftwidth = indent                     -- the number of spaces inserted for each indentation
-vim.opt.tabstop = indent                             -- insert 2 spaces for a tab
 vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.cursorlineopt = 'both'
 vim.opt.number = true                           -- set numbered lines
@@ -41,7 +37,6 @@ vim.opt.shortmess:append "c"                    -- hide all the completion messa
 vim.opt.whichwrap:append "<,>,[,],h,l"          -- keys allowed to move to the previous/next line when the beginning/end of line is reached
 vim.opt.iskeyword:append "-"                    -- treats words with `-` as single words
 vim.opt.formatoptions:remove { "c", "r", "o" }  -- This is a sequence of letters which describes how automatic formatting is to be done
-vim.opt.linebreak = true
 vim.opt.hidden = true
 vim.opt.modeline = true
 vim.opt.shiftround = true
@@ -59,16 +54,8 @@ vim.opt.inccommand = 'nosplit'                   -- Incremental live completion
 vim.opt.cindent = true
 vim.opt.shiftwidth = indent
 vim.opt.tabstop = indent
+vim.opt.expandtab = true                        -- convert tabs to spaces
+vim.opt.showtabline = 0                         -- always show tabs
 
 -- Spelling
 vim.opt.spelllang = 'en,it'                -- don't show completion messages
- 
--- -- Custom file type settings (like 2 spaces/tab for lua)
--- vim.api.nvim_create_autocmd(
---     { "FileType" },
---     { pattern = { "lua" }, command = "set tabstop=2 shiftwidth=2" }
--- )
--- vim.api.nvim_create_autocmd(
---     { "FileType" },
---     { pattern = { "yaml" }, command = "set ai tabstop=2 shiftwidth=2 et" }
--- )
