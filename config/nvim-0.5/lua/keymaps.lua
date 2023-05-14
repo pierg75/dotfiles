@@ -80,3 +80,6 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- Twlight toggle
+keymap("n", "<leader>t", ":Twilight <CR>", opts)
