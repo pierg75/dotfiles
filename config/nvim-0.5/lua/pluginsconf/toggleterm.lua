@@ -11,7 +11,7 @@ function M.config()
 
   toggleterm.setup {
     size = 20,
-    open_mapping = [[<c-\>]],
+    open_mapping = [[<c-t>]],
     hide_numbers = true,
     shade_terminals = true,
     shading_factor = 2,
@@ -24,6 +24,12 @@ function M.config()
     float_opts = {
       border = "curved",
     },
+		winbar = {
+			enabled = true,
+			name_formatter = function(term) --  term: Terminal
+				return term.name
+			end
+		},
   }
 
   function _G.set_terminal_keymaps()
