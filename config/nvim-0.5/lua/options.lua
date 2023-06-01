@@ -58,4 +58,5 @@ vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.showtabline = 0                         -- always show tabs
 
 -- Spelling
-vim.opt.spelllang = 'en,it'                -- don't show completion messages
+vim.opt.spelllang = { 'en_gb' }                -- don't show completion messages
+vim.opt.spell = true

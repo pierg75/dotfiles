@@ -5,7 +5,9 @@ local M = {
     { "f3fora/cmp-spell", },
     { "hrsh7th/cmp-emoji", },
     { "hrsh7th/cmp-nvim-lua", },
-    { "uga-rosa/cmp-dictionary", },
+    { "uga-rosa/cmp-dictionary",
+			keyword_length = 2,
+		},
     { "hrsh7th/cmp-nvim-lsp-document-symbol", },
     { "hrsh7th/cmp-nvim-lsp-signature-help", },
     { "prabirshrestha/vim-lsp", },
@@ -139,6 +141,15 @@ function M.config()
       { name = "buffer" },
       { name = "path" },
       { name = 'tags' },
+      { name = 'calc' },
+      { name = 'spell',
+				option = {
+					keep_all_entries = false,
+					enable_in_context = function()
+						return true
+					end,
+			},
+			},
       { name = 'nvim_lsp_document_symbol' },
       { name = 'nvim_lsp_signature_help' },
       { name = 'orgmode' },
