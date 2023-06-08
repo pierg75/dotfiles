@@ -219,3 +219,7 @@ fi
 typeset -U path
 
 source /home/plambri/.config/broot/launcher/bash/br
+
+# Load cargo env
+[ -f ~/.cargo/env ] && source $HOME/.cargo/env
+
