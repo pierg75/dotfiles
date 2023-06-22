@@ -44,10 +44,6 @@ HISTSIZE=99999
 SAVEHIST=99999
 HISTFILE=~/.zsh_history
 
-# rustup
-fpath+=~/.zfunc
-
-
 # Rebuilds the cache of executable commands
 zstyle ":completion:*:commands" rehash 1
 
@@ -117,8 +113,6 @@ zmodload zsh/complist
 compinit
 
 
-
-
 untar (){
     for i in *.$1; do tar xvf $i; done
 }
@@ -135,6 +129,7 @@ findfunlib (){
     scanelf -l -s $1 | grep $1
 }
 
+alias tmux='tmux -2'
 alias muttya='mutt -F ~/.muttrc.yahoo'
 alias mutt='neomutt'
 alias ssh='ssh -X'
@@ -146,7 +141,12 @@ alias rg='rg -N'
 # Get the bash behaviour when trying to complete files
 setopt nonomatch
 
-fpath+=${ZDOTDIR:-~}/.zsh_functions
+fpath=(
+    ~/.zfunc
+    ${ZDOTDIR:-~}/.zsh_functions
+    "${fpath[@]}"
+)
+
 
 # Workaround for bomgar fonts
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
@@ -216,5 +216,3 @@ fi
 
 # Workaround for double entries in $PATH
 typeset -U path
-
-source /home/plambri/.config/broot/launcher/bash/br

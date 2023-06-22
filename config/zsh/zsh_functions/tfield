@@ -1,0 +1,6 @@
+argn=$#
+
+for arg do
+        shift
+        echo "-zproto,colinfo,$arg,$arg"
+done

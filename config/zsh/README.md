@@ -27,3 +27,4 @@ Add this to the zshrc to automatically load plugins:
 source <(sheldon source)
 ```
 
+Copy the `zsh_functions` into `$HOME/.zsh_functions` to get some extra functionality
