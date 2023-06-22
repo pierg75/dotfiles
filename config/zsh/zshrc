@@ -135,7 +135,6 @@ findfunlib (){
     scanelf -l -s $1 | grep $1
 }
 
-alias tmux='tmux -2'
 alias muttya='mutt -F ~/.muttrc.yahoo'
 alias mutt='neomutt'
 alias ssh='ssh -X'
@@ -219,7 +218,3 @@ fi
 typeset -U path
 
 source /home/plambri/.config/broot/launcher/bash/br
-
-# Load cargo env
-[ -f ~/.cargo/env ] && source $HOME/.cargo/env
-
