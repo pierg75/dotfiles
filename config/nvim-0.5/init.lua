@@ -8,3 +8,5 @@ require "options"
 require "keymaps"
 require "autocmd"
 require "plugins"
+
+vim.cmd[[colorscheme tokyonight]]
