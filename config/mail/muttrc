@@ -1,0 +1,249 @@
+set mbox_type=Maildir
+set folder="~/Maildir"
+set mbox="~/Maildir/"
+set spoolfile = "+Inbox"
+set postponed = "+Drafts"
+set record = "+Sent"
+set from = "Pierguido Lambri <{{ email_address}}>"
+set use_from=yes
+set signature="~/.mutt/signature"
+
+# Red Hat SMTP config
+set smtp_url=smtp://{{ smtp mail server address}}
+set ssl_force_tls = yes
+set imap_check_subscribed = "yes"
+set imap_list_subscribed = "yes"
+set imap_keepalive = 300
+set mail_check = 60
+set ssl_starttls = yes
+
+# Caches
+set header_cache = ~/.mutt/headercache
+set header_cache_backend = tokyocabinet
+set header_cache_compress = yes
+set message_cachedir = ~/.mutt/messagecache
+# Keep caches in sync, enable it from time to time, do not keep it always on (it may slow down mutt)
+set message_cache_clean = no
+
+# Set mailboxes
+mailboxes `~/bin/mailboxes.sh | paste -s -d " "`
+
+#### Tuning ####
+# This should speed up folder switch
+set sleep_time = 0
+# use very high $read_inc to speed up reading hcache'd maildirs
+set read_inc = 1000
+set imap_qresync = yes
+# Set compression
+set imap_deflate = yes
+
+# Auto subscribe
+set auto_subscribe = yes
+
+# Set the index format
+set index_format='%4C %Z %<[y?%<[m?%<[d?%[%H:%M ]&%[%a %d]>&%[%b %d]>&%[%m/%y ]> %-15.15F (%?l?%4l&%4c?) %s'
+
+# Example NeoMutt config file for the header cache compression feature.
+set header_cache_compress_method = "lz4"
+set header_cache_compress_level = 1
+
+color progress white red
+
+# This is a complete list of sidebar-related configuration.
+set sidebar_visible
+set mail_check_stats
+set sidebar_divider_char = '||'
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
+set sidebar_short_path             
+set sidebar_delim_chars="/"
+set sidebar_folder_indent = yes
+set sidebar_indent_string = '  '
+# Move the highlight to the previous mailbox
+bind index,pager \Cp sidebar-prev
+# Move the highlight to the next mailbox
+bind index,pager \Cn sidebar-next
+# Open the highlighted mailbox
+bind index,pager \Co sidebar-open
+# Move the highlight to the previous page
+# This is useful if you have a LOT of mailboxes.
+bind index,pager <F3> sidebar-page-up
+# Move the highlight to the next page
+# This is useful if you have a LOT of mailboxes.
+bind index,pager <F4> sidebar-page-down
+# Move the highlight to the previous mailbox containing new, or flagged,
+# mail.
+bind index,pager <F5> sidebar-prev-new
+# Move the highlight to the next mailbox containing new, or flagged, mail.
+bind index,pager <F6> sidebar-next-new
+# Toggle the visibility of the Sidebar.
+bind index,pager B sidebar-toggle-visible
+# --------------------------------------------------------------------------
+# COLORS - some unpleasant examples are given
+# --------------------------------------------------------------------------
+# enable true colours
+#set color_directcolor = yes
+
+color sidebar_new       green       black
+color sidebar_indicator default     color17         # Dark blue background
+color sidebar_highlight white       color238        # Grey background
+# color sidebar_spoolfile yellow      default         # Yellow
+color sidebar_new       green       default         # Green
+color sidebar_ordinary  default     default         # Default colors
+color sidebar_flagged   red         default         # Red
+color sidebar_divider   color39     default         # blue
+
+set status_format='-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---'
+
+# Folder in which to put deleted emails
+set trash='+Trash'
+# The default delete key 'd' will move an email to the 'trash' folder
+# Bind 'D' to REALLY delete an email
+bind index D purge-message
+
+macro   generic ">"     "<next-thread><previous-entry>"
+macro   generic "<"     "<previous-thread><next-entry>"
+auto_view text/html
+
+# To query the addresses db
+set query_command="lbdbq '%s'"
+
+
+# Example NeoMutt config file for the pager-read-delay feature.
+# Stay at least 5 seconds on a message before
+# the pager marks it as read
+set pager_read_delay = 0
+
+
+# Sort based on threads 
+set sort = threads
+set sort_browser=reverse-date
+set sort_aux=last-date-received
+# Set the editor and spelling checkers
+set editor="nvim -c 'set spell spelllang=en,it' -c 'set tw=74' -c 'set wrap'"
+
+# urlscan 
+macro index,pager \cb "<pipe-message> urlscan --run-safe '/home/plambri/scripts/url_fixer.py' --pipe<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan --run-safe '/home/plambri/scripts/url_fixer.py' --pipe<Enter>" "call urlscan to extract URLs out of a message"
+
+# notmuch
+#set nm_default_uri="notmuch:///home/plambri/Maildir" 	# path to the maildir
+#set virtual_spoolfile=yes                          		# enable virtual folders
+#set sendmail="/PATH/TO/bin/nm_sendmail"            # enables parsing of outgoing mail
+#virtual-mailboxes \
+#    "INBOX"     "notmuch://?query=tag:INBOX and NOT tag:archive"\
+#    "Unread"    "notmuch://?query=tag:unread"\
+#    "Starred"   "notmuch://?query=tag:*"\
+#    "Sent"      "notmuch://?query=tag:sent"        # sets up queries for virtual folders
+# notmuch bindings
+#macro index \\\\ "<vfolder-from-query>"            				 # looks up a hand made query
+#macro index A "<modify-labels>+archive -unread -inbox\\n"        # tag as Archived
+#macro index I "<modify-labels>-inbox -unread\\n"                 # removed from inbox
+#macro index S "<modify-labels-then-hide>-inbox -unread +junk\\n" # tag as Junk mail
+#macro index + "<modify-labels>+*\\n<sync-mailbox>"               # tag as starred
+#macro index - "<modify-labels>-*\\n<sync-mailbox>"               # tag as unstarred
+
+#---------- Colors ----------
+set my_background = "color232"
+set my_gray = "color250"
+set my_magenta = "color198"
+set my_brightmagenta = "brightcolor198"
+set my_green = "color112"
+set my_bgreen = "color112"
+set my_red = "color160"
+set my_darkgray = "color235"
+set my_tan = "color185"
+set my_blue = "color81"
+set my_lavender = "color141"
+
+# index menu
+color index $my_gray $my_background ".*"
+color index_date $my_magenta $my_background
+color index_author $my_green $my_background "~R"
+color index_author $my_bgreen $my_background "~U"
+
+# message display
+color normal white $my_background
+color error $my_red $my_background
+color tilde $my_darkgray $my_background
+color message white $my_background
+color markers $my_red white
+color attachment white $my_background
+#color bold brightwhite $my_background
+color underline color79 $my_background
+color quoted $my_tan $my_background
+color quoted1 $my_blue $my_background
+color quoted2 $my_green $my_background
+color quoted3 $my_lavender $my_background
+color hdrdefault $my_gray $my_background
+color header white $my_background "^(Subject)"
+
+color search $my_lavender $my_background
+# header/footer menu
+color indicator $my_background $my_tan
+# thread tree arrows
+color tree $my_tan $my_background
+
+color normal		color253	    $my_background # mod
+color indicator    	color230     	color238
+color status        $my_gray        $my_darkgray
+color tree         	color208      	$my_background 
+color signature    	color102      	$my_background 
+color message      	color253      	$my_background 
+color attachment	color117      	$my_background 
+color error        	color30      	$my_background 
+color tilde        	color130     	color235 
+color search        color100        default 
+color markers       color138        default 
+color quoted        color107        $my_background             # quoted text
+color quoted1       color66         $my_background
+color quoted2       color32         $my_background
+color quoted3       color30         $my_background
+color quoted4       color99         $my_background
+color quoted5       color36         $my_background
+color quoted6       color114        $my_background
+color quoted7       color109        $my_background
+color quoted8       color41         $my_background
+color index		    color202	    $my_background  ~F         # Flagged
+color index         color39     	$my_background  ~N          # New
+color index         color39     	$my_background  ~O         
+color index         color229     	color22  ~T         # Tagged
+color index         color240     	$my_background  ~D         # Deleted
+color hdrdefault 	color30    	    color233 
+color header		color132    	color233    '^date:'
+color header		color153    	color233    '^(to|cc|bcc):'
+color header		color120    	color233    '^from:'
+color header		color178    	color233    '^subject:'
+color header    	color31     	color233    '^user-agent:'
+color header		color29     	color233    '^reply-to:'
+color status        brightred white '(New|Del|Flag):[0-9]+'
+color status        brightgreen default '\([^)]+/[^)]+\)'
+color status        default   default '\(threads/last-date-received\)'
+color status        red default '\[([^]]+)\]' 1
+color status        brightwhite default 'Mutt: ([^ ]+)' 1
+
+
+# Example NeoMutt config file for the attach-headers-color feature.
+# Color if the attachment is autoviewed
+color   attach_headers     brightgreen     default    "Autoview"
+# Color only the brackets around the headers
+color   attach_headers     brightyellow    default    "^\\[--"
+color   attach_headers     brightyellow    default    "--]$"
+# Color the mime type and the size
+color   attach_headers     green           default    "Type: [a-z]+/[a-z0-9\-]+"
+color   attach_headers     green           default    "Size: [0-9\.]+[KM]"
+# Color GPGME signature checks
+color   attach_headers     brightgreen     default    "Good signature from.*"
+color   attach_headers     brightred       default    "Bad signature from.*"
+color   attach_headers     brightred       default    "BAD signature from.*"
+color   attach_headers     brightred       default    "Note: This key has expired!"
+color   attach_headers     brightmagenta   default    "Problem signature from.*"
+color   attach_headers     brightmagenta   default    "WARNING: This key is not certified with a trusted signature!"
+color   attach_headers     brightmagenta   default    "         There is no indication that the signature belongs to the owner."
+color   attach_headers     brightmagenta   default    "can't handle these multiple signatures"
+color   attach_headers     brightmagenta   default    "signature verification suppressed"
+color   attach_headers     brightmagenta   default    "invalid node with packet of type"
+
+
+
+
+

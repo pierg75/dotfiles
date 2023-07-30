@@ -1,0 +1,67 @@
+FSync no
+BufferLimit 100m
+
+IMAPAccount gmail
+    # Address to connect to
+    Host imap.gmail.com
+    User {{ email_address }}
+    SSLType IMAPS
+    # This is needed if you want to use XOAUTH2 instead of normal auth
+    # PassCmd "/home/plambri/bin/mutt_oauth2.py ~/.plambri@mytoken"
+    # AuthMechs XOAUTH2
+    # This will limit the amount of outstanding commands
+    PipelineDepth 1
+
+IMAPStore gmail-remote
+    Account gmail
+
+MaildirStore gmail-local
+    Subfolders Verbatim
+    # The trailing "/" is important
+    Path ~/Maildir/
+    Inbox ~/Maildir/Inbox
+
+Channel gmail-default
+    Far :gmail-remote:
+    Near :gmail-local:
+    # Or include everything
+    Patterns * !"[Gmail]" 
+    # Automatically create missing mailboxes, both locally and on the server
+    Create Both
+    # Save the synchronization state files in the relevant directory
+    SyncState *
+    MaxMessages 0
+    Expunge None
+    CopyArrivalDate yes
+
+Channel sync-gmail-drafts
+    Far :gmail-remote:"[Gmail]/Drafts"
+    Near :gmail-local:Drafts
+    Create Near
+    CopyArrivalDate yes
+
+Channel sync-gmail-sent
+    Far :gmail-remote:"[Gmail]/Sent Mail"
+    Near :gmail-local:Sent
+    Create Near
+    CopyArrivalDate yes
+
+Channel sync-gmail-trash
+    Far :gmail-remote:"[Gmail]/Trash"
+    Near :gmail-local:Trash
+    Create Near
+    CopyArrivalDate yes
+
+Channel sync-gmail-spam
+    Far :gmail-remote:"[Gmail]/Spam"
+    Near :gmail-local:Spam
+    Create Near
+    CopyArrivalDate yes
+
+# Get all the channels together into a group.
+    Group gmail
+    Channel sync-gmail-default
+    Channel sync-gmail-drafts
+    Channel sync-gmail-trash
+    Channel sync-gmail-sent
+    Channel sync-gmail-spam
