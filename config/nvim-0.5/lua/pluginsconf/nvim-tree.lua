@@ -81,7 +81,6 @@ local function on_attach(bufnr)
 end
 
 function M.config()
-  local tree_cb = require("nvim-tree.config").nvim_tree_callback
   require("nvim-tree").setup {
     update_focused_file = {
       enable = true,
