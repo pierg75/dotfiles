@@ -10,6 +10,7 @@ M.servers = {
   "yamlls",
   "gopls",
 	"clangd",
+	"terraformls"
 }
 
 return M
