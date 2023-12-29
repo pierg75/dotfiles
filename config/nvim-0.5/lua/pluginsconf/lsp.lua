@@ -5,10 +5,10 @@ local M = {
     {
       "hrsh7th/cmp-nvim-lsp",
     },
-		-- Additional lua configuration, makes nvim stuff amazing!
-		{
-			'folke/neodev.nvim',
-		},
+    -- Additional lua configuration, makes nvim stuff amazing!
+    {
+	    'folke/neodev.nvim',
+    },
   },
 }
 
