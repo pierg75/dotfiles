@@ -32,7 +32,7 @@ function M.config()
     autopairs = {
       enable = true,
     },
-    indent = { enable = true, disable = { "python", "css" } },
+    indent = { enable = true, disable = { "css" } },
 
 		rainbow = {
 			enable = true,
