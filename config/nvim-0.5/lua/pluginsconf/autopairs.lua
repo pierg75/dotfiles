@@ -16,10 +16,12 @@ function M.config()
   require("nvim-autopairs").setup {
     check_ts = true, -- treesitter integration
     disable_filetype = { "TelescopePrompt" },
+    enable_check_bracket_line = false,
     ts_config = {
       lua = { "string", "source" },
       javascript = { "string", "template_string" },
       java = false,
+      python = { "string" },
     },
     fast_wrap = {
       map = "<M-e>",
