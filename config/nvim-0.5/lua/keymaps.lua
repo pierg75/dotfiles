@@ -55,17 +55,18 @@ keymap("v", ">", ">gv", opts)
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
--- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+-- fzf-lua
+keymap("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<CR>", opts)
+keymap("n", "<leader>fl", "<cmd>lua require('fzf-lua').live_grep()<CR>", opts)
+keymap("n", "<leader>ft", "<cmd>lua require('fzf-lua').grep()<CR>", opts)
+keymap("n", "<leader>fT", "<cmd>lua require('fzf-lua').tags()<CR>", opts)
+keymap("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffer<CR>", opts)
+keymap("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffer<CR>", opts)
+keymap("n", "<leader>fr", "<cmd>lua require('fzf-lua').lsp_references<CR>", opts)
+keymap("n", "<leader>fd", "<cmd>lua require('fzf-lua').lsp_definitions<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
-
--- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
-keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
 -- DAP
 -- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
