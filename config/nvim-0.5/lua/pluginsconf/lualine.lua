@@ -13,6 +13,14 @@ function M.config()
     return vim.fn.winwidth(0) > 80
   end
 
+  local lint_progress = function()
+    local linters = require("lint").get_running()
+    if #linters == 0 then
+      return "󰦕"
+    end
+    return "󱉶 " .. table.concat(linters, ", ")
+  end
+
   local diagnostics = {
     "diagnostics",
     sources = { "nvim_diagnostic" },
@@ -56,6 +64,7 @@ function M.config()
       lualine_a = { "mode" },
       lualine_b = { "branch" },
       lualine_c = { diagnostics },
+      lualine_d = { lint_progress },
       lualine_x = { diff, spaces, "encoding", filetype },
       lualine_y = { location },
       lualine_z = { "progress" },
