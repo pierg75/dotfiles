@@ -17,13 +17,14 @@ local M = {
     { "hrsh7th/cmp-path", },
     { "hrsh7th/cmp-cmdline", },
     { "saadparwaiz1/cmp_luasnip", },
-    { "L3MON4D3/LuaSnip",
+    {
+      "L3MON4D3/LuaSnip",
       event = "VeryLazy",
       dependencies = {
         "rafamadriz/friendly-snippets",
       },
     },
-    { "hrsh7th/cmp-nvim-lua",},
+    { "hrsh7th/cmp-nvim-lua", },
   },
   event = {
     "InsertEnter",
@@ -76,7 +77,7 @@ function M.config()
       end,
     },
     mapping = cmp.mapping.preset.insert {
-			['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ["<C-k>"] = cmp.mapping.select_prev_item(),
       ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -128,21 +129,21 @@ function M.config()
       end,
     },
     sources = {
-      { name = "nvim_lsp" },
-      { name = "nvim_lua" },
-      { name = "luasnip" },
-      { name = "buffer" },
-      { name = "path" },
-      { name = 'tags' },
-      { name = 'calc' },
-      { name = 'spell',
-				option = {
-					keep_all_entries = false,
-					enable_in_context = function()
-						return true
-					end,
-			},
-			},
+      { name = "nvim_lsp", priority = 2000 },
+      { name = "nvim_lua", priority = 1000 },
+      { name = "luasnip",  priority = 750 },
+      { name = "buffer",   priority = 500 },
+      { name = "path",     priority = 250 },
+      { name = 'tags',     priority = 250 },
+      { name = 'calc',     priority = 250 },
+      { name = 'spell', priority = 250,
+        option = {
+          keep_all_entries = false,
+          enable_in_context = function()
+            return true
+          end,
+        },
+      },
       { name = 'nvim_lsp_document_symbol' },
       { name = 'nvim_lsp_signature_help' },
       { name = 'orgmode' },
