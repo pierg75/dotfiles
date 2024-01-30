@@ -1,0 +1,75 @@
+live_config_reload = true
+
+[bell]
+animation = "EaseOutExpo"
+color = "#ffffff"
+
+[colors.bright]
+black = "0x767676"
+blue = "0x3b78ff"
+cyan = "0x61d6d6"
+green = "0x16c60c"
+magenta = "0xb4009e"
+red = "0xe74856"
+white = "0xf2f2f2"
+yellow = "0xf9f1a5"
+
+[colors.normal]
+black = "0x0c0c0c"
+blue = "0x0037da"
+cyan = "0x3a96dd"
+green = "0x13a10e"
+magenta = "0x881798"
+red = "0xc50f1f"
+white = "0xcccccc"
+yellow = "0xc19c00"
+
+[colors.primary]
+background = "0x0c0c0c"
+foreground = "0xcccccc"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Monospace"
+
+[[hints.enabled]]
+command = "qutebrowser"
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[shell]
+args = ["--login"]
+program = "/bin/zsh"
+
+[window]
+dynamic_title = true
