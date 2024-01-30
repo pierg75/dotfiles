@@ -57,8 +57,8 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- fzf-lua
 keymap("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<CR>", opts)
-keymap("n", "<leader>fl", "<cmd>lua require('fzf-lua').live_grep()<CR>", opts)
-keymap("n", "<leader>ft", "<cmd>lua require('fzf-lua').grep()<CR>", opts)
+keymap("n", "<leader>fl", "<cmd>lua require('fzf-lua').live_grep({ multiprocess=true, debug=true })<CR>", opts)
+keymap("n", "<leader>ft", "<cmd>lua require('fzf-lua').grep({ multiprocess=true, debug=true })<CR>", opts)
 keymap("n", "<leader>fT", "<cmd>lua require('fzf-lua').tags()<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffer<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffer<CR>", opts)
