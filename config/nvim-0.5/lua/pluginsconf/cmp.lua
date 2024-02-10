@@ -7,7 +7,6 @@ local M = {
     { "hrsh7th/cmp-nvim-lua", },
     { "uga-rosa/cmp-dictionary", },
     { "hrsh7th/cmp-nvim-lsp-document-symbol", },
-    { "hrsh7th/cmp-nvim-lsp-signature-help", },
     { "prabirshrestha/vim-lsp", },
     { "dmitmel/cmp-vim-lsp", },
     { "quangnguyen30192/cmp-nvim-tags", },
@@ -145,7 +144,6 @@ function M.config()
         },
       },
       { name = 'nvim_lsp_document_symbol' },
-      { name = 'nvim_lsp_signature_help' },
       { name = 'orgmode' },
       {
         name = "dictionary",
