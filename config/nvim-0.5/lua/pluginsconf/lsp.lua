@@ -9,6 +9,10 @@ local M = {
 		{
 			'folke/neodev.nvim',
 		},
+		{
+			'j-hui/fidget.nvim',
+			opts = {}
+		},
 	},
 }
 
