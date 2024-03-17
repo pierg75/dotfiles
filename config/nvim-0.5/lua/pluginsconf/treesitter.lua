@@ -15,9 +15,10 @@ function M.config()
 
 	configs.setup {
 		ensure_installed = { "lua", "luadoc", "markdown", "markdown_inline", "bash",
-			"python", "rust", "toml", "c", "cpp", "go", "vim", "diff", "regex", "yaml" }, -- put the language you want in this array
-		ignore_install = { "" },                                                     -- List of parsers to ignore installing
-		sync_install = false,                                                        -- install languages synchronously (only applied to `ensure_installed`)
+			"python", "rust", "toml", "c", "cpp", "go", "vim", "diff", "regex", "yaml",
+			"vimdoc" },          -- put the language you want in this array
+		ignore_install = { "" }, -- List of parsers to ignore installing
+		sync_install = false,  -- install languages synchronously (only applied to `ensure_installed`)
 		-- Automatically install missing parsers when entering buffer
 		-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
 		auto_install = true,
