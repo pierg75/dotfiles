@@ -5,7 +5,7 @@ local m = {
 function m.config()
   require("conform").setup({
     formatters_by_ft = {
-      python = { "ruff_fix", "ruff_format", "black" },
+      python = { "black" },
       ["*"] = { "trim_whitespace", "trim_newlines" },
     },
     format_on_save = {
