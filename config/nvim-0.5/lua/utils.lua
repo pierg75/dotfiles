@@ -10,7 +10,8 @@ M.servers = {
 	"gopls",
 	"clangd",
 	"terraformls",
-	"pyright"
+	"pyright",
+	"taplo"
 }
 
 return M
