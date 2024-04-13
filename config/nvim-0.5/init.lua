@@ -5,9 +5,9 @@ vim.g.maplocalleader = ' '
 
 -- Plugin loader (lazy)
 require "options"
-require "keymaps"
 require "autocmd"
 require "plugins"
+require "keymaps"
 require "ft"
 
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd 'colorscheme tokyonight'
