@@ -1,6 +1,6 @@
 vim.filetype.add {
-    pattern = {
-        ['.*/kernel/.*'] = "c-kernel",
-        ['.*/rhel-.*/.*'] = "c-kernel",
-    }
+	pattern = {
+		['.*/kernel/**/.*'] = "c-kernel",
+		['.*/rhel-.*/**/.*'] = "c-kernel",
+	}
 }
