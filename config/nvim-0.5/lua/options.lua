@@ -40,7 +40,6 @@ vim.opt.formatoptions:remove { "c", "r", "o" }   -- This is a sequence of letter
 vim.opt.hidden = true
 vim.opt.modeline = true
 vim.opt.shiftround = true
-vim.opt.wildoptions = pum
 vim.opt.pumblend = 20
 vim.opt.relativenumber = true
 vim.opt.syntax = enable
