@@ -15,25 +15,28 @@ vim.g.mapleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+
+keymap("", "<leader><leader>ps", "<Cmd>Lazy sync<CR>", { desc = "update vim plugins" })
+
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-h>", "<C-w>h", opts, { desc = "Switch window left" })
+keymap("n", "<C-j>", "<C-w>j", opts, { desc = "Switch window down" })
+keymap("n", "<C-k>", "<C-w>k", opts, { desc = "Switch window up" })
+keymap("n", "<C-l>", "<C-w>l", opts, { desc = "Switch window right" })
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize -2<CR>", opts, { desc = "Resize window -2" })
+keymap("n", "<C-Down>", ":resize +2<CR>", opts, { desc = "Resize window +2" })
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts, { desc = "Resize vertical window -2" })
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts, { desc = "Resize vertical window +2" })
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts, { desc = "Go to the next buffer" })
+keymap("n", "<S-h>", ":bprevious<CR>", opts, { desc = "Go to the previous buffer" })
 
 -- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", opts, { desc = "Clear highlights" })
 
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
@@ -84,5 +87,3 @@ keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opt
 
 -- Twlight toggle
 keymap("n", "<leader>t", ":Twilight <CR>", opts)
-
-keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
