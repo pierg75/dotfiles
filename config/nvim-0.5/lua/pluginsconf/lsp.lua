@@ -102,6 +102,7 @@ function M.config()
 			completeUnimported = true,
 			clangdFileStatus = true,
 		},
+		on_attach = on_attach
 	}
 	)
 
