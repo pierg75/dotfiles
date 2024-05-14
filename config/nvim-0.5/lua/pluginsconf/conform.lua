@@ -8,6 +8,7 @@ function m.config()
 			python = { "black" },
 			markdown = { "inject" },
 			c = { "clang-format" },
+			sh = { "beautysh" },
 			["*"] = { "trim_whitespace", "trim_newlines" },
 		},
 		format_on_save = {
