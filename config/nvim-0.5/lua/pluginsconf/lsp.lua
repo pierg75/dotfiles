@@ -34,8 +34,10 @@ function M.config()
 		keymap(bufnr, "n", "<Leader>li", "<cmd>LspInfo<cr>", opts)
 		keymap(bufnr, "n", "<Leader>lI", "<cmd>Mason<cr>", opts)
 		keymap(bufnr, "n", "<Leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-		keymap(bufnr, "n", "<Leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-		keymap(bufnr, "n", "<Leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
+		keymap(bufnr, "n", "[d", vim.diagnostic.goto_prev, { opts, desc = 'Go to previous [D]iagnostic message' })
+		keymap(bufnr, "n", "]d", vim.diagnostic.goto_next, { opts, desc = 'Go to next [D]iagnostic message' })
+		keymap(bufnr, "n", "<leader>[", vim.diagnostic.open_float, { opts, desc = 'Show diagnostic [E]rror messages' })
+		keymap(bufnr, 'n', '<leader>q', vim.diagnostic.setloclist, { opts, desc = 'Open diagnostic [Q]uickfix list' })
 		keymap(bufnr, "n", "<Leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 		keymap(bufnr, "n", "<Leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 		keymap(bufnr, "n", "<Leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
@@ -103,8 +105,7 @@ function M.config()
 			clangdFileStatus = true,
 		},
 		on_attach = on_attach
-	}
-	)
+	})
 
 
 	local signs = {

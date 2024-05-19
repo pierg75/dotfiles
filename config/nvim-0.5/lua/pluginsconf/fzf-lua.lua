@@ -7,9 +7,14 @@ local M = {
 
 
 function M.config()
-	local actions = require 'fzf-lua.actions'
 	require("fzf-lua").setup({
 		'skim',
+		keymap = {
+			fzf = {
+				['ctrl-a'] = 'toggle-all',
+				['ctrl-q'] = 'select-all+accept',
+			},
+		},
 		winopts = {
 			preview = { default = 'bat_native' }
 		},
@@ -38,11 +43,6 @@ function M.config()
 				["ctrl-f"] = "preview-page-down",
 				["ctrl-b"] = "preview-page-up",
 				["ctrl-a"] = "toggle-all",
-			},
-		},
-		actions = {
-			files = {
-				["ctrl-q"] = actions.file_sel_to_qf,
 			},
 		},
 		blines = {

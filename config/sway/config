@@ -4,7 +4,7 @@ input * {
     xkb_capslock disable
 }
 
-# Set titlebar 
+# Set titlebar
 titlebar_border_thickness 1
 titlebar_padding 2
 
@@ -34,15 +34,14 @@ set $right l
 set $term alacritty
 
 # Multimonitor side by side
-output DVI-I-1 pos 0 0
-output VGA-1 pos 1920 0
+output eDP-1 pos 0 0
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
 
 # Bind some workspaces to some monitors
-workspace 1 output DVI-I-1
-workspace 2 output VGA-1
-workspace 3 output VGA-1
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -76,7 +75,8 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec "wofi --show run"
+# bindsym $mod+d exec "wofi --show run"
+bindsym $mod+d exec "kickoff"
 
 
 # change focus
@@ -187,7 +187,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# External Monitor                                                                                                                                                                                                  
+# External Monitor
 bindsym $mod+m         exec xrandr --output eDP-1 --auto --output DP-2-2 --off --right-of eDP-1
 bindsym $mod+shift+m   exec xrandr --output eDP-1 --auto --output DP-2-2 --auto --right-of eDP-1
 
@@ -247,4 +247,3 @@ exec --no-startup-id wlsunset -l 51.5074 -L 0.1278
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-

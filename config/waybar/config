@@ -4,7 +4,7 @@
     "exclusive": true,
     "passtrough": false,
     "gtk-layer-shell": true,
-    "output": "VGA-1",
+    "output": "eDP-1",
 	"modules-left": [
 		"wlr/workspaces"
 	],
@@ -151,7 +151,7 @@
         "return-type": "json",
         "interval": 30,
         "exec": "$HOME/bin/check_vpn.sh",
-        "format-icons": ["",""]        
+        "format-icons": ["",""]
     },
 	 "idle_inhibitor": {
          "format": "{icon}",
@@ -161,4 +161,3 @@
       }
     }
 }
-
