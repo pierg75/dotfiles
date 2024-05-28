@@ -35,6 +35,10 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts, { desc = "Resize verti
 keymap("n", "<S-l>", ":bnext<CR>", opts, { desc = "Go to the next buffer" })
 keymap("n", "<S-h>", ":bprevious<CR>", opts, { desc = "Go to the previous buffer" })
 
+-- Execute
+keymap("n", "<leader>x", "<cmd>.lua<CR>", opts, { desc = "Execute the current line" })
+keymap("n", "<leader><leader>x", "<cmd>source %<CR>", opts, { desc = "Execute the current file" })
+
 -- Clear highlights
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", opts, { desc = "Clear highlights" })
 
