@@ -40,8 +40,8 @@ output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
 
 # Bind some workspaces to some monitors
 workspace 1 output DVI-I-1
-workspace 2 output DVI-I-1
-workspace 3 output DVI-I-1
+workspace 2 output VGA-1
+workspace 3 output VGA-1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
