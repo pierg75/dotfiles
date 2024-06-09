@@ -1,8 +1,22 @@
+# Live config reload (changes require restart)
 live_config_reload = true
 
-[bell]
-animation = "EaseOutExpo"
-color = "#ffffff"
+[env]
+TERM = "xterm-256color"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+dynamic_title = true
+opacity = 1
+
+[window.padding]
+x = 0
+y = 0
+
+[colors.primary]
+background = "0x0c0c0c"
+foreground = "0xcccccc"
 
 [colors.bright]
 black = "0x767676"
@@ -24,19 +38,16 @@ red = "0xc50f1f"
 white = "0xcccccc"
 yellow = "0xc19c00"
 
-[colors.primary]
-background = "0x0c0c0c"
-foreground = "0xcccccc"
-
-[env]
-TERM = "xterm-256color"
-
 [font]
 size = 10.0
 
 [font.bold]
 family = "Hack"
 style = "Bold"
+
+[font.bold_italic]
+family = "Hack"
+style = "Bold Italic"
 
 [font.italic]
 family = "Hack"
@@ -69,7 +80,4 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [shell]
 args = ["--login"]
-program = "/bin/zsh"
-
-[window]
-dynamic_title = true
+program = "/usr/bin/zsh"
