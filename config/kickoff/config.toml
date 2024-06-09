@@ -1,13 +1,12 @@
 # Kickoff default config
 
 # Characters shown in front of the query.
-prompt = '-> '
+prompt = '% '
 
 # space between window border and the content in pixel
-padding = 100
+padding = 50
 
 fonts = [
-    # 'Noto Sans Mono',
     'Hack Nerd Font Mono',
 ] # list of otf or ttf fonts. later elements work as fallback
 font_size = 28.0
