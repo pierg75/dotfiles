@@ -27,8 +27,6 @@ $character"""
 add_newline = false
 command_timeout = 100
 
-
-
 [line_break]
 disabled = true
 
@@ -37,7 +35,7 @@ vicmd_symbol = "[V](bold green) "
 
 [hostname]
 ssh_only = false
-format =  "on [$hostname](bold red) "
+format = "on [$hostname](bold red) "
 trim_at = ".redhat.com"
 disabled = false
 
@@ -45,10 +43,3 @@ disabled = false
 truncation_length = 4
 truncate_to_repo = false
 truncation_symbol = "…/"
-
-
-
-
-
-
-
