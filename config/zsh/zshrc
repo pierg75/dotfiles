@@ -44,17 +44,17 @@ setopt EXTENDED_GLOB            # Needed for file modification glob modifiers wi
 setopt MENU_COMPLETE            # Do not autoselect the first completion entry.
 setopt LIST_PACKED              # The list takes less space
 setopt GLOB_COMPLETE            # Do not insert all the words when a glob pattern i spresent
-setopt APPEND_HISTORY           # append the zsh session history list to the history file
+setopt INC_APPEND_HISTORY       # Append immediately
 setopt SHARE_HISTORY            # History is shared across all sessions
 setopt HIST_IGNORE_SPACE        # Remove command lines from the history list when the first character on the line is a space
 setopt HIST_IGNORE_ALL_DUPS     # Remove the older command if duplicates
-setopt HIST_SAVE_NO_DUPS        # Do not write a duplicate event to the history file.
-setopt HIST_IGNORE_DUPS         # Do not enter command lines into the history list if they are duplicates of the previous event
-setopt HIST_FIND_NO_DUPS        # Do not display duplicates of a line previously found,
+#setopt HIST_SAVE_NO_DUPS        # Do not write a duplicate event to the history file.
+#setopt HIST_IGNORE_DUPS         # Do not enter command lines into the history list if they are duplicates of the previous event
+#setopt HIST_FIND_NO_DUPS        # Do not display duplicates of a line previously found,
 
 # Keep 99999 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=99999
-SAVEHIST=$HISTFILE
+HISTSIZE=999999
+SAVEHIST=200000
 HISTDUP=erase
 HISTFILE=~/.zsh_history
 
@@ -222,8 +222,6 @@ fi
 
 # Workaround for double entries in $PATH
 typeset -U path
-
-source /home/plambri/.config/broot/launcher/bash/br
 
 # Load cargo env
 [ -f ~/.cargo/env ] && source $HOME/.cargo/env
