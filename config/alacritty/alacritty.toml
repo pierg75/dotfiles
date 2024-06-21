@@ -2,6 +2,7 @@
 live_config_reload = true
 
 [env]
+SHELL = "/usr/bin/zsh"
 TERM = "xterm-256color"
 
 [window]
