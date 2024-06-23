@@ -34,14 +34,27 @@ set $right l
 set $term alacritty
 
 # Multimonitor side by side
-output eDP-1 pos 0 0
+output eDP-1 {
+        pos 0 0
+        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
+}
+
+output DP-10 {
+        pos 1920 0
+        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
+}
+
+output DP-9 {
+        pos 3840 0
+        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
+}
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
+#output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
 
 # Bind some workspaces to some monitors
-workspace 1 output eDP-1
-workspace 2 output eDP-1
-workspace 3 output eDP-1
+#workspace 1 output eDP-1
+#workspace 2 output eDP-1
+#workspace 3 output eDP-1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -233,6 +246,7 @@ exec --no-startup-id mako --anchor top-right
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id ~/bin/set_bright
 exec --no-startup-id wlsunset -l 51.5074 -L 0.1278
+exec --no-startup-id kanshi
 
 #
 # Scratchpad:

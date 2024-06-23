@@ -1,0 +1,9 @@
+profile home {
+    output eDP-1 disable
+    output DP-10 mode 1920x1080 position 0,0
+    output DP-9 mode 1920x1080 position 1920,0
+}
+
+profile unplugged {
+    output eDP-1 enable mode 1920x1200
+}

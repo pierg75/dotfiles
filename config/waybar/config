@@ -4,7 +4,7 @@
     "exclusive": true,
     "passtrough": false,
     "gtk-layer-shell": true,
-    "output": "eDP-1",
+    "output": ["eDP-1", "DP-9"],
 	"modules-left": [
 		"wlr/workspaces"
 	],
