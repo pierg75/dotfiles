@@ -52,9 +52,16 @@ output DP-9 {
 #output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
 
 # Bind some workspaces to some monitors
-#workspace 1 output eDP-1
-#workspace 2 output eDP-1
-#workspace 3 output eDP-1
+
+set $disp-note "eDP-1"
+set $disp-desk-left "DP-10"
+set $disp-desk-right "DP-9"
+
+workspace 1 output $disp-note
+workspace 2 output $disp-desk-left
+workspace 3 output $disp-desk-left
+workspace 4 output $disp-desk-right
+workspace 5 output $disp-desk-right
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

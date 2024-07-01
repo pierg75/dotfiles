@@ -2,8 +2,16 @@ profile home {
     output eDP-1 disable
     output DP-10 mode 1920x1080 position 0,0
     output DP-9 mode 1920x1080 position 1920,0
+    exec swaymsg workspace 1, move workspace to DP-10
+    exec swaymsg workspace 2, move workspace to DP-9
+    exec swaymsg workspace 3, move workspace to DP-10
+    exec swaymsg workspace 4, move workspace to DP-10
 }
 
 profile unplugged {
     output eDP-1 enable mode 1920x1200
+    exec swaymsg workspace 1, move workspace to eDP-1
+    exec swaymsg workspace 2, move workspace to eDP-1
+    exec swaymsg workspace 3, move workspace to eDP-1
+    exec swaymsg workspace 4, move workspace to eDP-1
 }
