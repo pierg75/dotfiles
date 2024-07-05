@@ -34,7 +34,7 @@ disabled = true
 vicmd_symbol = "[V](bold green) "
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format = "on [$hostname](bold red) "
 trim_at = ".redhat.com"
 disabled = false
