@@ -1,0 +1,37 @@
+[[profile]]
+name = "desktop"
+exec = [
+        "notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\"",
+        "swaymsg workspace 1, move workspace to DP-12",
+        "swaymsg workspace 2, move workspace to DP-11",
+        "swaymsg workspace 3, move workspace to DP-12",
+        "swaymsg workspace 4, move workspace to DP-12",
+]
+
+[[profile.output]]
+search = ["%54338794NB"]
+enable = true
+mode = "best"
+position = "0,0"
+[[profile.output]]
+search = ["%4X334225NB"]
+enable = true
+mode = "1920x1080@60"
+position = "1920,0"
+[[profile.output]]
+search = "n=eDP-1"
+enable = false
+
+[[profile]]
+name = "notebook"
+exec = [
+        "notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\"",
+        "swaymsg workspace 1, move workspace to eDP-1",
+        "swaymsg workspace 2, move workspace to eDP-1",
+        "swaymsg workspace 3, move workspace to eDP-1",
+        "swaymsg workspace 4, move workspace to eDP-1",
+]
+
+[[profile.output]]
+search = "eDP-1"
+enable = true
