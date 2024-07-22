@@ -39,29 +39,29 @@ output eDP-1 {
         background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
 }
 
-output DP-10 {
-        pos 1920 0
-        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
-}
+#output DP-10 {
+#        pos 1920 0
+#        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
+#}
 
-output DP-9 {
-        pos 3840 0
-        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
-}
+#output DP-9 {
+#        pos 3840 0
+#        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
+#}
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
 
 # Bind some workspaces to some monitors
 
 set $disp-note "eDP-1"
-set $disp-desk-left "DP-10"
-set $disp-desk-right "DP-9"
+#set $disp-desk-left "DP-10"
+#set $disp-desk-right "DP-9"
 
 workspace 1 output $disp-note
-workspace 2 output $disp-desk-left
-workspace 3 output $disp-desk-left
-workspace 4 output $disp-desk-right
-workspace 5 output $disp-desk-right
+#workspace 2 output $disp-desk-left
+#workspace 3 output $disp-desk-left
+#workspace 4 output $disp-desk-right
+#workspace 5 output $disp-desk-right
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -253,7 +253,7 @@ exec --no-startup-id mako --anchor top-right
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id ~/bin/set_bright
 exec --no-startup-id wlsunset -l 51.5074 -L 0.1278
-exec --no-startup-id kanshi
+exec --no-startup-id shikane
 
 #
 # Scratchpad:
