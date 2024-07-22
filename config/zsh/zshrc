@@ -143,12 +143,13 @@ alias rg='rg -N'
 # Get the bash behaviour when trying to complete files
 setopt nonomatch
 
-
+# Autoload custom functions
 fpath=(
     ~/.zfunc
     ${ZDOTDIR:-~}/.zsh_functions
     "${fpath[@]}"
 )
+autoload -Uz $fpath[1]/*(.:t)
 
 # Workaround for bomgar fonts
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
