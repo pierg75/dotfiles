@@ -9,6 +9,7 @@ function m.config()
 			markdown = { "inject" },
 			c = { "clang-format" },
 			sh = { "beautysh" },
+			lua = { "lua_format" },
 			["*"] = { "trim_whitespace", "trim_newlines" },
 		},
 		format_on_save = {
