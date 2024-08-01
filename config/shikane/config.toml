@@ -10,14 +10,14 @@ exec = [
 ]
 
 [[profile.output]]
-search = ["%54338794NB"]
+search = ["m=E231W", "s=54338794NB   ", "v=NEC Corporation"]
 enable = true
 mode = "best"
 position = "0,0"
 [[profile.output]]
-search = ["%4X334225NB"]
+search = ["m=E231W", "s=4X334225NB   ", "v=NEC Corporation"]
 enable = true
-mode = "1920x1080@60"
+mode = "best"
 position = "1920,0"
 [[profile.output]]
 search = "n=eDP-1"
