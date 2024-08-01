@@ -9,20 +9,17 @@ local M = {
 function M.config()
 	require("fzf-lua").setup({
 		'skim',
-		keymap = {
-			fzf = {
-				['ctrl-a'] = 'toggle-all',
-				['ctrl-q'] = 'select-all+accept',
-			},
-		},
 		winopts = {
-			preview = { default = 'bat_native' }
+			preview = { default = 'bat', delay = 0 }
 		},
 		grep = {
 			rg_opts = "--sort-files --hidden --column --line-number --no-heading " ..
 					"--color=always --smart-case -g '!{.git,node_modules}/*'",
 			git_icons = false,
 			file_icons = false,
+			actions = {
+				['ctrl-g'] = { require('fzf-lua.actions').toggle_ignore },
+			},
 		},
 		live_grep = {
 			git_icons = false,
