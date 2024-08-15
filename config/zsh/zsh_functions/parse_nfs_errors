@@ -1,0 +1,9 @@
+function parse_nfs_errors() {
+    s=""
+    for i in $@
+    do
+        s="${s} -e $i"
+    done
+    /usr/bin/tshark -G values | awk '/nfs.nfsstat4/ {if ($NF ~ /NFS/) print $3, $4}' | eval rg -w $s
+}
+

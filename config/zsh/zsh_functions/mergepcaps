@@ -1,6 +1,6 @@
 for ip in $(ls -1 tcpdump* | awk '/tcpdump/ gsub("[-.]", " "){print $2"."$3"."$4"."$5}'| sort | uniq)
-do
-        printf "Merging pcaps for $ip..."
-        mergecap -w complete-$ip.pcap tcpdump-$ip*.pcap*
-        printf "done\n"
+do 
+	printf "Merging pcaps for $ip..."
+	mergecap -w complete-$ip.pcap tcpdump-$ip*.pcap*
+	printf "done\n"
 done

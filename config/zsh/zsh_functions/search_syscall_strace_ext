@@ -1,0 +1,6 @@
+function search_syscall_strace_ext() {
+    echo $1
+    echo $2
+    awk -v regex="${1}" '{if ($0 ~ regex) print $1,$2,$3,$4,$5,$NF}' "${2}"
+}
+

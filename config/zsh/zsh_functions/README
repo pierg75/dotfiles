@@ -1,0 +1,12 @@
+To enable them do:
+
+- add this at the end of the zsh config file (~/.zshrc)
+
+# Load custom functions
+fpath+=/home/plambri/scripts/zsh_functions
+autoload parse_nfs_errors
+
+- The "autoload" has to be repeated for each file (so each function, one file one function) in the path
+- Save and reload zsh:
+
+$ exec zsh

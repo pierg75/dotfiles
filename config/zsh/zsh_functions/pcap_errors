@@ -1,0 +1,10 @@
+if [[ $# -eq 0 ]]
+then
+	echo "One or more tcpdumps are needed"
+else
+	for tcpdump in "$@"
+	do
+		echo "$tcpdump:"
+		tshark -tad -n -r "$tcpdump" -Y "rpc.msgtyp==1"| awk 'match($0, /ERR_[A-Z_]+/){print substr($0, RSTART, RLENGTH)}'|sort | uniq -c
+	done
+fi

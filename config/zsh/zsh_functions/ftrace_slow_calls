@@ -1,0 +1,12 @@
+function ftrace_slow_calls() {
+    declare -A ftracetmg
+    ftracetmg[1sec]="$"
+    ftracetmg[10mili]="*"
+    ftracetmg[100mili]="@"
+    ftracetmg[1000micro]="#"
+    ftracetmg[100micro]="!"
+    for time symbol in ${(kv)ftracetmg}; do 
+        echo "calls lasted more than $time"
+        trace-cmd report -O fgraph:tailprint  -O fgraph:depth -i segment_trace.dat |rg -e '$symbol [0-9]'
+    done
+}
