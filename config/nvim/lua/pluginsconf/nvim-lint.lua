@@ -5,7 +5,6 @@ local m = {
 function m.config()
   require("lint").linters_by_ft = {
     python = { "ruff" },
-		markdown = { "vale" },
 		lua = {"luacheck"},
 		vim.api.nvim_create_autocmd({ "bufwritepost" }, {
       callback = function()
