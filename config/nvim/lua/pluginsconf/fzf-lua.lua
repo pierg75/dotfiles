@@ -18,7 +18,7 @@ function M.config()
 			git_icons = false,
 			file_icons = false,
 			actions = {
-				['ctrl-g'] = { require('fzf-lua.actions').toggle_ignore },
+				['ctrl-i'] = { require('fzf-lua.actions').toggle_ignore },
 			},
 		},
 		live_grep = {
