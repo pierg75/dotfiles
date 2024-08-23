@@ -3,15 +3,23 @@ local m = {
 }
 
 function m.config()
-  require("lint").linters_by_ft = {
-    python = { "ruff" },
+	local lint = require("lint")
+
+	lint.linters_by_ft = {
+		-- python = { "flake8", "ruff" },
+		python = { "flake8" },
 		lua = {"luacheck"},
-		vim.api.nvim_create_autocmd({ "bufwritepost" }, {
-      callback = function()
-        require("lint").try_lint()
-      end,
-    })
-  }
+	}
+
+	local lint_augroup = vim.api.nvim_create_augroup("nvim_lint_au", { clear = true })
+
+  -- vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		group = lint_augroup,
+		callback = function()
+			lint.try_lint()
+		end,
+	})
 end
 
 return m
