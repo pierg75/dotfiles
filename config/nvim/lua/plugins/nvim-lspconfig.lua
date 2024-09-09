@@ -125,7 +125,7 @@ return {
       end,
       ['clangd'] = function()
         -- configure clangd server (with special settings)
-        lspconfig["cland"].setup({
+        lspconfig["clangd"].setup({
             root_dir = function(fname)
                 return require("lspconfig.util").root_pattern(
                     "Makefile",
