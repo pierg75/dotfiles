@@ -1,21 +1,12 @@
 local M = {
-  "windwp/nvim-autopairs",
-  event = "InsertEnter",
-  dependencies = {
-    {
-      "hrsh7th/nvim-cmp",
-      event = {
-        "InsertEnter",
-        "CmdlineEnter",
-      },
-    },
-  },
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
 }
 
 function M.config()
   require("nvim-autopairs").setup {
     check_ts = true, -- treesitter integration
-    disable_filetype = { "TelescopePrompt" },
     enable_check_bracket_line = false,
     ts_config = {
       lua = { "string", "source" },
@@ -43,3 +34,4 @@ function M.config()
 end
 
 return M
+
