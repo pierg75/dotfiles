@@ -46,19 +46,19 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert({
-	    ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-	    ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-		['<C-y>'] = cmp.mapping(
-	        cmp.mapping.confirm {
-		        behavior = cmp.ConfirmBehavior.insert,
-			    select = true,
-		    },
-		    { "i", "s" }
-	    ),
+				["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+				["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+				["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+				["<C-e>"] = cmp.mapping.abort(), -- close completion window
+				['<C-y>'] = cmp.mapping(
+					cmp.mapping.confirm {
+						behavior = cmp.ConfirmBehavior.insert,
+						select = true,
+					},
+					{ "i", "s" }
+				),
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
