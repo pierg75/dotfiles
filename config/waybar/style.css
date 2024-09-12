@@ -4,9 +4,11 @@
   min-height: 0;
   font-family: Red Hat;
   font-size: 13px;
+  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
 }
 
 window#waybar {
+  border-bottom: 3px solid rgba(100, 114, 125, 0.5);
   background-color: #181825;
   transition-property: background-color;
   transition-duration: 0.5s;
