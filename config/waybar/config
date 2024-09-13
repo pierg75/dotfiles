@@ -6,9 +6,11 @@
     "gtk-layer-shell": true,
     "output": ["eDP-1", "DP-9"],
 	"modules-left": [
-		"wlr/workspaces"
+		"sway/workspaces",
+        "sway/mode"
 	],
 	"modules-center": [
+        "sway/window",
 	],
 	"modules-right": [
 		"pulseaudio",
@@ -25,10 +27,12 @@
 	],
 	"sway/workspaces": {
 		"disable-scroll": true,
+        "all-outputs": true,
 		"format": "{icon}",
         "persistent_workspaces": {
          	"1": [],
-         	"2": []
+         	"2": [],
+         	"3": []
         },
         "format-icons": {
             "1": "",
@@ -41,28 +45,14 @@
             "urgent": "",
             "default": ""
         },
-        "icon-size": 14
+        "icon-size": 13
 	},
-    "wlr/workspaces": {
-     "format": "{icon}",
-     "on-scroll-up": "hyprctl dispatch workspace e+1",
-     "on-scroll-down": "hyprctl dispatch workspace e-1",
-     "on-click": "activate",
-     "all-outputs": true
-    },
-    "hyprland/window": {
-        "format": "{}"
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
         "icon-size": 13,
         "spacing": 10
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/window": {
-    	"format": "{}",
-      "max-length": 50
     },
     "clock": {
         "format": "<span color='#bf616a'> </span>{:%I:%M %p}",
@@ -89,7 +79,7 @@
     "temperature": {
         "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-        "critical-threshold": 80,
+        "critical-threshold": 60,
         "format-critical": "{icon} {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
         "interval": 60,
