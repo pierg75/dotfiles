@@ -3,11 +3,11 @@
   border-radius: 0;
   min-height: 0;
   font-family: Red Hat Display Medium;
-  font-weight: bold;
   font-size: 13px;
 }
 
 window#waybar {
+  color: #ffffff;
   background-color: #181825;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -18,7 +18,7 @@ window#waybar.hidden {
 }
 
 #tray {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 #workspaces button {
@@ -29,8 +29,8 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-    color: #c9545d;
-    border-top: 2px solid #c9545d;
+  color: #c9545d;
+  border-top: 2px solid #c9545d;
 }
 
 #workspaces button.urgent {
@@ -38,12 +38,15 @@ window#waybar.hidden {
 }
 
 #mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+  background-color: #181825;
 }
 
 #window {
-    font-weight: bold;
+  background-color: #181825;
+  font-weight: bold;
+  border-radius: 2px;
+  padding: 4px 6px;
+  margin: 4px 2px;
 }
 
 #custom-power,
@@ -52,88 +55,61 @@ window#waybar.hidden {
 #wireplumber,
 #network,
 #clock,
+#cpu, 
+#memory,
+#custom-logo,
+#battery,
+#backlight,
+#disk,
+#pulseaudio, 
+#temperature,
+#network,
+#clock,
+#custom-power,
 #tray {
-  border-radius: 2px;
+  padding: 0 5px;
+  border-top: 2px solid transparent;
+  background: transparent;
   margin: 4px 2px;
-  padding: 4px 6px;
-  background-color: #1e1e2e;
-  color: #181825;
 }
 
-#custom-power {
-  margin-right: 6px;
-}
-
-#custom-logo {
-  border-radius: 2px;
+#battery.warning {
+  padding: 0 5px;
+  border-top: 2px solid #FFFF66;
+  background: transparent;
   margin: 4px 2px;
-  padding: 4px 6px;
-  border-radius: 8px 0px 0px 8px;
-  color: #1793d1;
+  color: #FFFF66;
 }
 
-#cpu, #memory {
-  border-radius: 2px;
-  margin: 4px 2px;
-  padding: 4px 6px;
-  background-color: #fab387;
-}
-
-#battery {
-  border-radius: 2px;
-  margin: 4px 2px;
-  padding: 4px 6px;
-  background-color: #f38ba8;
-}
-
-#battery.warning,
 #battery.critical,
 #battery.urgent {
-  background-color: #ff0000;
-  color: #FFFF00;
+  padding: 0 5px;
+  border-top: 2px solid #FF6666;
+  background: transparent;
+  margin: 4px 2px;
+  color: #FF6666;
 }
 
 #battery.charging {
-  background-color: #a6e3a1;
-  color: #181825;
-}
-
-#backlight {
-  background-color: #fab387;
-}
-
-#disk {
-  border-radius: 2px;
+  padding: 0 5px;
+  border-top: 2px solid #66FF66;
+  background: transparent;
   margin: 4px 2px;
-  padding: 4px 6px;
-  background-color: #fab387;
-}
-
-#pulseaudio, #temperature, #network {
-  border-radius: 2px;
-  margin: 4px 2px;
-  padding: 4px 6px;
-  background-color: #94e2d5;
-}
-
-#clock {
-  background-color: #cba6f7;
-}
-
-#custom-power {
-  background-color: #f2cdcd;
+  color: #66FF66;
 }
 
 #custom-vpn.connected {
-  border-radius: 2px;
+  padding: 0 5px;
+  border-top: 2px solid #FF6666;
   margin: 4px 2px;
-  padding: 4px 6px;
-  background-color: #f2cdcd;
+  background: transparent;
+  color: #FF6666;
 }
 
 #custom-vpn.disconnected {
-  border-radius: 2px;
+  padding: 0 5px;
+  border-top: 2px solid #66FF66;
   margin: 4px 2px;
-  padding: 4px 6px;
-  background-color: #f38ba8;
+  background: transparent;
+  color: #66FF66;
 }

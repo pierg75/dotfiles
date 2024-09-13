@@ -2,9 +2,13 @@
     "layer": "top",
     "position": "bottom",
     "exclusive": true,
+    "mode": "hide",
+    "ipc": true,
     "passtrough": false,
     "gtk-layer-shell": true,
     "output": ["eDP-1", "DP-9"],
+    "tooltip": true,
+    "tooltip-format": "{name}",
 	"modules-left": [
 		"sway/workspaces",
         "sway/mode"
@@ -35,17 +39,14 @@
          	"3": []
         },
         "format-icons": {
-            "1": "",
+            "1": "",
             "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "",
+            "3": "",
             "focused": "",
             "urgent": "",
             "default": ""
         },
-        "icon-size": 13
+        "icon-size": 15
 	},
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -74,7 +75,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
     },
     "temperature": {
         "thermal-zone": 2,
@@ -133,11 +134,9 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "interval": 60,
         "on-click-middle": "exec termite -e nmtui",
-        "tooltip": true
     },
     "custom/vpn": {
         "format": "{icon}",
-        "tooltip-format": "{icon}",
         "return-type": "json",
         "interval": 30,
         "exec": "$HOME/bin/check_vpn.sh",
