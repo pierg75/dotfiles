@@ -51,6 +51,15 @@
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
+    "sway/window": {
+	    "format": "{}",
+	    "max-length": 50,
+	    "rewrite": {
+		    "(.*) - Qutebrowser": "🌎 $1",
+		    "(.*) - Firefox": "🌎 $1",
+		    "(.*) - zsh": "> [$1]"
+	    }
+    },
     "tray": {
         "icon-size": 13,
         "spacing": 10

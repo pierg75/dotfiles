@@ -54,7 +54,6 @@ window#waybar.hidden {
 #backlight,
 #wireplumber,
 #network,
-#clock,
 #cpu, 
 #memory,
 #custom-logo,
@@ -62,32 +61,68 @@ window#waybar.hidden {
 #backlight,
 #disk,
 #pulseaudio, 
-#temperature,
 #network,
-#clock,
 #custom-power,
 #tray {
   padding: 0 5px;
-  border-top: 2px solid transparent;
   background: transparent;
   margin: 4px 2px;
 }
 
-#battery.warning {
+#clock {
   padding: 0 5px;
-  border-top: 2px solid #FFFF66;
   background: transparent;
   margin: 4px 2px;
-  color: #FFFF66;
+  color: #CCCC00;
 }
 
-#battery.critical,
-#battery.urgent {
+#network {
+  padding: 0 5px;
+  border-top: 2px solid #CCFFE5;
+  background: transparent;
+  margin: 4px 2px;
+  color: #CCFFE5;
+}
+
+#temperature {
+  padding: 0 5px;
+  border-top: 2px solid #CCFFE5;
+  background: transparent;
+  margin: 4px 2px;
+  color: #CCFFE5;
+}
+
+#temperature.critical {
   padding: 0 5px;
   border-top: 2px solid #FF6666;
   background: transparent;
   margin: 4px 2px;
   color: #FF6666;
+}
+
+#battery {
+  padding: 0 5px;
+  border-top: 2px solid #99FF99;
+  background: transparent;
+  margin: 4px 2px;
+  color: #99FF99;
+}
+
+#battery.warning {
+  padding: 0 5px;
+  border-top: 2px solid #FFFF99;
+  background: transparent;
+  margin: 4px 2px;
+  color: #FFFF99;
+}
+
+#battery.critical,
+#battery.urgent {
+  padding: 0 5px;
+  border-top: 2px solid #FF9999;
+  background: transparent;
+  margin: 4px 2px;
+  color: #FF9999;
 }
 
 #battery.charging {
