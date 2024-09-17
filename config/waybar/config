@@ -55,9 +55,11 @@
 	    "format": "{}",
 	    "max-length": 50,
 	    "rewrite": {
-		    "(.*) - Qutebrowser": "🌎 $1",
-		    "(.*) - Firefox": "🌎 $1",
-		    "(.*) - zsh": "> [$1]"
+		    "(.*) - Qutebrowser": "🌎 Qute $1",
+		    "(.*) - Firefox": "🌎 Firefox $1",
+		    "(.*):zsh (.*)": "zsh > ",
+		    "(.*)vim (.*)": "♯ nvim > ",
+		    "(.*)mutt (.*)": "📧 mutt > "
 	    }
     },
     "tray": {
