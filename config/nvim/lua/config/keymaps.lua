@@ -65,7 +65,7 @@ map("n", "<Leader>lI", "<cmd>Mason<cr>", { desc = "Open Mason window"})
 map("n", "<Leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Show code action"})
 map('n', '[d', "<cmd>lua vim.diagnostic.goto_prev<CR>", { desc = 'Go to previous [D]iagnostic message' })
 map('n', ']d', "<cmd>lua vim.diagnostic.goto_next<CR>", { desc = 'Go to next [D]iagnostic message' })
-map('n', '<leader>q', "<cmd>lua vim.diagnostic.setloclist", { desc = 'Open diagnostic [Q]uickfix list' })
+map('n', '<leader>q', "<cmd>lua vim.diagnostic.setloclist()<CR>", { desc = 'Open diagnostic [Q]uickfix list' })
 map("n", "<Leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>")
 map("n", "<Leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
