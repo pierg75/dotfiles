@@ -25,6 +25,12 @@ function M.config()
 			git_icons = false,
 			file_icons = false,
 		},
+		lsp = {
+			code_actions = {
+				previewer = "codeaction_native",
+				preview_pager = "delta --side-by-side --width=$FZF_PREVIEW_COLUMNS",
+			},
+		},
 		global_resume = true,
 		keymap = {
 			builtin = {

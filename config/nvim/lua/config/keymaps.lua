@@ -44,13 +44,14 @@ map("n", "<S-q>", "<cmd>Bdelete!<CR>")
 -- Plugins --
 
 -- fzf-lua
+map("n", "<leader>fa", "<cmd>lua require('fzf-lua').lsp_code_actions()<CR>")
 map("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<CR>")
 map("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<CR>")
 map("n", "<leader>fl", "<cmd>lua require('fzf-lua').live_grep({ multiprocess=true })<CR>")
 map("n", "<leader>ft", "<cmd>lua require('fzf-lua').grep({ multiprocess=true })<CR>")
 map("n", "<leader>fT", "<cmd>lua require('fzf-lua').tags()<CR>")
 map("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>")
-map("n", "<leader>flr", "<cmd>lua require('fzf-lua').lsp_references()<CR>")
+map("n", "<header>flr", "<cmd>lua require('fzf-lua').lsp_references()<CR>")
 map("n", "<leader>fld", "<cmd>lua require('fzf-lua').lsp_definitions({ jump_to_single_result = true })<CR>")
 
 -- LSP
