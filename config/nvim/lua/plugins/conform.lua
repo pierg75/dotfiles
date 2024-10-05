@@ -9,13 +9,13 @@ function m.config()
 			markdown = { "inject" },
 			c = { "clang-format" },
 			sh = { "beautysh" },
-			lua = { "lua_format" },
+			lua = { "lua-format" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			["*"] = { "trim_whitespace", "trim_newlines" },
 		},
 		format_on_save = {
 			timeout_ms = 3000,
-			lsp_fallback = true,
+			lsp_format = "fallback",
 		},
 		--formatters = {
 		--	black = {
