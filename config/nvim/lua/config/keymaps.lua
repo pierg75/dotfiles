@@ -1,4 +1,5 @@
 -- Custom function to map keymaps
+--
 local function map(mode, lhs, rhs, opts)
 	local options = { noremap = true, silent = true }
     if opts then options = vim.tbl_extend('force', options, opts) end
@@ -77,3 +78,6 @@ map("n", "<leader>xq", "<cmd>Trouble qflist toggle<CR>", {desc = "Open trouble q
 map("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", {desc = "Open trouble location list"})
 map("n", "<leader>xt", "<cmd>Trouble lsp toggle focus=false win.position=right<CR>", {desc = "LSP Definitions / references / ..."})
 map("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<CR>", {desc = "Symbols"})
+
+-- Precognition
+map("n", "<leader>p", "<cmd>Precognition toggle<CR>", {desc = "Symbols"})
