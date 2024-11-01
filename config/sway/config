@@ -222,8 +222,10 @@ bindsym $mod+Shift+Print exec grim -t jpeg -g "$(slurp)" ~/Pictures/$(date +%Y-%
 #bindsym $mod+x exec swaync-client --close-latest
 #bindsym $mod+Shift+x exec swaync-client --close-all
 #bindsym $mod+t exec swaync-client --toggle-panel
-bindsym $mod+x exec makoctl dismiss
-bindsym $mod+Shift+x exec makoctl dismiss --all
+#bindsym $mod+x exec makoctl dismiss
+#bindsym $mod+Shift+x exec makoctl dismiss --all
+bindsym $mod+x exec /usr/bin/dunstclt close
+bindsym $mod+Shift+x exec /usr/bin/dunstctl close-all
 
 # Lock monitors
 bindsym Control+Mod1+l exec /home/plambri/bin/lock
@@ -252,7 +254,8 @@ exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr -r
-exec --no-startup-id mako --anchor top-right
+# exec --no-startup-id mako --anchor top-right
+exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id ~/bin/set_bright
 exec --no-startup-id wlsunset -l 51.5074 -L 0.1278
