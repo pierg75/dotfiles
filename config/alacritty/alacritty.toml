@@ -1,5 +1,5 @@
 # Live config reload (changes require restart)
-live_config_reload = true
+general.live_config_reload = true
 
 [env]
 SHELL = "/usr/bin/zsh"
@@ -79,6 +79,6 @@ mods = "Control|Shift"
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
-[shell]
+[terminal.shell]
 args = ["--login"]
 program = "/usr/bin/zsh"
