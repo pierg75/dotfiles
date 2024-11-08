@@ -1,0 +1,2 @@
+%_smp_ncpus_max 8
+%_smp_mflags -j8
