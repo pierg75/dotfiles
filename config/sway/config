@@ -253,6 +253,7 @@ bar {
 # Autostart apps
 exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id nm-applet
+exec --no-startup-id powernotd
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr -r
 # exec --no-startup-id mako --anchor top-right
