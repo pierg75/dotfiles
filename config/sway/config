@@ -225,7 +225,7 @@ bindsym $mod+Shift+Print exec grim -t jpeg -g "$(slurp)" ~/Pictures/$(date +%Y-%
 #bindsym $mod+t exec swaync-client --toggle-panel
 #bindsym $mod+x exec makoctl dismiss
 #bindsym $mod+Shift+x exec makoctl dismiss --all
-bindsym $mod+x exec /usr/bin/dunstclt close
+bindsym $mod+x exec /usr/bin/dunstctl close
 bindsym $mod+Shift+x exec /usr/bin/dunstctl close-all
 
 # Lock monitors
