@@ -1,10 +1,10 @@
 local M = {
-  "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
-  build = ":TSUpdate",
-  dependencies = {
-    "windwp/nvim-ts-autotag",
-  },
+	"nvim-treesitter/nvim-treesitter",
+	event = { "BufReadPre", "BufNewFile" },
+	build = ":TSUpdate",
+	dependencies = {
+		"windwp/nvim-ts-autotag",
+	},
 }
 
 function M.config()
@@ -12,6 +12,7 @@ function M.config()
 	configs.setup {
 		highlight = {
 			enable = true,
+			dditional_vim_regex_highlighting = false,
 		},
 		-- enable indentation
 		indent = { enable = true },
@@ -38,6 +39,7 @@ function M.config()
 			"toml",
 			"diff",
 			"regex",
+			"query",
 		},
 		-- These are necessary to avoid a false positive
 		modules = {},
