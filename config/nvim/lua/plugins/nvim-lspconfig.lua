@@ -15,8 +15,12 @@ return {
 
 	config = function()
 		local keymap = vim.keymap
+		local lspconfig = require("lspconfig")
 		local capabilities = require('blink.cmp').get_lsp_capabilities()
-		require("lspconfig").lua_ls.setup { capabilites = capabilities }
+
+		for _, server in pairs(require("config.utils").servers) do
+			lspconfig[server].setup { capabilites = capabilities }
+		end
 
 		vim.api.nvim_create_autocmd('LspAttach', {
 			callback = function(args)
