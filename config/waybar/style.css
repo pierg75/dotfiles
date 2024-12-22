@@ -2,8 +2,8 @@
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: Red Hat Display Medium;
-  font-size: 13px;
+  font-family: NotoSans Nerd Font;
+  font-size: 14px;
 }
 
 window#waybar {
