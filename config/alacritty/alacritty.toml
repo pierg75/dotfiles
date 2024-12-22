@@ -80,5 +80,5 @@ mods = "Control|Shift"
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [terminal.shell]
-args = ["--login"]
 program = "/usr/bin/zsh"
+args = ["-l"]
