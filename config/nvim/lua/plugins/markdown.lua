@@ -1,6 +1,8 @@
 local M = {
 	'MeanderingProgrammer/render-markdown.nvim',
-	opts = {},
+	opts = {
+		latex = { enabled = false },
+	},
 }
 
 return M
