@@ -11,16 +11,20 @@ return {
 				},
 			},
 		},
+		dependencies = "netmute/ctags-lsp.nvim",
 	},
 
 	config = function()
 		local keymap = vim.keymap
-		local lspconfig = require("lspconfig")
 		local capabilities = require('blink.cmp').get_lsp_capabilities()
+		local lspconfig = require("lspconfig")
+
+		require("lspconfig").ctags_lsp.setup({})
 
 		for _, server in pairs(require("config.utils").servers) do
 			lspconfig[server].setup { capabilites = capabilities }
 		end
+
 
 		vim.api.nvim_create_autocmd('LspAttach', {
 			callback = function(args)
