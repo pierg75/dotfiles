@@ -26,9 +26,11 @@ return {
 			end,
 			jump = function(direction) require('luasnip').jump(direction) end,
 		},
-		-- sources = {
-		--		default = { 'lsp', 'path', 'snippets', 'buffer' },
-		-- },
+		sources = {
+			default = { 'lsp', 'path', 'snippets', 'buffer' },
+			-- Disable blink to take over the cmdline completion, I prefer the original way
+			cmdline = {},
+		},
 
 		signature = {
 			window = { border = 'single' },
@@ -41,12 +43,16 @@ return {
 				}
 			},
 			menu = {
+				auto_show = true,
 				border = 'single'
 			},
 			documentation = {
 				window = {
 					border = 'single'
 				}
+			},
+			ghost_text = {
+				enabled = false
 			},
 		},
 	},
