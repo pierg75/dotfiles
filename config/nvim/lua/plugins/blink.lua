@@ -7,7 +7,7 @@ return {
 		version = 'v2.*'
 	},
 
-	version = 'v0.*',
+	version = '*',
 	opts = {
 		keymap = { preset = 'default' },
 
@@ -26,19 +26,28 @@ return {
 			end,
 			jump = function(direction) require('luasnip').jump(direction) end,
 		},
-		sources = {
-			default = { 'lsp', 'path', 'snippets', 'buffer' },
-		},
+		-- sources = {
+		--		default = { 'lsp', 'path', 'snippets', 'buffer' },
+		-- },
 
+		signature = {
+			window = { border = 'single' },
+			enabled = true
+		},
 		completion = {
 			accept = {
 				auto_brackets = {
 					enabled = true
 				}
-			}
+			},
+			menu = {
+				border = 'single'
+			},
+			documentation = {
+				window = {
+					border = 'single'
+				}
+			},
 		},
-
-		signature = { enabled = true }
-
 	},
 }
