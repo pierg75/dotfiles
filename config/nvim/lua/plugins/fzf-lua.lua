@@ -19,6 +19,9 @@ function M.config()
 			file_icons = false,
 			actions = {
 				['ctrl-i'] = { require('fzf-lua.actions').toggle_ignore },
+				['ctrl-q'] = {
+					fn = require('fzf-lua.actions').file_edit_or_qf, prefix = 'select-all+'
+				},
 			},
 		},
 		live_grep = {
