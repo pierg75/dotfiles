@@ -36,32 +36,17 @@ set $term alacritty
 # Multimonitor side by side
 output eDP-1 {
         pos 0 0
-        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
+        background /home/plambri/Documents/Wallpapaers/pexels-mikhail-nilov-6707626.jpg
 }
 
-#output DP-10 {
-#        pos 1920 0
-#        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
-#}
-
-#output DP-9 {
-#        pos 3840 0
-#        background ~/Downloads/backgrounds/mitchell-luo-unsplash.jpg fill
-#}
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
+# output * bg /home/plambri/Downloads/wallpaper/black-textile-952670.jpg fill
 
 # Bind some workspaces to some monitors
 
 set $disp-note "eDP-1"
-#set $disp-desk-left "DP-10"
-#set $disp-desk-right "DP-9"
 
 workspace 1 output $disp-note
-#workspace 2 output $disp-desk-left
-#workspace 3 output $disp-desk-left
-#workspace 4 output $disp-desk-right
-#workspace 5 output $disp-desk-right
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -150,28 +135,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace 1:一
+bindsym $mod+2 workspace 2:二
+bindsym $mod+3 workspace 3:三
+bindsym $mod+4 workspace 4:四
+bindsym $mod+5 workspace 5:五
+bindsym $mod+6 workspace 6:六
+bindsym $mod+7 workspace 7:七
+bindsym $mod+8 workspace 8:八
+bindsym $mod+9 workspace 9:九
+bindsym $mod+0 workspace 10:十
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1:一
+bindsym $mod+Shift+2 move container to workspace 2:二
+bindsym $mod+Shift+3 move container to workspace 3:三
+bindsym $mod+Shift+4 move container to workspace 4:四
+bindsym $mod+Shift+5 move container to workspace 5:五
+bindsym $mod+Shift+6 move container to workspace 6:六
+bindsym $mod+Shift+7 move container to workspace 7:七
+bindsym $mod+Shift+8 move container to workspace 8:八
+bindsym $mod+Shift+9 move container to workspace 9:九
+bindsym $mod+Shift+0 move container to workspace 10:十
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -224,13 +209,13 @@ bindsym $mod+Shift+Print exec grim -t jpeg -g "$(slurp)" ~/Pictures/$(date +%Y-%
 #bindsym $mod+t exec swaync-client --toggle-panel
 #bindsym $mod+x exec makoctl dismiss
 #bindsym $mod+Shift+x exec makoctl dismiss --all
-bindsym $mod+x exec /usr/bin/dunstclt close
+bindsym $mod+x exec /usr/bin/dunstctl close
 bindsym $mod+Shift+x exec /usr/bin/dunstctl close-all
 
 # Lock monitors
 bindsym Control+Mod1+l exec /home/plambri/bin/lock
 
-exec swayidle -w \
+exec swayidle \
          timeout 600 '/home/plambri/bin/lock' \
          timeout 600 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
@@ -252,7 +237,7 @@ bar {
 # Autostart apps
 exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id nm-applet
-exec --no-startup-id /usr/libexec/gnome-settings-daemon
+exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr -r
 # exec --no-startup-id mako --anchor top-right
 exec --no-startup-id /usr/bin/dunst
