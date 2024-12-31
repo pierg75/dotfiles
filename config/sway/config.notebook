@@ -36,7 +36,7 @@ set $term alacritty
 # Multimonitor side by side
 output eDP-1 {
         pos 0 0
-        background /home/plambri/Documents/Documents/Wallpapaers/pexels-scottwebb-2117938.jpg fill
+        background /home/plambri/Documents/Wallpapaers/pexels-scottwebb-2117938.jpg fill
 }
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
