@@ -241,7 +241,6 @@ exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr -r
 # exec --no-startup-id mako --anchor top-right
 exec --no-startup-id /usr/bin/dunst
-exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id ~/bin/set_bright
 exec --no-startup-id wlsunset -l 51.5074 -L 0.1278
 exec --no-startup-id shikane
