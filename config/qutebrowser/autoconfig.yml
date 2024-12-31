@@ -24,23 +24,6 @@ settings:
     global: true
   content.javascript.enabled:
     global: true
-  content.media.audio_capture:
-    https://bluejeans.com: true
-    https://meet.google.com: true
-  content.media.audio_video_capture:
-    https://bluejeans.com: true
-    https://meet.google.com: true
-  content.media.video_capture:
-    https://bluejeans.com: true
-    https://meet.google.com: true
-  content.notifications.enabled:
-    https://calendar.google.com: true
-    https://meet.google.com: true
-  content.register_protocol_handler:
-  downloads.prevent_mixed_content:
-    global: false
-  qt.force_platform:
-    global: xcb
   scrolling.smooth:
     global: true
   spellcheck.languages:
