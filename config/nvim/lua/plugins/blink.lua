@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		'rafamadriz/friendly-snippets',
 		'L3MON4D3/LuaSnip',
-		version = 'v2.*'
+		version = '*'
 	},
 
 	version = '*',
@@ -44,7 +44,10 @@ return {
 			},
 			menu = {
 				auto_show = true,
-				border = 'single'
+				border = 'single',
+				draw = {
+					treesitter = { 'lsp' }
+				},
 			},
 			documentation = {
 				window = {
@@ -56,4 +59,5 @@ return {
 			},
 		},
 	},
+	opts_extend = { "sources.default" }
 }
