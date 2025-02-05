@@ -13,7 +13,20 @@ return {
 
 		for _, server in pairs(require("config.utils").servers) do
 			local cap = require('blink.cmp').get_lsp_capabilities()
-			lspconfig[server].setup { capabilites = cap }
+			if server == "basedpyright" then
+				lspconfig["basedpyright"].setup({
+					capabilities = cap,
+					settings = {
+						basedpyright = {
+							diagnosticMode = 'openFilesOnly',
+							typeCheckingMode = "standard",
+							useLibraryCodeForTypes = true,
+						},
+					},
+				})
+			else
+				lspconfig[server].setup { capabilites = cap }
+			end
 		end
 	end
 }
