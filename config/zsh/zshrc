@@ -28,9 +28,6 @@ autoload -U colors && colors
 autoload -U +X bashcompinit && bashcompinit
 # Load the complist module
 zmodload zsh/complist
-# Use modern completion system
-autoload -Uz compinit && compinit
-#_comp_options+=(globdots) # With hidden files
 
 
 
@@ -108,11 +105,15 @@ zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions co
 # default Unix dir squeeze
 zstyle ':completion:*' squeeze-slashes true
 
+# Get the right hosts from ssh config
+zstyle ':completion:*:(ssh|scp|sftp):*' hosts
+
+
 # ... unless we really want to.
 zstyle '*' single-ignored show
 
-
-
+# Use modern completion system
+autoload -Uz compinit && compinit
 
 
 untar (){
