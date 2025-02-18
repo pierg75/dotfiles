@@ -29,9 +29,10 @@ return {
 		sources = {
 			default = { 'lsp', 'path', 'snippets', 'buffer' },
 			-- Disable blink to take over the cmdline completion, I prefer the original way
-			cmdline = {},
 		},
-
+		cmdline = {
+			sources = {}
+		},
 		signature = {
 			window = { border = 'single' },
 			enabled = true
