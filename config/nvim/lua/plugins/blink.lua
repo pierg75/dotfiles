@@ -17,46 +17,30 @@ return {
 		},
 
 		snippets = {
-			expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
-			active = function(filter)
-				if filter and filter.direction then
-					return require('luasnip').jumpable(filter.direction)
-				end
-				return require('luasnip').in_snippet()
-			end,
-			jump = function(direction) require('luasnip').jump(direction) end,
+			preset = 'luasnip',
 		},
 		sources = {
 			default = { 'lsp', 'path', 'snippets', 'buffer' },
-			-- Disable blink to take over the cmdline completion, I prefer the original way
-		},
-		cmdline = {
-			sources = {}
 		},
 		signature = {
 			window = { border = 'single' },
 			enabled = true
 		},
+		cmdline = {
+		  enabled = false,
+		},
 		completion = {
-			accept = {
-				auto_brackets = {
-					enabled = true
-				}
-			},
 			menu = {
 				auto_show = true,
 				border = 'single',
-				draw = {
-					treesitter = { 'lsp' }
-				},
 			},
 			documentation = {
 				window = {
-					border = 'single'
+					border = 'padded'
 				}
 			},
 			ghost_text = {
-				enabled = false
+				enabled = true
 			},
 		},
 	},
