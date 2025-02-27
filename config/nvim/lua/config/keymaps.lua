@@ -90,8 +90,9 @@ map(
 )
 map("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<CR>", { desc = "Symbols" })
 
--- Precognition
-map("n", "<leader>p", "<cmd>Precognition toggle<CR>", { desc = "Symbols" })
-
 -- Conform
 map("n", "<leader>f", "<cmd>lua require('conform').format({ async = false })<CR>", { desc = "Format buffer" })
+
+-- Gitsigns
+map("n", "<leader>hb", "<cmd>lua require('gitsigns').blame_line({ full = true })<CR>", { desc = "Blame line (full)" })
+map("n", "<leader>hB", "<cmd>Git blame<CR>", { desc = "Blame file" })
