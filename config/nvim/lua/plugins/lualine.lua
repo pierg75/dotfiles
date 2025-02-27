@@ -1,21 +1,18 @@
-local M = {
-	'nvim-lualine/lualine.nvim',
-	dependencies = { 'nvim-tree/nvim-web-devicons' }
+return {
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		priority = 1000,
+		enabled = true,
+		config = function()
+			local lualine = require("lualine")
+			lualine.setup({
+				options = {
+					theme = "ayu_dark",
+					section_separators = "",
+					component_separators = "",
+				},
+			})
+		end,
+	},
 }
-
-
-function M.config()
-	require("lualine").setup({
-    options = {
-      globalstatus = true,
-      icons_enabled = true,
-      theme = "tokyonight-night",
-      component_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
-      disabled_filetypes = { "alpha", "dashboard" },
-      always_divide_middle = true,
-    },
-	})
-end
-
-return M

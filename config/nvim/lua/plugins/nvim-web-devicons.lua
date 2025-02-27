@@ -1,14 +1,10 @@
-local M = {
-  "nvim-tree/nvim-web-devicons",
-  event = "VeryLazy",
-  enabled = true,
+return {
+	{
+		"nvim-tree/nvim-web-devicons",
+		opts = {},
+		config = function()
+			local devicons = require("nvim-web-devicons")
+			devicons.setup({})
+		end,
+	},
 }
-
-function M.config()
-  require("nvim-web-devicons").setup {
-    color_icons = true,
-    default = true,
-  }
-end
-
-return M

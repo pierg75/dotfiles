@@ -4,7 +4,6 @@ vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 -- Backup files
 vim.opt.backup = false -- do not make backup files
 
-
 -- History and stuff
 vim.opt.shada = "!,'1000,<100,s100,h,f1"
 vim.opt.shadafile = vim.fn.expand("~/.config/nvim/.shada")

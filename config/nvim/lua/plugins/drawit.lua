@@ -1,5 +1,5 @@
-local M = {
-	{ "vim-scripts/DrawIt" },
+return {
+	{
+		{ "vim-scripts/DrawIt" },
+	},
 }
-
-return M

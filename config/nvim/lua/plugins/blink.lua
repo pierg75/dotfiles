@@ -1,48 +1,64 @@
 return {
-	'saghen/blink.cmp',
+	"saghen/blink.cmp",
+	version = "*",
 	lazy = false,
 	dependencies = {
-		'rafamadriz/friendly-snippets',
-		'L3MON4D3/LuaSnip',
-		version = '*'
+		"rafamadriz/friendly-snippets",
+		{
+			"L3MON4D3/LuaSnip",
+			version = "v2.*",
+			build = "make install_jsregexp",
+		},
 	},
 
-	version = '*',
 	opts = {
-		keymap = { preset = 'default' },
+		keymap = { preset = "default" },
 
 		appearance = {
 			use_nvim_cmp_as_default = true,
-			nerd_font_variant = 'mono'
+			nerd_font_variant = "mono",
 		},
 
 		snippets = {
-			preset = 'luasnip',
+			preset = "luasnip",
 		},
 		sources = {
-			default = { 'lsp', 'path', 'snippets', 'buffer' },
+			default = { "snippets", "lsp", "path", "buffer", "markdown" },
+			providers = {
+				markdown = {
+					name = "RenderMarkdown",
+					module = "render-markdown.integ.blink",
+					fallbacks = { "lsp" },
+				},
+			},
 		},
 		signature = {
-			window = { border = 'single' },
-			enabled = true
+			window = { border = "single" },
+			enabled = true,
 		},
 		cmdline = {
-		  enabled = false,
+			enabled = false,
 		},
 		completion = {
 			menu = {
+				scrollbar = false,
 				auto_show = true,
-				border = 'single',
+				border = "rounded",
 			},
 			documentation = {
 				window = {
-					border = 'padded'
-				}
+					border = "rounded",
+				},
 			},
 			ghost_text = {
-				enabled = true
+				enabled = true,
+			},
+			accept = {
+				auto_brackets = {
+					enabled = true,
+				},
 			},
 		},
 	},
-	opts_extend = { "sources.default" }
+	opts_extend = { "sources.default" },
 }
