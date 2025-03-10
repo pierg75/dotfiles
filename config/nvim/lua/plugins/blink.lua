@@ -39,6 +39,9 @@ return {
 		cmdline = {
 			enabled = false,
 		},
+		fuzzy = {
+			implementation = "prefer_rust_with_warning",
+		},
 		completion = {
 			menu = {
 				scrollbar = false,
