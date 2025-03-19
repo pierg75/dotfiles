@@ -49,3 +49,6 @@ vim.opt.lazyredraw = true -- speed up macros
 
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
+
+-- Necessary for here.term
+vim.opt.hidden = true
