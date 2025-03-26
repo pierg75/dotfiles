@@ -55,7 +55,7 @@ return {
 
 			mason_lspconfig.setup({
 				automatic_installation = false,
-				ensure_installed = { "lua_ls", "clangd", "gopls", "basedpyright" },
+				ensure_installed = { "lua_ls", "clangd", "gopls", "basedpyright", "ruff" },
 				handlers = {
 					function(server_name)
 						require("lspconfig")[server_name].setup({})
@@ -69,9 +69,26 @@ return {
 				on_attach = on_attach,
 				settings = {
 					basedpyright = {
-						diagnosticMode = "openFilesOnly",
-						typeCheckingMode = "standard",
-						useLibraryCodeForTypes = true,
+						analysis = {
+							typeCheckingMode = "basic",
+							ignore = { "*" },
+						},
+						disableOrganizeImports = true,
+						-- diagnosticMode = "openFilesOnly",
+						-- typeCheckingMode = "standard",
+						-- useLibraryCodeForTypes = true,
+					},
+				},
+			})
+
+			lspconfig.ruff.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					init_options = {
+						settings = {
+							logLevel = "error",
+						},
 					},
 				},
 			})
@@ -80,6 +97,13 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
 			})
 
 			-- C
