@@ -8,6 +8,8 @@ return {
 		"L3MON4D3/LuaSnip",
 	},
 
+---@module 'blink.cmp'
+---@type blink.cmp.Config
 	opts = {
 		keymap = { preset = "default" },
 
@@ -20,7 +22,7 @@ return {
 			preset = "luasnip",
 		},
 		sources = {
-			default = { "snippets", "lsp", "path", "buffer", "markdown" },
+			default = { "lsp", "path", "snippets", "buffer", "markdown" },
 			providers = {
 				markdown = {
 					name = "RenderMarkdown",
@@ -30,7 +32,7 @@ return {
 			},
 		},
 		signature = {
-			window = { border = "single" },
+			window = { border = "rounded" },
 			enabled = true,
 		},
 		cmdline = {
@@ -69,6 +71,7 @@ return {
 				window = {
 					border = "rounded",
 				},
+				auto_show = false,
 			},
 			ghost_text = {
 				enabled = true,
