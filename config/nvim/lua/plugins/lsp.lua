@@ -47,6 +47,14 @@ return {
 					},
 				})
 			)
+			capabilities = vim.tbl_deep_extend("force", capabilities, {
+				textDocument = {
+					foldingRange = {
+						dynamicRegistration = false,
+						lineFoldingOnly = true,
+					},
+				},
+			})
 
 			local on_attach = function(client, bufnr)
 				vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
@@ -58,13 +66,13 @@ return {
 				ensure_installed = { "lua_ls", "clangd", "gopls", "basedpyright", "ruff" },
 				handlers = {
 					function(server_name)
-						require("lspconfig")[server_name].setup({})
+						vim.lsp.enable(server_name())
 					end,
 				},
 			})
 
 			-- Python
-			lspconfig.basedpyright.setup({
+			vim.lsp.config("basedpyright", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				settings = {
@@ -81,7 +89,7 @@ return {
 				},
 			})
 
-			lspconfig.ruff.setup({
+			vim.lsp.config("ruff", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				settings = {
@@ -94,7 +102,7 @@ return {
 			})
 
 			-- Lua
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				settings = {
@@ -107,13 +115,13 @@ return {
 			})
 
 			-- C
-			lspconfig.clangd.setup({
+			vim.lsp.config("clangd", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
 			-- Go
-			lspconfig.gopls.setup({
+			vim.lsp.config("gopls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
