@@ -6,7 +6,9 @@ return {
 			{ "echasnovski/mini.nvim", version = false },
 		},
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+			preset = "helix",
+		},
 		keys = {
 			{
 				"<leader>?",

@@ -46,6 +46,14 @@ return {
 					},
 				})
 			)
+			capabilities = vim.tbl_deep_extend("force", capabilities, {
+				textDocument = {
+					foldingRange = {
+						dynamicRegistration = false,
+						lineFoldingOnly = true,
+					},
+				},
+			})
 
 			local on_attach = function(client, bufnr)
 				vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
@@ -57,7 +65,7 @@ return {
 				ensure_installed = { "lua_ls", "clangd", "gopls", "basedpyright", "ruff" },
 				handlers = {
 					function(server_name)
-						 vim.lsp.config(server_name)
+						vim.lsp.enable(server_name())
 					end,
 				},
 			})
