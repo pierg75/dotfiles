@@ -26,7 +26,6 @@ return {
 			{ "netmute/ctags-lsp.nvim" },
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
 			local mason_lspconfig = require("mason-lspconfig")
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			local capabilities = vim.tbl_deep_extend(
@@ -58,13 +57,13 @@ return {
 				ensure_installed = { "lua_ls", "clangd", "gopls", "basedpyright", "ruff" },
 				handlers = {
 					function(server_name)
-						require("lspconfig")[server_name].setup({})
+						 vim.lsp.config(server_name)
 					end,
 				},
 			})
 
 			-- Python
-			lspconfig.basedpyright.setup({
+			vim.lsp.config("basedpyright", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				settings = {
@@ -81,7 +80,7 @@ return {
 				},
 			})
 
-			lspconfig.ruff.setup({
+			vim.lsp.config("ruff", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				settings = {
@@ -94,7 +93,7 @@ return {
 			})
 
 			-- Lua
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				settings = {
@@ -107,13 +106,13 @@ return {
 			})
 
 			-- C
-			lspconfig.clangd.setup({
+			vim.lsp.config("clangd", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
 			-- Go
-			lspconfig.gopls.setup({
+			vim.lsp.config("gopls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
