@@ -11,7 +11,7 @@ return {
 					python = { "isort", "ruff_format", "ruff_organize_imports", lsp_format = "fallback" },
 					rust = { "rustfmt", lsp_format = "fallback" },
 					c = { "clang-format" },
-					sh = { "beautysh" },
+					sh = { "shfmt" },
 					["*"] = { "trim_whitespace", "trim_newlines" },
 				},
 				formatters = {
