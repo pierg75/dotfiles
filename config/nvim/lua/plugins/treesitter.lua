@@ -3,12 +3,11 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		lazy = false,
-		enbabled = true,
+		enabled = true,
 		config = function()
-			local configs = require("nvim-treesitter.configs")
+			local configs = require("nvim-treesitter")
 
-			configs.setup({
-				ensure_installed = {
+			configs.install({
 					"c",
 					"lua",
 					"vim",
@@ -26,15 +25,15 @@ return {
 					"json",
 					"yaml",
 					"gitignore",
+				})
+
+			configs.setup({
+				select = {
+					lookahead = true,
 				},
-				auto_install = true,
-				sync_install = false,
-				highlight = {
-					enable = true,
-					additional_vim_regex_highlighting = false,
-				},
-				indent = { enable = true },
-				ignore_install = {},
+				move = {
+					set_jumps = true,
+				}
 			})
 		end,
 	},
