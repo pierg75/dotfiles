@@ -23,7 +23,6 @@ return {
 					opts = {},
 				},
 			},
-			{ "netmute/ctags-lsp.nvim" },
 		},
 		config = function()
 			local mason_lspconfig = require("mason-lspconfig")
