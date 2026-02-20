@@ -19,7 +19,8 @@ settings:
     global:
       accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
   content.headers.user_agent:
-    global: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/118.0
+    #global: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/118.0
+    global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
   content.javascript.can_open_tabs_automatically:
     global: true
   content.javascript.enabled:
