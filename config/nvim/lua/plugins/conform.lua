@@ -2,7 +2,13 @@ return {
 	{
 		"stevearc/conform.nvim",
 		lazy = true,
-		opts = {},
+		opts = {
+				formatters = {
+					clang_format = {
+						prepend_args = { "-style='{BasedOnStyle: LLVM, IndentWidth: 4}'" },
+					},
+				},
+		},
 		config = function()
 			local conform = require("conform")
 			conform.setup({
