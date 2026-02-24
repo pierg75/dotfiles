@@ -5,35 +5,34 @@ return {
 		lazy = false,
 		enabled = true,
 		config = function()
-			local configs = require("nvim-treesitter")
-
-			configs.install({
-					"c",
-					"lua",
-					"vim",
-					"vimdoc",
-					"query",
-					"elixir",
-					"heex",
-					"javascript",
-					"python",
-					"go",
-					"rust",
-					"toml",
-					"diff",
-					"regex",
-					"json",
-					"yaml",
-					"gitignore",
-				})
-
-			configs.setup({
-				select = {
-					lookahead = true,
-				},
-				move = {
-					set_jumps = true,
-				}
+			local filetypes = {
+				"bash",
+				"c",
+				"diff",
+				"html",
+				"lua",
+				"luadoc",
+				"markdown",
+				"markdown_inline",
+				"query",
+				"vim",
+				"vimdoc",
+				"python",
+				"go",
+				"rust",
+				"toml",
+				"diff",
+				"regex",
+				"json",
+				"yaml",
+				"gitignore",
+			}
+			require("nvim-treesitter").install(filetypes)
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = filetypes,
+				callback = function()
+					vim.treesitter.start()
+				end,
 			})
 		end,
 	},
