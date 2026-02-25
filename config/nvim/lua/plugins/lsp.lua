@@ -92,8 +92,6 @@ return {
 
 			local servers = {
 				clangd = {},
-				gopls = {},
-				lua_ls = {},
 				basedpyright = {
 					analysis = {
 						typeCheckingMode = "basic",
@@ -101,7 +99,6 @@ return {
 					},
 					disableOrganizeImports = true,
 				},
-				ruff = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -113,7 +110,7 @@ return {
 			-- You can press `g?` for help in this menu.
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
-				"lua_ls",
+				"lua-language-server",
 				"stylua",
 				"basedpyright",
 				"ruff",
@@ -129,7 +126,7 @@ return {
 			end
 
 			-- Special Lua Config, as recommended by neovim help docs
-			vim.lsp.config("lua_ls", {
+			vim.lsp.config("lua-language-server", {
 				on_init = function(client)
 					if client.workspace_folders then
 						local path = client.workspace_folders[1].name
@@ -158,7 +155,7 @@ return {
 					Lua = {},
 				},
 			})
-			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("lua-language-server")
 		end,
 	},
 }
