@@ -91,6 +91,18 @@ return {
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 			local servers = {
+				lua_ls = {
+					cmd = { "lua-language-server" },
+					filetypes = { "lua" },
+					oot_markers = { { ".luarc.json", ".luarc.jsonc" }, ".git" },
+					settings = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+							},
+						},
+					},
+				},
 				clangd = {},
 				basedpyright = {
 					analysis = {
@@ -99,6 +111,7 @@ return {
 					},
 					disableOrganizeImports = true,
 				},
+				ruff = {},
 			}
 
 			-- Ensure the servers and tools above are installed
