@@ -1,6 +1,9 @@
 return {
 	{
 		"williamboman/mason.nvim",
+		dependencies = {
+			{ "mason-org/mason-lspconfig.nvim", opts = {} }
+		},
 		enabled = true,
 		config = function()
 			local mason = require("mason")
