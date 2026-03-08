@@ -72,24 +72,6 @@ map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", { desc = "Open
 map("n", "<Leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>")
 map("n", "<Leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
--- Trouble
-map("n", "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Open trouble workspace diagnostics" })
-map(
-	"n",
-	"<leader>xd",
-	"<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
-	{ desc = "Open trouble document diagnostics" }
-)
-map("n", "<leader>xq", "<cmd>Trouble qflist toggle<CR>", { desc = "Open trouble quickfix list" })
-map("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", { desc = "Open trouble location list" })
-map(
-	"n",
-	"<leader>xt",
-	"<cmd>Trouble lsp toggle focus=false win.position=right<CR>",
-	{ desc = "LSP Definitions / references / ..." }
-)
-map("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<CR>", { desc = "Symbols" })
-
 -- Conform
 map("n", "<leader>f", "<cmd>lua require('conform').format({ async = false })<CR>", { desc = "Format buffer" })
 
