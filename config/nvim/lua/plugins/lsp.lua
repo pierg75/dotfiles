@@ -51,7 +51,7 @@ return {
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client:supports_method("textDocument/documentHighlight", event.buf) then
 						local highlight_augroup =
-							vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+							vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = event.buf,
 							group = highlight_augroup,
@@ -65,10 +65,10 @@ return {
 						})
 
 						vim.api.nvim_create_autocmd("LspDetach", {
-							group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+							group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
 							callback = function(event2)
 								vim.lsp.buf.clear_references()
-								vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+								vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
 							end,
 						})
 					end
@@ -112,6 +112,7 @@ return {
 					disableOrganizeImports = true,
 				},
 				ruff = {},
+				yamlls = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -128,6 +129,7 @@ return {
 				"basedpyright",
 				"ruff",
 				"gopls",
+				"yaml-language-server",
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
