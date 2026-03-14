@@ -8,7 +8,7 @@
     "ipc": true,
     "passtrough": false,
     "gtk-layer-shell": true,
-    "output": ["eDP-1", "DP-9"],
+    "output": ["eDP-1", "DP-8"],
     "tooltip": true,
     "tooltip-format": "{name}",
 	"modules-left": [
