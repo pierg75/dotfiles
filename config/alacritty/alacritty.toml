@@ -58,6 +58,16 @@ style = "Italic"
 family = "Hack Nerd Font Mono"
 style = "Monospace"
 
+[bell]
+animation = "Ease"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[cursor]
+style.shape = "block"
+style.blinking = "On"
+
 [[hints.enabled]]
 command = "qutebrowser"
 post_processing = true
@@ -76,8 +86,6 @@ action = "SpawnNewInstance"
 key = "Return"
 mods = "Control|Shift"
 
-[selection]
-semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [terminal.shell]
 program = "/usr/bin/zsh"
